@@ -20,3 +20,6 @@ build/
 .vscode/
 .idea/
 *.swp
+
+#keys
+ajay9069.pem
