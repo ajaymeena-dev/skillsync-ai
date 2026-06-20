@@ -54,7 +54,7 @@ export function ResumePage() {
     return isFresher ? Math.min(score, 85) : Math.min(score, 100);
   };
 
-  const finalScore = calculateRealisticScore(extractedData);
+  const finalScore = extractedData?.score || calculateRealisticScore(extractedData);
 
   const getScoreColor = (score) => {
     if (score >= 80) return "text-emerald-600";
@@ -176,8 +176,7 @@ export function ResumePage() {
                                   Fresher / Entry Level
                                 </p>
                                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                                  You're at the start of your career journey —
-                                  focus on building projects and gaining skills!
+                                  {extractedData.fresherNote || "You're at the start of your career journey — focus on building projects and gaining skills!"}
                                 </p>
                               </div>
                             </div>
@@ -434,6 +433,28 @@ export function ResumePage() {
                   </div>
                 </div>
 
+                {/* Strengths Card */}
+                {extractedData?.strengths?.length > 0 && (
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-emerald-200 p-6 shadow-sm dark:bg-emerald-900/20 dark:border-emerald-800/50">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="p-1.5 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg">
+                        <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                      </div>
+                      <h3 className="font-semibold text-gray-900 dark:text-emerald-400">
+                        Top Strengths
+                      </h3>
+                    </div>
+                    <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+                      {extractedData.strengths.map((strength, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-500" />
+                          {strength}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 {/* AI Recommendations Card */}
                 <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
@@ -445,35 +466,46 @@ export function ResumePage() {
                         AI Recommendations
                       </h3>
                     </div>
-                    <ul className="space-y-3 text-sm text-white/90">
-                      {extractedData.skills?.length < 10 && (
-                        <li className="flex items-start gap-2">
-                          <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                          Add {10 - extractedData.skills.length} more technical
-                          skills
-                        </li>
-                      )}
-                      {extractedData.projects?.length < 2 && (
-                        <li className="flex items-start gap-2">
-                          <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                          Add more projects to showcase experience
-                        </li>
-                      )}
-                      {(!extractedData.experience ||
-                        extractedData.experience === "Not specified") && (
-                        <li className="flex items-start gap-2">
-                          <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                          Include internships or freelance work
-                        </li>
-                      )}
-                      {extractedData.skills?.length >= 10 &&
-                        extractedData.projects?.length >= 1 && (
+                    {extractedData?.improvements?.length > 0 ? (
+                      <ul className="space-y-3 text-sm text-white/90">
+                        {extractedData.improvements.map((improvement, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <Star className="w-4 h-4 mt-0.5 flex-shrink-0 text-yellow-300" />
+                            {improvement}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <ul className="space-y-3 text-sm text-white/90">
+                        {extractedData?.skills?.length < 10 && (
                           <li className="flex items-start gap-2">
-                            <Star className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                            Your profile looks strong! Start applying
+                            <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                            Add {10 - (extractedData?.skills?.length || 0)} more technical
+                            skills
                           </li>
                         )}
-                    </ul>
+                        {extractedData?.projects?.length < 2 && (
+                          <li className="flex items-start gap-2">
+                            <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                            Add more projects to showcase experience
+                          </li>
+                        )}
+                        {(!extractedData?.experience ||
+                          extractedData.experience === "Not specified") && (
+                          <li className="flex items-start gap-2">
+                            <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                            Include internships or freelance work
+                          </li>
+                        )}
+                        {extractedData?.skills?.length >= 10 &&
+                          extractedData?.projects?.length >= 1 && (
+                            <li className="flex items-start gap-2">
+                              <Star className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                              Your profile looks strong! Start applying
+                            </li>
+                          )}
+                      </ul>
+                    )}
                   </div>
                 </div>
 

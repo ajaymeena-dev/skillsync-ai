@@ -3,21 +3,25 @@
   "tagline": "Career Intelligence",
   "description": "AI-powered career transformation platform helping job seekers find perfect opportunities and bridge skill gaps.",
   "emails": {
-    "general": "hello@skillsync.ai",
-    "contact": "contact@skillsync.dev",
-    "project": "project@skillsync.dev",
-    "support": "support@skillsync.dev",
-    "collaborate": "collaborate@skillsync.dev"
+    "general": "ajaymeena62408@gmail.com",
+    "contact": "ajaymeena62408@gmail.com",
+    "project": "ajaymeena62408@gmail.com",
+    "support": "ajaymeena62408@gmail.com",
+    "collaborate": "ajaymeena62408@gmail.com"
   },
-  "phone": "+1 (555) 123-4567",
+  "phone": "+91 9516624030",
   "socialLinks": {
     "github": {
-      "url": "https://github.com",
-      "display": "github.com/skillsync-ai"
+      "url": "https://github.com/ajaymeena-dev/skillsync-ai",
+      "display": "github.com/ajaymeena-dev/skillsync-ai"
     },
     "linkedin": {
-      "url": "https://linkedin.com",
-      "display": "Connect on LinkedIn"
+      "url": "https://www.linkedin.com/in/ajay-meena-0719ab28a/",
+      "display": "Ajay Meena"
+    },
+    "portfolio": {
+      "url": "https://ajay-meena-portfolio.vercel.app/",
+      "display": "ajay-meena-portfolio.vercel.app"
     },
     "twitter": {
       "url": "#"

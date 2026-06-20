@@ -6,7 +6,7 @@ import User from "../models/User.js";
 export const getDashboardStats = async (req, res) => {
   try {
     const recruiterId = req.user._id;
-    const jobs = await Job.find({ recruiterId });
+    const jobs = await Job.find({ recruiterId }).select("_id title").lean(); // ✅ Select specific fields + lean
     const jobIds = jobs.map((job) => job._id);
 
     if (jobIds.length === 0) {
@@ -29,7 +29,8 @@ export const getDashboardStats = async (req, res) => {
 
     const applications = await Application.find({ jobId: { $in: jobIds } })
       .populate("userId", "name email skills avatar location")
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean(); // ✅ Optimization
 
     const activeJobsCount = await Job.countDocuments({
       recruiterId,
@@ -137,7 +138,8 @@ export const getMyJobs = async (req, res) => {
   try {
     const jobs = await Job.find({ recruiterId: req.user._id })
       .populate("recruiterId", "name email company avatar")
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean(); // ✅ Optimization
 
     // Get application counts for each job
     const jobsWithCounts = await Promise.all(
@@ -145,7 +147,7 @@ export const getMyJobs = async (req, res) => {
         const applicationCount = await Application.countDocuments({
           jobId: job._id,
         });
-        return { ...job.toObject(), applicationCount };
+        return { ...job, applicationCount };
       }),
     );
 
@@ -158,13 +160,14 @@ export const getMyJobs = async (req, res) => {
 // Get applications for recruiter's jobs
 export const getApplications = async (req, res) => {
   try {
-    const jobs = await Job.find({ recruiterId: req.user._id }).select("_id");
+    const jobs = await Job.find({ recruiterId: req.user._id }).select("_id").lean();
     const jobIds = jobs.map((job) => job._id);
 
     const applications = await Application.find({ jobId: { $in: jobIds } })
       .populate("userId", "name email avatar skills location experience")
       .populate("jobId", "title company")
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean(); // ✅ Optimization
 
     res.json({ success: true, data: applications });
   } catch (error) {
@@ -238,7 +241,7 @@ export const getAnalytics = async (req, res) => {
   try {
     const { period = "month" } = req.query;
     const recruiterId = req.user._id;
-    const jobs = await Job.find({ recruiterId });
+    const jobs = await Job.find({ recruiterId }).select("_id title status viewsCount").lean(); // ✅ Optimization
     const jobIds = jobs.map((job) => job._id);
 
     // Apply period filter
@@ -254,7 +257,8 @@ export const getAnalytics = async (req, res) => {
     const allApplications = await Application.find({ jobId: { $in: jobIds } })
       .populate("userId", "name email avatar")
       .populate("jobId", "title company")
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean(); // ✅ Optimization
 
     const filteredApplications = allApplications.filter(app => new Date(app.createdAt) >= startDate);
 

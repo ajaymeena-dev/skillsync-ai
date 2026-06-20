@@ -12,12 +12,13 @@ import { authorize } from "../middleware/roleMiddleware.js"; // 👈 Import role
 import { validate } from "../middleware/validate.middleware.js";
 import { JobSchema } from "../schemas/job.schema.js";
 import { getMyJobs } from "../controllers/recruiterController.js";
+import { cacheMiddleware } from "../middleware/cacheMiddleware.js";
 
 const router = express.Router();
 
 // ========== PUBLIC ROUTES (No authentication needed) ==========
-router.get("/", getJobs);
-router.get("/:id", optionalAuth, getJobById);
+router.get("/", cacheMiddleware, getJobs);
+router.get("/:id",cacheMiddleware, optionalAuth, getJobById);
 
 // ========== PROTECTED ROUTES (Authentication required) ==========
 

@@ -1,5 +1,6 @@
 // server/src/controllers/commonController.js - IMPROVED VERSION
 import User from "../models/User.js";
+import { setCache } from "../utils/redisCache.js";
 export const uploadAvatar = async (req, res) => {
   try {
     if (!req.file) {
@@ -99,15 +100,27 @@ export const getPublicStats = async (req, res) => {
     const totalCompanies = await User.countDocuments({ role: "recruiter" });
     const totalApplications = await Application.countDocuments();
 
-    res.json({
+    const recentUsers = await User.find({ role: "jobseeker" })
+      .sort({ createdAt: -1 })
+      .limit(5)
+      .select("name avatar")
+      .lean();
+
+    const responseData = {
       success: true,
       data: {
         jobs: totalJobs,
         candidates: totalCandidates,
         companies: totalCompanies,
         applications: totalApplications,
+        recentUsers,
       },
-    });
+    };
+
+    // Cache stats for 5 minutes (300s) to avoid heavy DB counts on every landing page visit
+    setCache(req.originalUrl, responseData, 300);
+
+    res.json(responseData);
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

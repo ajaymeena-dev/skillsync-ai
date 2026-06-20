@@ -73,27 +73,11 @@ export function FeaturesPage() {
         "Market demand insights",
         "Learning resource suggestions",
         "Progress tracking",
-        "Skill endorsement system",
       ],
       color: "from-emerald-500 to-teal-500",
       bg: "from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30",
     },
-    {
-      icon: Award,
-      title: "Personalized Learning Roadmaps",
-      description:
-        "AI-generated 30-day learning plans customized to your goals and current skill level.",
-      features: [
-        "Week-by-week structured plans",
-        "Curated learning resources",
-        "Video courses and tutorials",
-        "Practice projects and exercises",
-        "Progress milestones",
-        "Certificate opportunities",
-      ],
-      color: "from-amber-500 to-orange-500",
-      bg: "from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30",
-    },
+
     {
       icon: Users,
       title: "Recruiter Dashboard",
@@ -101,10 +85,8 @@ export function FeaturesPage() {
         "Advanced tools for recruiters to find, rank, and manage top talent efficiently.",
       features: [
         "AI-powered candidate ranking",
-        "Bulk job posting",
         "Advanced filtering and search",
         "Hiring pipeline management",
-        "Team collaboration tools",
         "Analytics and reporting",
       ],
       color: "from-pink-500 to-rose-500",
@@ -112,16 +94,14 @@ export function FeaturesPage() {
     },
     {
       icon: MessageSquare,
-      title: "Real-Time Notifications",
+      title: "Instant Notifications",
       description:
-        "Stay informed with instant updates about job matches, messages, and application status.",
+        "Stay informed with instant updates about job matches and application status.",
       features: [
         "Job match alerts",
-        "Recruiter message notifications",
         "Application status updates",
-        "Skill gap reminders",
-        "Learning milestone celebrations",
-        "Customizable notification preferences",
+        "Profile view alerts",
+        "System announcements",
       ],
       color: "from-sky-500 to-blue-500",
       bg: "from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30",
@@ -129,22 +109,6 @@ export function FeaturesPage() {
   ];
 
   const additionalFeatures = [
-    {
-      icon: Brain,
-      title: "AI Career Assistant",
-      description:
-        "Chat with our AI to get personalized career advice, resume tips, and job search strategies.",
-      badge: "New",
-      color: "from-purple-500 to-indigo-500",
-    },
-    {
-      icon: FileText,
-      title: "Resume Builder",
-      description:
-        "Create professional, ATS-optimized resumes with AI-powered suggestions and templates.",
-      badge: "Popular",
-      color: "from-blue-500 to-cyan-500",
-    },
     {
       icon: BarChart3,
       title: "Career Analytics",
@@ -168,14 +132,6 @@ export function FeaturesPage() {
         "Lightning-fast AI processing means you get results in seconds, not hours.",
       badge: "Fast",
       color: "from-pink-500 to-rose-500",
-    },
-    {
-      icon: Rocket,
-      title: "API Access",
-      description:
-        "Integrate SkillSync AI into your own applications with our developer-friendly API.",
-      badge: "Developer",
-      color: "from-sky-500 to-blue-500",
     },
   ];
 

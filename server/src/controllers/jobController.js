@@ -1,5 +1,5 @@
-// backend/src/controllers/jobController.js
 import Job from "../models/Job.js";
+import { setCache, deleteCache } from "../utils/redisCache.js";
 
 // Get all jobs (with recruiterId populated)
 export const getJobs = async (req, res) => {
@@ -82,11 +82,12 @@ export const getJobs = async (req, res) => {
       .populate("recruiterId", "name email company avatar") // ✅ This populates recruiter data
       .sort(sortOptions)
       .skip(skip)
-      .limit(parseInt(limit));
+      .limit(parseInt(limit))
+      .lean(); // ✅ Optimization: Returns pure JSON objects, 3x faster
 
     const total = await Job.countDocuments(query);
 
-    res.json({
+    const responseData = {
       success: true,
       data: jobs,
       pagination: {
@@ -95,7 +96,12 @@ export const getJobs = async (req, res) => {
         totalItems: total,
         itemsPerPage: parseInt(limit),
       },
-    });
+    };
+
+    setCache(req.originalUrl, responseData);
+
+    // Fir client ko bhejo
+    res.json(responseData);
   } catch (error) {
     console.error("Get jobs error:", error);
     res.status(500).json({ success: false, message: error.message });
@@ -151,7 +157,8 @@ export const getJobsByRecruiter = async (req, res) => {
   try {
     const jobs = await Job.find({ recruiterId: req.user._id })
       .populate("recruiterId", "name email company")
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean(); // ✅ Optimization
 
     res.json({ success: true, data: jobs });
   } catch (error) {
@@ -169,6 +176,9 @@ export const createJob = async (req, res) => {
     };
 
     const job = await Job.create(jobData);
+
+    // Naya job aaya hai, purana jobs cache udao
+    deleteCache("/api/jobs");
 
     res.status(201).json({
       success: true,
@@ -194,6 +204,10 @@ export const updateJob = async (req, res) => {
       return res.status(404).json({ success: false, message: "Job not found" });
     }
 
+    // Job update hua, purana cache udao
+    deleteCache("/api/jobs");
+    deleteCache(`/api/jobs/${req.params.id}`);
+
     res.json({
       success: true,
       data: job,
@@ -217,6 +231,10 @@ export const deleteJob = async (req, res) => {
       return res.status(404).json({ success: false, message: "Job not found" });
     }
 
+    // Job delete hua, purana cache udao
+    deleteCache("/api/jobs");
+    deleteCache(`/api/jobs/${req.params.id}`);
+
     res.json({ success: true, message: "Job deleted successfully" });
   } catch (error) {
     console.error("Delete job error:", error);
@@ -238,6 +256,10 @@ export const updateJobStatus = async (req, res) => {
     if (!job) {
       return res.status(404).json({ success: false, message: "Job not found" });
     }
+
+    // Status change hua, cache udao
+    deleteCache("/api/jobs");
+    deleteCache(`/api/jobs/${req.params.id}`);
 
     res.json({
       success: true,

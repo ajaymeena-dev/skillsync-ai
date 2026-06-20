@@ -81,6 +81,10 @@ export const uploadResume = async (req, res) => {
         experience: "Not specified",
         education: [],
         projects: [],
+        score: 0,
+        strengths: [],
+        improvements: [],
+        fresherNote: "",
       };
     }
 
@@ -138,6 +142,10 @@ export const uploadResume = async (req, res) => {
       existingResume.experience = parsedData.experience || "Not specified";
       existingResume.education = parsedData.education || [];
       existingResume.projects = parsedData.projects || [];
+      existingResume.score = parsedData.score || 0;
+      existingResume.strengths = parsedData.strengths || [];
+      existingResume.improvements = parsedData.improvements || [];
+      existingResume.fresherNote = parsedData.fresherNote || "";
       existingResume.isActive = true;
 
       resume = await existingResume.save();
@@ -155,6 +163,10 @@ export const uploadResume = async (req, res) => {
         experience: parsedData.experience || "Not specified",
         education: parsedData.education || [],
         projects: parsedData.projects || [],
+        score: parsedData.score || 0,
+        strengths: parsedData.strengths || [],
+        improvements: parsedData.improvements || [],
+        fresherNote: parsedData.fresherNote || "",
         isActive: true,
       });
       console.log("✅ Resume created with ID:", resume._id);
@@ -196,6 +208,10 @@ export const uploadResume = async (req, res) => {
         experience: parsedData.experience || "Not specified",
         education: parsedData.education || [],
         projects: parsedData.projects || [],
+        score: parsedData.score || 0,
+        strengths: parsedData.strengths || [],
+        improvements: parsedData.improvements || [],
+        fresherNote: parsedData.fresherNote || "",
         resumeUrl: cloudinaryResult?.secure_url || "",
       },
       user: updatedUser,
@@ -243,6 +259,10 @@ export const getResumeData = async (req, res) => {
         experience: resume.experience || "Not specified",
         education: resume.education || [],
         projects: resume.projects || [],
+        score: resume.score || 0,
+        strengths: resume.strengths || [],
+        improvements: resume.improvements || [],
+        fresherNote: resume.fresherNote || "",
         fileUrl: resume.fileUrl,
         originalName: resume.originalName,
         uploadedAt: resume.createdAt,

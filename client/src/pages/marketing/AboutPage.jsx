@@ -76,12 +76,7 @@ export function AboutPage() {
       description:
         "Identify missing skills and provide actionable recommendations to bridge the gap.",
     },
-    {
-      icon: Rocket,
-      title: "Personalized Roadmaps",
-      description:
-        "Generate custom learning plans with curated resources and weekly milestones.",
-    },
+
     {
       icon: Users,
       title: "Recruiter Tools",
@@ -90,9 +85,9 @@ export function AboutPage() {
     },
     {
       icon: Globe,
-      title: "Real-Time Updates",
+      title: "Instant Notifications",
       description:
-        "Instant notifications for job matches, messages, and application status changes.",
+        "Instant notifications for job matches and application status changes.",
     },
   ];
 
@@ -105,7 +100,6 @@ export function AboutPage() {
     { name: "Redux Toolkit", icon: "🔄", color: "from-purple-500 to-pink-500" },
     { name: "RTK Query", icon: "⚡", color: "from-indigo-500 to-purple-500" },
     { name: "JWT Auth", icon: "🔐", color: "from-amber-500 to-orange-500" },
-    { name: "Socket.io", icon: "📡", color: "from-gray-600 to-gray-800" },
     { name: "Gemini AI", icon: "🧠", color: "from-purple-600 to-indigo-600" },
   ];
 
@@ -117,8 +111,8 @@ export function AboutPage() {
     },
     {
       icon: Clock,
-      title: "Real-time Updates",
-      desc: "Live notifications & chat",
+      title: "Instant Updates",
+      desc: "Status alerts & notifications",
     },
     {
       icon: BarChart3,

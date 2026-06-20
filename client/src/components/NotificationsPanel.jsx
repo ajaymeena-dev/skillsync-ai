@@ -46,6 +46,17 @@ export function NotificationsPanel({ isOpen, onClose }) {
   };
 
   const [deletingId, setDeletingId] = useState(null);
+  const [markingId, setMarkingId] = useState(null);
+
+  const handleMarkRead = async (e, id) => {
+    e.stopPropagation();
+    try {
+      setMarkingId(id);
+      await markAsRead(id);
+    } finally {
+      setMarkingId(null);
+    }
+  };
 
   const handleDelete = async (e, id) => {
     e.stopPropagation();
@@ -141,18 +152,34 @@ export function NotificationsPanel({ isOpen, onClose }) {
                         {new Date(notification.createdAt).toLocaleDateString()}
                       </p>
                     </div>
-                    <button
-                      onClick={(e) => handleDelete(e, notification._id)}
-                      disabled={deletingId === notification._id}
-                      className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors disabled:opacity-50"
-                      title="Delete notification"
-                    >
-                      {deletingId === notification._id ? (
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                      ) : (
-                        <Trash2 className="w-4 h-4" />
+                    <div className="flex flex-col gap-1 items-end">
+                      {!notification.isRead && (
+                        <button
+                          onClick={(e) => handleMarkRead(e, notification._id)}
+                          disabled={markingId === notification._id}
+                          className="p-1.5 text-gray-400 hover:text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-md transition-colors disabled:opacity-50"
+                          title="Mark as read"
+                        >
+                          {markingId === notification._id ? (
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                          ) : (
+                            <Check className="w-4 h-4" />
+                          )}
+                        </button>
                       )}
-                    </button>
+                      <button
+                        onClick={(e) => handleDelete(e, notification._id)}
+                        disabled={deletingId === notification._id}
+                        className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors disabled:opacity-50"
+                        title="Delete notification"
+                      >
+                        {deletingId === notification._id ? (
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                        ) : (
+                          <Trash2 className="w-4 h-4" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                 </Card>
               );

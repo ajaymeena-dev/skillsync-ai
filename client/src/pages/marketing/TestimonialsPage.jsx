@@ -5,9 +5,8 @@ import { MessageSquare, Star, Plus, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "../../components/Button";
 import { FeedbackModal } from "../../components/common/FeedbackModal";
-import { useGetAllPublicTestimonialsQuery } from "../../services/testimonialApi";
+import { useGetPublicTestimonialsQuery } from "../../services/testimonialApi";
 import { OptimizedAvatar } from "../../components/common/OptimizedAvatar";
-import { PageLoader } from "../../components/PageLoader";
 
 const formatRelativeTime = (dateString) => {
   if (!dateString) return "";
@@ -32,8 +31,8 @@ export function TestimonialsPage() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
 
-  const { data: testimonialsRes, isLoading } = useGetAllPublicTestimonialsQuery();
-  const testimonials = testimonialsRes?.data || [];
+  const { data: testimonialsRes, isLoading } = useGetPublicTestimonialsQuery();
+  const testimonials = testimonialsRes?.data?.allTestominal || [];
 
   const handleSubmitFeedback = () => {
     if (isAuthenticated) {
@@ -48,12 +47,10 @@ export function TestimonialsPage() {
     }
   };
 
-  if (isLoading) return <PageLoader />;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
-
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm mb-4">
@@ -67,7 +64,8 @@ export function TestimonialsPage() {
             </span>
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            Real stories from job seekers and recruiters who transformed their hiring experience with SkillSync AI.
+            Real stories from job seekers and recruiters who transformed their
+            hiring experience with SkillSync AI.
           </p>
         </div>
 
@@ -94,9 +92,15 @@ export function TestimonialsPage() {
                 <div className="flex items-start gap-4">
                   {/* Avatar */}
                   <OptimizedAvatar
-                    src={testimonial.avatar?.startsWith("http") ? testimonial.avatar : null}
+                    src={
+                      testimonial.avatar?.startsWith("http")
+                        ? testimonial.avatar
+                        : null
+                    }
                     alt={testimonial.name}
-                    fallbackText={testimonial.name?.charAt(0)?.toUpperCase() || "👤"}
+                    fallbackText={
+                      testimonial.name?.charAt(0)?.toUpperCase() || "👤"
+                    }
                     size={48}
                     className="w-12 h-12 rounded-full ring-2 ring-purple-500/30 dark:ring-purple-400/30 flex-shrink-0"
                   />
@@ -117,10 +121,11 @@ export function TestimonialsPage() {
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
-                              className={`w-4 h-4 ${i < (testimonial.rating || 5)
+                              className={`w-4 h-4 ${
+                                i < (testimonial.rating || 5)
                                   ? "text-yellow-400 fill-yellow-400"
                                   : "text-gray-300 dark:text-gray-700"
-                                }`}
+                              }`}
                             />
                           ))}
                         </div>
@@ -146,9 +151,12 @@ export function TestimonialsPage() {
             <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
               <MessageSquare className="w-10 h-10 text-purple-600 dark:text-purple-400" />
             </div>
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">No feedback yet</h3>
+            <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">
+              No feedback yet
+            </h3>
             <p className="text-gray-500 dark:text-gray-400 max-w-sm mx-auto">
-              Be the first to share your experience and help others discover SkillSync AI.
+              Be the first to share your experience and help others discover
+              SkillSync AI.
             </p>
             <Button
               onClick={handleSubmitFeedback}

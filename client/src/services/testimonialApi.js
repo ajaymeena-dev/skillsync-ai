@@ -3,10 +3,6 @@ import { baseApi } from "./baseApi";
 export const testimonialApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getPublicTestimonials: builder.query({
-      query: () => "/testimonials/public",
-      providesTags: ["Testimonial"],
-    }),
-    getAllPublicTestimonials: builder.query({
       query: () => "/testimonials/public/all",
       providesTags: ["Testimonial"],
     }),
@@ -21,8 +17,5 @@ export const testimonialApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {
-  useGetPublicTestimonialsQuery,
-  useGetAllPublicTestimonialsQuery,
-  useSubmitTestimonialMutation,
-} = testimonialApi;
+export const { useGetPublicTestimonialsQuery, useSubmitTestimonialMutation } =
+  testimonialApi;

@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema(
     },
 
     // ========== CANDIDATE SPECIFIC FIELDS ==========
+    
     profession: {
       type: String,
       default: "",

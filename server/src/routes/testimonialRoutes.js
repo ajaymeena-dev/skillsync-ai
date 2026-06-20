@@ -1,15 +1,14 @@
 import express from "express";
 import {
-  submitTestimonial,
   getPublicTestimonials,
-  getAllPublicTestimonials,
+  submitTestimonial,
 } from "../controllers/testimonialController.js";
 import { protect } from "../middleware/authMiddleware.js";
+import { cacheMiddleware } from "../middleware/cacheMiddleware.js";
 
 const router = express.Router();
 
-router.get("/public", getPublicTestimonials);
-router.get("/public/all", getAllPublicTestimonials);
+router.get("/public/all",cacheMiddleware,getPublicTestimonials);
 router.post("/", protect, submitTestimonial);
 
 export default router;

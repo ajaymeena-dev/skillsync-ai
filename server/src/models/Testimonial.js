@@ -34,6 +34,9 @@ const testimonialSchema = new mongoose.Schema(
   }
 );
 
+// ✅ Optimization: Compound index for faster filtering and sorting
+testimonialSchema.index({ isApproved: 1, createdAt: -1 });
+
 const Testimonial = mongoose.model("Testimonial", testimonialSchema);
 
 export default Testimonial;

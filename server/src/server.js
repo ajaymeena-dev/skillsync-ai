@@ -12,7 +12,7 @@ import "./config/cloudinary.js";
 import connectDB from "./config/db.js";
 
 // Import routes
-import authRoutes from "./routes/authRoutes.js";
+import authRoutes from "./routes/authRoutes.js";``
 import jobSeekerRoutes from "./routes/jobSeekerRoutes.js"; 
 import resumeRoutes from "./routes/resumeRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";

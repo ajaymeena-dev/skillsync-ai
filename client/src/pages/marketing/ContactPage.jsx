@@ -9,8 +9,8 @@ import {
   Send,
   Clock,
   Link,
-  Share2,
   GitBranch,
+  Globe,
   HelpCircle,
   Briefcase,
   Users,
@@ -294,12 +294,13 @@ export function ContactPage() {
               </h3>
               <div className="flex gap-3">
                 <a
-                  href={contactInfo.socialLinks.twitter.url}
+                  href={contactInfo.socialLinks.portfolio.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-purple-900/30 hover:text-purple-600 transition-all"
+                  title="Portfolio"
                 >
-                  <Share2 className="w-4 h-4" />
+                  <Globe className="w-4 h-4" />
                 </a>
                 <a
                   href={contactInfo.socialLinks.linkedin.url}

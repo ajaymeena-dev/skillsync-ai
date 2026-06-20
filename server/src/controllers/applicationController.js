@@ -163,7 +163,8 @@ export const getMyApplications = async (req, res) => {
         "jobId",
         "title company location employmentType salaryMin salaryMax",
       )
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean(); // ✅ Optimization
 
     res.json({
       success: true,
@@ -193,7 +194,8 @@ export const getJobApplications = async (req, res) => {
 
     const applications = await Application.find({ jobId })
       .populate("userId", "name email skills avatar location phone bio socialLinks preferredJobType experience")
-      .sort({ matchScore: -1, createdAt: -1 });
+      .sort({ matchScore: -1, createdAt: -1 })
+      .lean(); // ✅ Optimization
 
     res.json({
       success: true,

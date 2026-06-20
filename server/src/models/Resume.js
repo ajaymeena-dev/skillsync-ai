@@ -52,6 +52,22 @@ const resumeSchema = new mongoose.Schema(
       ],
       default: [],
     },
+    score: {
+      type: Number,
+      default: 0,
+    },
+    strengths: {
+      type: [String],
+      default: [],
+    },
+    improvements: {
+      type: [String],
+      default: [],
+    },
+    fresherNote: {
+      type: String,
+      default: "",
+    },
     isActive: {
       type: Boolean,
       default: true,

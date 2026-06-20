@@ -7,11 +7,12 @@ import {
 } from "../controllers/commonController.js";
 import { protect } from "../middleware/authMiddleware.js";
 import { uploadAvatar as uploadAvatarMiddleware } from "../middleware/uploadMiddleware.js";
+import { cacheMiddleware } from "../middleware/cacheMiddleware.js";
 
 const router = express.Router();
 
 // ✅ Public Routes
-router.get("/stats", getPublicStats);
+router.get("/stats",cacheMiddleware, getPublicStats);
 
 // ✅ Protected Routes (Accessible by both JobSeeker and Recruiter)
 router.use(protect);

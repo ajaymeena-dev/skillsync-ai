@@ -6,7 +6,7 @@ import {
   Share2,
   Link,
   GitBranch,
-  Camera,
+  Globe,
 } from "lucide-react";
 
 import contactInfo from "../data/contactInfo.json";
@@ -23,26 +23,16 @@ export function MarketingFooter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4 cursor-pointer" onClick={() => handleNavigate("/")}>
+            <div className="flex items-center gap-3 mb-4 cursor-pointer group" onClick={() => handleNavigate("/")}>
               <div className="relative">
-                <div className="absolute inset-0 bg-purple-500 rounded-xl blur-md opacity-40" />
-                <div className="relative w-9 h-9 bg-gradient-to-br from-[#5B2C8F] via-[#7C3AED] to-[#A855F7] rounded-xl flex items-center justify-center shadow-md">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl blur-md opacity-40 group-hover:opacity-60 transition-opacity" />
+                <div className="relative w-9 h-9 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
                   <Sparkles className="w-5 h-5 text-white" strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-xl font-bold bg-gradient-to-r from-[#5B2C8F] via-[#7C3AED] to-[#A855F7] bg-clip-text text-transparent tracking-tight">
-                    SkillSync
-                  </span>
-                  <span className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                    AI
-                  </span>
-                </div>
-                <p className="text-[10px] text-[#7C3AED] dark:text-[#A855F7] -mt-1 font-semibold tracking-wide">
-                  Career Intelligence
-                </p>
-              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-700 to-indigo-700 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                SkillSync AI
+              </span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-sm">
               AI-powered career transformation platform helping job seekers find
@@ -50,12 +40,13 @@ export function MarketingFooter() {
             </p>
             <div className="flex gap-3">
               <a
-                href={contactInfo.socialLinks.twitter.url}
+                href={contactInfo.socialLinks.portfolio.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-purple-100 hover:text-purple-600 dark:hover:bg-purple-900/40 dark:hover:text-purple-400 transition-colors"
+                title="Portfolio"
               >
-                <Share2 className="w-5 h-5" />
+                <Globe className="w-5 h-5" />
               </a>
               <a
                 href={contactInfo.socialLinks.linkedin.url}
@@ -72,14 +63,6 @@ export function MarketingFooter() {
                 className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-purple-100 hover:text-purple-600 dark:hover:bg-purple-900/40 dark:hover:text-purple-400 transition-colors"
               >
                 <GitBranch className="w-5 h-5" />
-              </a>
-              <a
-                href={contactInfo.socialLinks.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-purple-100 hover:text-purple-600 dark:hover:bg-purple-900/40 dark:hover:text-purple-400 transition-colors"
-              >
-                <Camera className="w-5 h-5" />
               </a>
             </div>
           </div>

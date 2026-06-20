@@ -3,6 +3,7 @@ import User from "../models/User.js";
 import Job from "../models/Job.js";
 import Application from "../models/Application.js";
 import fs from "fs";
+import { setCache, deleteCache } from "../utils/redisCache.js";
 
 // ✅ Helper - Clean company data
 const cleanCompany = (company) => {
@@ -64,7 +65,7 @@ export const getPublicCompanyProfile = async (req, res) => {
 
     const recruiter = await User.findById(recruiterId).select(
       "name company isCompanyComplete",
-    );
+    ).lean(); // ✅ Optimization
 
     if (!recruiter || recruiter.role !== "recruiter") {
       return res.status(404).json({
@@ -75,7 +76,7 @@ export const getPublicCompanyProfile = async (req, res) => {
 
     const cleanedCompany = cleanCompany(recruiter.company);
 
-    res.json({
+    const responseData = {
       success: true,
       data: {
         recruiterName: recruiter.name,
@@ -99,7 +100,10 @@ export const getPublicCompanyProfile = async (req, res) => {
         },
         isComplete: recruiter.isCompanyComplete || false,
       },
-    });
+    };
+
+    setCache(req.originalUrl, responseData);
+    res.json(responseData);
   } catch (error) {
     console.error("Get public company profile error:", error);
     res.status(500).json({ success: false, message: error.message });
@@ -195,6 +199,9 @@ export const updateCompanyProfile = async (req, res) => {
         ? "Company profile completed! 🎉"
         : "Company profile updated",
     });
+
+    // Company update hua, us recruiter ka public profile cache udao
+    deleteCache(`/api/company/public/${req.user._id}`);
   } catch (error) {
     console.error("updateCompanyProfile ERROR:", error);
     fs.writeFileSync("update_error.log", error.stack || error.message);
@@ -247,6 +254,9 @@ export const uploadCompanyLogo = async (req, res) => {
       data: { logo: user.company.logo },
       message: "Logo uploaded successfully",
     });
+
+    // Logo change hua, cache udao
+    deleteCache(`/api/company/public/${req.user._id}`);
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -258,9 +268,9 @@ export const getCompanyStats = async (req, res) => {
       return res.status(403).json({ success: false, message: "Access denied" });
     }
 
-    const jobs = await Job.find({ recruiterId: req.user._id });
+    const jobs = await Job.find({ recruiterId: req.user._id }).select("status viewsCount").lean();
     const jobIds = jobs.map((j) => j._id);
-    const applications = await Application.find({ jobId: { $in: jobIds } });
+    const applications = await Application.find({ jobId: { $in: jobIds } }).lean();
 
     const stats = {
       activeJobs: jobs.filter((j) => j.status === "active").length,

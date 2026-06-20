@@ -10,11 +10,12 @@ import {
 import { protect } from "../middleware/authMiddleware.js";
 import { authorize } from "../middleware/roleMiddleware.js";
 import { uploadCompanyLogo as uploadCompanyLogoMiddleware } from "../middleware/uploadMiddleware.js";
+import { cacheMiddleware } from "../middleware/cacheMiddleware.js";
 
 const router = express.Router();
 
 // ✅ Public route - accessible by any authenticated user (jobseeker or recruiter)
-router.get("/public/:recruiterId", protect, getPublicCompanyProfile);
+router.get("/public/:recruiterId", protect, cacheMiddleware, getPublicCompanyProfile);
 
 // All routes below require authentication and recruiter role
 router.use(protect, authorize("recruiter"));

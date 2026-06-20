@@ -1,4 +1,4 @@
-// client/src/pages/marketing/LandingPage.jsx
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
@@ -30,14 +30,30 @@ import { useGetPublicTestimonialsQuery } from "../../services/testimonialApi";
 
 export function LandingPage() {
   const navigate = useNavigate();
-  const { data: statsRes } = useGetPublicStatsQuery();
+  const { data: statsRes, isLoading: isStatsLoading } = useGetPublicStatsQuery();
   const publicStats = statsRes?.data;
-  
+
+  const [loadedImagesCount, setLoadedImagesCount] = useState(0);
+  const usersWithAvatars = publicStats?.recentUsers?.filter(u => u.avatar) || [];
+  const allImagesLoaded = loadedImagesCount >= usersWithAvatars.length;
+  const showSkeleton = isStatsLoading || (publicStats?.recentUsers && !allImagesLoaded);
+
+  const getOptimizedUrl = (url, size = 40) => {
+    if (!url) return null;
+    if (url.includes('res.cloudinary.com') && !url.includes('q_auto')) {
+      const parts = url.split('/upload/');
+      if (parts.length === 2) {
+        return `${parts[0]}/upload/q_auto,f_auto,w_${size},h_${size},c_fill/${parts[1]}`;
+      }
+    }
+    return url;
+  };
+
   const { data: testimonialsRes } = useGetPublicTestimonialsQuery();
-  const dynamicTestimonials = testimonialsRes?.data || [];
-  
+  const dynamicTestimonials = testimonialsRes?.data?.top3Testimonials || [];
+
   const { isAuthenticated, user } = useSelector((state) => state.auth);
-  const isRecruiter = user?.role === 'recruiter';
+  const isRecruiter = user?.role === "recruiter";
 
   const stats = [
     {
@@ -97,7 +113,7 @@ export function LandingPage() {
     },
     {
       icon: MessageSquare,
-      title: "Real-time Updates",
+      title: "Instant Notifications",
       description:
         "Get instant notifications for job matches and application status changes.",
       color: "from-pink-500 to-rose-500",
@@ -138,7 +154,7 @@ export function LandingPage() {
     },
   ];
 
-  const testimonials = [
+  let testimonials = [
     {
       name: "Sarah Chen",
       role: "Full Stack Developer",
@@ -165,7 +181,9 @@ export function LandingPage() {
     },
   ];
 
-  const displayTestimonials = dynamicTestimonials.length > 0 ? dynamicTestimonials : testimonials;
+  const displayTestimonials =
+    dynamicTestimonials.length > 0 ? dynamicTestimonials : testimonials;
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
@@ -194,27 +212,101 @@ export function LandingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                onClick={() => navigate(isAuthenticated ? (isRecruiter ? "/app/recruiter-dashboard" : "/app/dashboard") : "/auth")}
+                onClick={() =>
+                  navigate(
+                    isAuthenticated
+                      ? isRecruiter
+                        ? "/app/recruiter-dashboard"
+                        : "/app/dashboard"
+                      : "/auth",
+                  )
+                }
                 size="lg"
                 className="gap-2"
               >
-                {isAuthenticated ? "Go to Dashboard" : "Get Started Free"} <ArrowRight className="w-5 h-5" />
+                {isAuthenticated ? "Go to Dashboard" : "Get Started Free"}{" "}
+                <ArrowRight className="w-5 h-5" />
               </Button>
-              {!isRecruiter && (
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="gap-2"
-                  onClick={() => navigate("/app/jobs")}
-                >
-                  Browse Jobs <ArrowRight className="w-5 h-5" />
-                </Button>
-              )}
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-2"
+                onClick={() => navigate("/features")}
+              >
+                See Features <ArrowRight className="w-5 h-5" />
+              </Button>
             </div>
-            
 
-            <p className="text-sm text-gray-500 dark:text-gray-500 mt-6">
-              Free to use • AI-powered insights • MERN Stack Project
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+              {/* Hidden preloaders for avatars */}
+              {publicStats?.recentUsers && (
+                <div className="hidden">
+                  {usersWithAvatars.map((u) => (
+                    <img
+                      key={`preload-${u._id}`}
+                      src={getOptimizedUrl(u.avatar)}
+                      onLoad={() => setLoadedImagesCount((prev) => prev + 1)}
+                      onError={() => setLoadedImagesCount((prev) => prev + 1)}
+                      alt="preload"
+                    />
+                  ))}
+                </div>
+              )}
+
+              <div className="flex -space-x-3">
+                {showSkeleton ? (
+                  [...Array(5)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-10 h-10 rounded-full border-[2px] border-white dark:border-gray-950 bg-gray-200 dark:bg-gray-800 animate-pulse relative flex-shrink-0"
+                      style={{ zIndex: 10 - i }}
+                    />
+                  ))
+                ) : publicStats?.recentUsers && publicStats.recentUsers.length > 0 ? (
+                  publicStats.recentUsers.map((u, i) => {
+                    const colors = [
+                      "from-purple-500 to-indigo-500",
+                      "from-blue-500 to-cyan-500",
+                      "from-emerald-500 to-teal-500",
+                      "from-amber-500 to-orange-500",
+                      "from-pink-500 to-rose-500",
+                    ];
+                    return (
+                      <div
+                        key={u._id || i}
+                        className="w-10 h-10 rounded-full border-[2px] border-white dark:border-gray-950 overflow-hidden shadow-sm relative flex-shrink-0"
+                        style={{ zIndex: 10 - i }}
+                      >
+                        {u.avatar ? (
+                          <OptimizedAvatar
+                            src={u.avatar}
+                            alt={u.name}
+                            className="w-full h-full object-cover"
+                            size={40}
+                          />
+                        ) : (
+                          <div className={`w-full h-full bg-gradient-to-br ${colors[i % colors.length]} text-white flex items-center justify-center text-xs font-bold`}>
+                            {u.name?.substring(0, 2)?.toUpperCase() || "US"}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })
+                ) : null}
+              </div>
+              <div className="text-gray-600 dark:text-gray-400 font-medium text-sm sm:text-base">
+                {showSkeleton ? (
+                  <div className="h-5 w-48 bg-gray-200 dark:bg-gray-800 rounded animate-pulse" />
+                ) : (
+                  <>
+                    <span className="text-gray-900 dark:text-white font-bold">{publicStats?.candidates || "800"}+</span> career builders already inside
+                  </>
+                )}
+              </div>
+            </div>
+
+            <p className="text-sm text-gray-500 dark:text-gray-600 mt-6 font-medium">
+              Free to use • AI-powered insights • Secure
             </p>
           </div>
 
@@ -287,7 +379,10 @@ export function LandingPage() {
             {features.map((feature, i) => {
               const Icon = feature.icon;
               return (
-                <Card key={i} className="p-6 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none group">
+                <Card
+                  key={i}
+                  className="p-6 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none group"
+                >
                   <div
                     className={`w-12 h-12 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-4 shadow-md`}
                   >
@@ -330,7 +425,6 @@ export function LandingPage() {
               const Icon = step.icon;
               return (
                 <div key={i} className="text-center">
-
                   <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mx-auto mb-3">
                     <Icon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                   </div>
@@ -351,7 +445,7 @@ export function LandingPage() {
       <section className="relative py-24 overflow-hidden">
         {/* Ambient background for light mode glass effect */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-purple-200/30 dark:bg-purple-900/10 rounded-full blur-3xl -z-10" />
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="primary" className="mb-4">
@@ -371,7 +465,10 @@ export function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {displayTestimonials.map((testimonial, i) => (
-              <Card key={i} className="p-6 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none">
+              <Card
+                key={i}
+                className="p-6 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none"
+              >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating || 5)].map((_, i) => (
                     <Star
@@ -385,10 +482,19 @@ export function LandingPage() {
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full">
-                    <OptimizedAvatar 
-                      src={testimonial.avatar?.startsWith("http") ? testimonial.avatar : null} 
-                      alt={testimonial.name} 
-                      fallbackText={testimonial.avatar && !testimonial.avatar.startsWith("http") ? testimonial.avatar : testimonial.name?.charAt(0)?.toUpperCase() || "👩"}
+                    <OptimizedAvatar
+                      src={
+                        testimonial.avatar?.startsWith("http")
+                          ? testimonial.avatar
+                          : null
+                      }
+                      alt={testimonial.name}
+                      fallbackText={
+                        testimonial.avatar &&
+                        !testimonial.avatar.startsWith("http")
+                          ? testimonial.avatar
+                          : testimonial.name?.charAt(0)?.toUpperCase() || "👩"
+                      }
                       className="w-full h-full border border-gray-200 dark:border-gray-700"
                       size={100}
                     />
@@ -437,32 +543,41 @@ export function LandingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
               <Button
-                onClick={() => navigate(isAuthenticated ? (isRecruiter ? "/app/recruiter-dashboard" : "/app/dashboard") : "/auth")}
+                onClick={() =>
+                  navigate(
+                    isAuthenticated
+                      ? isRecruiter
+                        ? "/app/recruiter-dashboard"
+                        : "/app/dashboard"
+                      : "/auth",
+                  )
+                }
                 size="lg"
                 className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 border-transparent gap-2"
               >
-                {isAuthenticated ? "Go to Dashboard" : "Get Started Free"} <ArrowRight className="w-5 h-5" />
+                {isAuthenticated ? "Go to Dashboard" : "Get Started Free"}{" "}
+                <ArrowRight className="w-5 h-5" />
               </Button>
-              {!isRecruiter && (
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800/50 dark:text-purple-300 dark:hover:bg-purple-900/20 hover:scale-105 transition-all duration-300 gap-2"
-                  onClick={() => navigate("/app/jobs")}
-                >
-                  Explore Jobs <ArrowRight className="w-5 h-5" />
-                </Button>
-              )}
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800/50 dark:text-purple-300 dark:hover:bg-purple-900/20 hover:scale-105 transition-all duration-300 gap-2"
+                onClick={() => navigate("/features")}
+              >
+                See Features <ArrowRight className="w-5 h-5" />
+              </Button>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-6 mt-8 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-purple-500" /> Free to use
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-purple-500" /> AI-powered matching
+                <CheckCircle2 className="w-4 h-4 text-purple-500" /> AI-powered
+                matching
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-purple-500" /> Instant results
+                <CheckCircle2 className="w-4 h-4 text-purple-500" /> Instant
+                results
               </div>
             </div>
           </Card>
