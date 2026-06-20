@@ -12,7 +12,7 @@ import "./config/cloudinary.js";
 import connectDB from "./config/db.js";
 
 // Import routes
-import authRoutes from "./routes/authRoutes.js";``
+import authRoutes from "./routes/authRoutes.js";
 import jobSeekerRoutes from "./routes/jobSeekerRoutes.js"; 
 import resumeRoutes from "./routes/resumeRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
@@ -61,6 +61,11 @@ app.use("/api/testimonials", testimonialRoutes);
 // Health check
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "Server is running" });
+});
+
+// Root route for Render health checks
+app.get("/", (req, res) => {
+  res.send("SkillSync AI API is running...");
 });
 
 
