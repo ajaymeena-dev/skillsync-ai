@@ -251,9 +251,22 @@ export function Sidebar({
           </div>
         )}
 
-        {/* Navigation Items */}
-        <div className="relative flex-1 overflow-y-auto py-6 px-3 custom-scrollbar">
-          <nav className="space-y-1.5">
+        {/* Navigation Items with Scroll Indicators */}
+        <div className="relative flex-1 flex flex-col min-h-0">
+          {/* Top subtle shadow for scroll indication */}
+          <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-black/5 dark:from-white/5 to-transparent z-10 pointer-events-none opacity-0 transition-opacity duration-300" id="sidebar-top-shadow" />
+          
+          <div 
+            className="flex-1 overflow-y-auto py-6 px-3 custom-scrollbar"
+            onScroll={(e) => {
+              const target = e.target;
+              const topShadow = document.getElementById('sidebar-top-shadow');
+              const bottomShadow = document.getElementById('sidebar-bottom-shadow');
+              if (topShadow) topShadow.style.opacity = target.scrollTop > 0 ? '1' : '0';
+              if (bottomShadow) bottomShadow.style.opacity = target.scrollHeight - target.scrollTop - target.clientHeight > 10 ? '1' : '0';
+            }}
+          >
+            <nav className="space-y-1.5">
             {items.map((item) => {
               const Icon = item.icon;
               const isActive = currentView === item.id;
@@ -293,6 +306,10 @@ export function Sidebar({
             })}
           </nav>
         </div>
+        
+        {/* Bottom shadow for scroll indication */}
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-black/10 dark:from-black/30 to-transparent z-10 pointer-events-none transition-opacity duration-300" id="sidebar-bottom-shadow" />
+      </div>
 
         {/* Bottom Actions */}
         <div
@@ -419,12 +436,12 @@ export function Sidebar({
       </aside>
 
       <style>{`
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.5); }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; margin-block: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.4); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.6); }
         .dark .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); }
         @media (min-width: 1024px) { aside { transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); } }
 
         /* Sequential Blinking Dots Animation */
