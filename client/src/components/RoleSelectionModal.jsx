@@ -7,6 +7,7 @@ import { useGoogleAuthMutation } from "../services/authApi";
 import { setCredentials } from "../features/auth/authSlice";
 import { getRedirectPath } from "../features/auth/authUtils";
 import { AnimatePresence, motion } from "framer-motion";
+import { createPortal } from "react-dom";
 
 export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode }) {
   const [selectedRole, setSelectedRole] = useState(null);
@@ -43,27 +44,32 @@ export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode
     }
   };
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop with blur */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-md z-50"
-            onClick={onClose}
-          />
-
-          {/* Modal Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 20 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-full max-w-md bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl shadow-2xl z-50 overflow-hidden border border-gray-200/50 dark:border-gray-800/50"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
+            {/* Backdrop with blur */}
+            <div 
+              className="absolute inset-0 bg-black/50 backdrop-blur-md" 
+              onClick={onClose} 
+            />
+
+            {/* Modal Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="relative w-full max-w-md bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50"
+            >
             {/* Header */}
             <div className="px-6 py-4 border-b border-gray-200/50 dark:border-gray-800/50 flex items-center justify-between">
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -91,23 +97,23 @@ export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode
                   className={`
                     w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-200 group
                     ${selectedRole === "jobseeker"
-                      ? "bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/30 dark:to-indigo-900/30 border-purple-500 shadow-sm"
-                      : "bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700 hover:shadow-md"
+                      ? "bg-gradient-to-r from-indigo-50 to-indigo-50 dark:from-indigo-900/30 dark:to-indigo-900/30 border-indigo-500 shadow-sm"
+                      : "bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-md"
                     }
                   `}
                 >
                   <div className={`
                     w-12 h-12 rounded-xl flex items-center justify-center transition-all
                     ${selectedRole === "jobseeker"
-                      ? "bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/50 dark:to-indigo-900/50"
-                      : "bg-gray-100 dark:bg-gray-800 group-hover:bg-purple-50 dark:group-hover:bg-purple-900/20"
+                      ? "bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/50 dark:to-indigo-900/50"
+                      : "bg-gray-100 dark:bg-gray-800 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20"
                     }
                   `}>
                     <User className={`
                       w-6 h-6 transition-colors
                       ${selectedRole === "jobseeker"
-                        ? "text-purple-600 dark:text-purple-400"
-                        : "text-gray-500 dark:text-gray-400 group-hover:text-purple-500"
+                        ? "text-indigo-600 dark:text-indigo-400"
+                        : "text-gray-500 dark:text-gray-400 group-hover:text-indigo-500"
                       }
                     `} />
                   </div>
@@ -120,7 +126,7 @@ export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode
                     </p>
                   </div>
                   {selectedRole === "jobseeker" && !isLoading && (
-                    <div className="w-5 h-5 rounded-full bg-purple-600 flex items-center justify-center shadow-sm">
+                    <div className="w-5 h-5 rounded-full bg-indigo-600 flex items-center justify-center shadow-sm">
                       <div className="w-2 h-2 bg-white rounded-full" />
                     </div>
                   )}
@@ -133,23 +139,23 @@ export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode
                   className={`
                     w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-200 group
                     ${selectedRole === "recruiter"
-                      ? "bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/30 dark:to-indigo-900/30 border-purple-500 shadow-sm"
-                      : "bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700 hover:shadow-md"
+                      ? "bg-gradient-to-r from-indigo-50 to-indigo-50 dark:from-indigo-900/30 dark:to-indigo-900/30 border-indigo-500 shadow-sm"
+                      : "bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-md"
                     }
                   `}
                 >
                   <div className={`
                     w-12 h-12 rounded-xl flex items-center justify-center transition-all
                     ${selectedRole === "recruiter"
-                      ? "bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/50 dark:to-indigo-900/50"
-                      : "bg-gray-100 dark:bg-gray-800 group-hover:bg-purple-50 dark:group-hover:bg-purple-900/20"
+                      ? "bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/50 dark:to-indigo-900/50"
+                      : "bg-gray-100 dark:bg-gray-800 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20"
                     }
                   `}>
                     <Building2 className={`
                       w-6 h-6 transition-colors
                       ${selectedRole === "recruiter"
-                        ? "text-purple-600 dark:text-purple-400"
-                        : "text-gray-500 dark:text-gray-400 group-hover:text-purple-500"
+                        ? "text-indigo-600 dark:text-indigo-400"
+                        : "text-gray-500 dark:text-gray-400 group-hover:text-indigo-500"
                       }
                     `} />
                   </div>
@@ -162,7 +168,7 @@ export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode
                     </p>
                   </div>
                   {selectedRole === "recruiter" && !isLoading && (
-                    <div className="w-5 h-5 rounded-full bg-purple-600 flex items-center justify-center shadow-sm">
+                    <div className="w-5 h-5 rounded-full bg-indigo-600 flex items-center justify-center shadow-sm">
                       <div className="w-2 h-2 bg-white rounded-full" />
                     </div>
                   )}
@@ -181,13 +187,15 @@ export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode
 
               {isLoading && (
                 <div className="flex justify-center mt-6">
-                  <Loader2 className="w-6 h-6 text-purple-600 animate-spin" />
+                  <Loader2 className="w-6 h-6 text-indigo-600 animate-spin" />
                 </div>
               )}
             </div>
           </motion.div>
+        </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

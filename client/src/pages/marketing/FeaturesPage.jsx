@@ -43,8 +43,8 @@ export function FeaturesPage() {
         "Multi-language support",
         "Instant processing (under 5 seconds)",
       ],
-      color: "from-purple-500 to-indigo-500",
-      bg: "from-purple-50 to-indigo-50 dark:from-purple-950/30 dark:to-indigo-950/30",
+      color: "from-indigo-500 to-indigo-500",
+      bg: "from-indigo-50 to-indigo-50 dark:from-indigo-950/30 dark:to-indigo-950/30",
     },
     {
       icon: Target,
@@ -140,7 +140,7 @@ export function FeaturesPage() {
       name: "Frontend",
       technologies: ["React 18", "TypeScript", "Tailwind CSS", "Redux Toolkit"],
       icon: Code,
-      color: "from-purple-500 to-indigo-500",
+      color: "from-indigo-500 to-indigo-500",
     },
     {
       name: "Backend",
@@ -165,7 +165,7 @@ export function FeaturesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
       {/* Ambient background for light mode glass effect */}
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-purple-200/40 dark:bg-purple-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 z-10">
@@ -178,7 +178,7 @@ export function FeaturesPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Powerful Features for
             <br />
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               Career Success
             </span>
           </h1>
@@ -263,7 +263,7 @@ export function FeaturesPage() {
             {additionalFeatures.map((feature, i) => {
               const Icon = feature.icon;
               return (
-                <Card key={i} className="p-5 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none group">
+                <Card key={i} className="p-5 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-indigo-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none group">
                   <div className="flex items-start justify-between mb-3">
                     <div
                       className={`w-10 h-10 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center shadow-sm`}
@@ -301,7 +301,7 @@ export function FeaturesPage() {
             {techStack.map((stack, i) => {
               const Icon = stack.icon;
               return (
-                <Card key={i} className="p-5 text-center hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none">
+                <Card key={i} className="p-5 text-center hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-indigo-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none">
                   <div
                     className={`w-12 h-12 rounded-xl bg-gradient-to-r ${stack.color} flex items-center justify-center mx-auto mb-3 shadow-md`}
                   >
@@ -328,7 +328,7 @@ export function FeaturesPage() {
 
         {/* CTA */}
         <div className="mt-20">
-          <Card className="relative overflow-hidden p-12 border border-purple-100 dark:border-purple-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
+          <Card className="relative overflow-hidden p-12 border border-indigo-100 dark:border-indigo-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
             {/* Background glowing orbs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-3xl -z-10" />
@@ -346,7 +346,7 @@ export function FeaturesPage() {
                 <Button
                   onClick={() => navigate(isAuthenticated ? "/app/dashboard" : "/auth")}
                   size="lg"
-                  className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 border-transparent gap-2"
+                  className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 border-transparent gap-2"
                 >
                   {isAuthenticated ? "Access Features" : "Start Free Trial"} <ArrowRight className="w-5 h-5" />
                 </Button>

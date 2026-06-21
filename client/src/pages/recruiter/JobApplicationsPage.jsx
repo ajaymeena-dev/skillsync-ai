@@ -74,8 +74,8 @@ export function JobApplicationsPage() {
         label: "Shortlisted",
         icon: UserCheck,
         color:
-          "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400",
-        borderColor: "border-purple-200 dark:border-purple-800",
+          "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400",
+        borderColor: "border-indigo-200 dark:border-indigo-800",
       },
       rejected: {
         label: "Rejected",
@@ -123,7 +123,7 @@ export function JobApplicationsPage() {
       value: applications.length,
       icon: Users,
       change: "",
-      color: "from-purple-500 to-indigo-500",
+      color: "from-indigo-500 to-indigo-500",
     },
     {
       label: "Pending Review",
@@ -137,7 +137,7 @@ export function JobApplicationsPage() {
       value: applications.filter((a) => a.status === "shortlisted").length,
       icon: UserCheck,
       change: "",
-      color: "from-purple-500 to-indigo-500",
+      color: "from-indigo-500 to-indigo-500",
     },
     {
       label: "Hired",
@@ -157,17 +157,17 @@ export function JobApplicationsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Hero Header */}
         <div className="relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -z-0" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -z-0" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -z-0" />
 
           <div className="relative z-10 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm mb-4 dark:bg-purple-900/30 dark:text-purple-400">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-600 text-sm mb-4 dark:bg-indigo-900/30 dark:text-indigo-400">
               <Sparkles className="w-4 h-4" />
               <span>Candidate Management</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 dark:text-white">
               Applications for{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 {job?.title}
               </span>
             </h1>
@@ -191,8 +191,8 @@ export function JobApplicationsPage() {
         {/* Applications List */}
         {applications.length === 0 ? (
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-white/30 p-12 text-center shadow-sm dark:bg-gray-800/80 dark:border-gray-700/50">
-            <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:from-purple-900/30 dark:to-indigo-900/30">
-              <Users className="w-10 h-10 text-purple-600 dark:text-purple-400" />
+            <div className="w-20 h-20 bg-gradient-to-br from-indigo-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:from-indigo-900/30 dark:to-indigo-900/30">
+              <Users className="w-10 h-10 text-indigo-600 dark:text-indigo-400" />
             </div>
             <h3 className="text-xl font-medium text-gray-900 mb-2 dark:text-white">
               No applications yet
@@ -220,8 +220,8 @@ export function JobApplicationsPage() {
                       <div className="flex items-start gap-4">
                         {/* Avatar */}
                         <div className="relative">
-                          <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full blur-sm opacity-60" />
-                          <div className="relative w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center shadow-md">
+                          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full blur-sm opacity-60" />
+                          <div className="relative w-14 h-14 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-600 flex items-center justify-center shadow-md">
                             <span className="text-lg font-semibold text-white">
                               {candidate?.name?.charAt(0) || "?"}
                             </span>
@@ -251,9 +251,9 @@ export function JobApplicationsPage() {
                               Applied {formatDate(application.createdAt)}
                             </span>
                             <span className="flex items-center gap-1.5">
-                              <Star className="w-3.5 h-3.5 text-purple-500" />
+                              <Star className="w-3.5 h-3.5 text-indigo-500" />
                               Match Score:{" "}
-                              <span className="font-semibold text-purple-600 dark:text-purple-400">
+                              <span className="font-semibold text-indigo-600 dark:text-indigo-400">
                                 {application.matchScore}%
                               </span>
                             </span>
@@ -297,7 +297,7 @@ export function JobApplicationsPage() {
                         onClick={() =>
                           navigate(`/app/candidates/${application._id}`)
                         }
-                        className="gap-2 rounded-xl border border-purple-200 bg-white text-purple-700 shadow-sm transition-all duration-200 hover:border-purple-300 hover:bg-purple-600 hover:text-white dark:border-purple-700 dark:bg-white/5 dark:text-purple-200 dark:hover:bg-purple-500 dark:hover:text-white"
+                        className="gap-2 rounded-xl border border-indigo-200 bg-white text-indigo-700 shadow-sm transition-all duration-200 hover:border-indigo-300 hover:bg-indigo-600 hover:text-white dark:border-indigo-700 dark:bg-white/5 dark:text-indigo-200 dark:hover:bg-indigo-500 dark:hover:text-white"
                       >
                         <ExternalLink className="w-4 h-4" />
                         View Candidate
@@ -309,7 +309,7 @@ export function JobApplicationsPage() {
                           onClick={() =>
                             window.open(application.resumeUrl, "_blank")
                           }
-                          className="gap-2 rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:border-purple-300 hover:bg-purple-600 hover:text-white dark:border-gray-700 dark:bg-white/5 dark:text-gray-400 dark:hover:bg-purple-500 dark:hover:text-white"
+                          className="gap-2 rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:border-indigo-300 hover:bg-indigo-600 hover:text-white dark:border-gray-700 dark:bg-white/5 dark:text-gray-400 dark:hover:bg-indigo-500 dark:hover:text-white"
                         >
                           <Download className="w-4 h-4" />
                           Resume
@@ -320,9 +320,9 @@ export function JobApplicationsPage() {
 
                   {/* Cover Letter Preview */}
                   {application.coverLetter && (
-                    <div className="mt-4 p-3 bg-gradient-to-r from-purple-50/50 to-indigo-50/50 rounded-xl border border-purple-100 dark:from-purple-900/20 dark:to-indigo-900/20 dark:border-purple-800/30">
+                    <div className="mt-4 p-3 bg-gradient-to-r from-indigo-50/50 to-indigo-50/50 rounded-xl border border-indigo-100 dark:from-indigo-900/20 dark:to-indigo-900/20 dark:border-indigo-800/30">
                       <div className="flex items-center gap-2 mb-1">
-                        <FileText className="w-3.5 h-3.5 text-purple-500" />
+                        <FileText className="w-3.5 h-3.5 text-indigo-500" />
                         <p className="text-xs font-medium text-gray-600 dark:text-gray-400">
                           Cover Letter
                         </p>
@@ -333,7 +333,7 @@ export function JobApplicationsPage() {
                       {application.coverLetter.length > 100 && (
                         <button
                           onClick={() => toggleCoverLetter(application._id)}
-                          className="mt-3 px-3.5 py-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 dark:bg-purple-900/50 dark:hover:bg-purple-900/70 dark:text-purple-300 text-xs font-semibold rounded-full transition-all duration-200 focus:outline-none shadow-sm inline-block"
+                          className="mt-3 px-3.5 py-1.5 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 dark:bg-indigo-900/50 dark:hover:bg-indigo-900/70 dark:text-indigo-300 text-xs font-semibold rounded-full transition-all duration-200 focus:outline-none shadow-sm inline-block"
                         >
                           {expandedCoverLetters[application._id] ? "View Less" : "View More"}
                         </button>
@@ -361,7 +361,7 @@ export function JobApplicationsPage() {
                                     : status === "hired"
                                       ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md"
                                       : status === "shortlisted"
-                                        ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md"
+                                        ? "bg-gradient-to-r from-indigo-600 to-indigo-600 text-white shadow-md"
                                         : "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md"
                                   : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
                               }`}

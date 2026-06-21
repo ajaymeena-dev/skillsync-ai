@@ -37,7 +37,7 @@ export function OptimizedAvatar({ src, alt, fallbackText, className, size = 150 
         />
       )}
 
-      <AvatarFallback className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center shadow-md h-full w-full">
+      <AvatarFallback className="bg-gradient-to-r from-indigo-600 to-indigo-600 text-white flex items-center justify-center shadow-md h-full w-full">
         {isLoading && optimizedSrc ? (
           <Loader2 className="w-1/2 h-1/2 animate-spin opacity-80" />
         ) : fallbackText ? (

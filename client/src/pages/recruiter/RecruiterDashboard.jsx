@@ -61,7 +61,7 @@ export function RecruiterDashboard() {
       change: statsData?.data?.stats?.activeJobs
         ? `+${statsData.data.stats.activeJobs}`
         : "",
-      color: "from-purple-500 to-indigo-600",
+      color: "from-indigo-500 to-indigo-600",
     },
     {
       label: "Total Applicants",
@@ -155,8 +155,8 @@ export function RecruiterDashboard() {
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-4 sm:p-6 shadow-sm transition-all hover:shadow-md">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
               <div className="flex items-center gap-2">
-                <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                  <TrendingUp className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <div className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+                  <TrendingUp className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white">
                   Applications Trend
@@ -164,7 +164,7 @@ export function RecruiterDashboard() {
               </div>
               <Badge
                 variant="primary"
-                className="text-xs bg-white/80 dark:bg-purple-900/50 self-start sm:self-auto"
+                className="text-xs bg-white/80 dark:bg-indigo-900/50 self-start sm:self-auto"
               >
                 Last 6 months
               </Badge>
@@ -198,9 +198,9 @@ export function RecruiterDashboard() {
                   <Area
                     type="monotone"
                     dataKey="applications"
-                    stroke="#8B5CF6"
+                    stroke="#6366F1"
                     strokeWidth={2}
-                    fill="#8B5CF6"
+                    fill="#6366F1"
                     fillOpacity={0.1}
                   />
                 </AreaChart>
@@ -217,8 +217,8 @@ export function RecruiterDashboard() {
             <div className="relative z-20 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-5 shadow-sm">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                    <Users className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  <div className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+                    <Users className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
                     Top Matched Candidates
@@ -269,7 +269,7 @@ export function RecruiterDashboard() {
                       <Button
                         variant="outline"
                         onClick={() => navigate("/app/candidates")}
-                        className="gap-2 border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 hover:bg-purple-50 hover:text-purple-800 dark:hover:bg-purple-900/30 dark:hover:text-purple-200"
+                        className="gap-2 border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 hover:text-indigo-800 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-200"
                       >
                         View All {filteredCandidates.length} Candidates
                         <ChevronRight className="w-4 h-4" />
@@ -285,8 +285,8 @@ export function RecruiterDashboard() {
               <div className="p-5 border-b border-gray-200 dark:border-gray-800">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                      <Briefcase className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    <div className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+                      <Briefcase className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                     </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white">
                       Active Job Postings
@@ -295,7 +295,7 @@ export function RecruiterDashboard() {
                   <div className="flex flex-wrap items-center gap-3">
                     <Button
                       onClick={() => setIsModalOpen(true)}
-                      className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all gap-1.5"
+                      className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all gap-1.5"
                       size="sm"
                     >
                       <Plus className="w-4 h-4" />
@@ -367,7 +367,7 @@ export function RecruiterDashboard() {
                               onClick={() =>
                                 navigate(`/app/jobs/${job._id}/applications`)
                               }
-                              className="text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
+                              className="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
                             >
                               <Eye className="w-4 h-4" />
                             </Button>
@@ -386,8 +386,8 @@ export function RecruiterDashboard() {
             {/* Recent Activity */}
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-5 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
-                <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                  <Clock className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <div className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+                  <Clock className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white">
                   Recent Activity
@@ -399,7 +399,7 @@ export function RecruiterDashboard() {
                     .slice(0, 4)
                     .map((activity, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <div className="w-2 h-2 mt-2 rounded-full bg-purple-500 shrink-0" />
+                        <div className="w-2 h-2 mt-2 rounded-full bg-indigo-500 shrink-0" />
                         <div className="flex-1 min-w-0">
                           <p className="text-sm text-gray-700 dark:text-gray-300 truncate">
                             {activity.action}
@@ -419,7 +419,7 @@ export function RecruiterDashboard() {
             </div>
 
             {/* Pro Tip Card */}
-            <div className="bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 rounded-2xl p-5 text-white shadow-md relative overflow-hidden">
+            <div className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-600 rounded-2xl p-5 text-white shadow-md relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12" />
               <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full -ml-10 -mb-10" />
               <div className="relative z-10">
@@ -434,7 +434,7 @@ export function RecruiterDashboard() {
                   variant="ghost"
                   size="sm"
                   onClick={() => navigate("/app/candidates")}
-                  className="bg-white text-purple-700 hover:bg-purple-50 hover:text-purple-800 w-full sm:w-auto justify-center font-semibold shadow-sm hover:shadow transition-all"
+                  className="bg-white text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 w-full sm:w-auto justify-center font-semibold shadow-sm hover:shadow transition-all"
                 >
                   Try AI Analysis <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>

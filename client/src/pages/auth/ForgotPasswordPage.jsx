@@ -42,7 +42,7 @@ export function ForgotPasswordPage() {
           <div className="space-y-3">
             <Button
               onClick={() => navigate("/auth")}
-              className="w-full bg-gradient-to-r from-purple-600 to-indigo-600"
+              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-600"
             >
               Return to login
             </Button>
@@ -62,7 +62,7 @@ export function ForgotPasswordPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900 p-6 relative overflow-hidden">
       {/* Animated background blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -mr-48 -mt-48 animate-pulse" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl -mr-48 -mt-48 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl -ml-48 -mb-48 animate-pulse delay-1000" />
 
       <div className="w-full max-w-md relative z-10">
@@ -72,10 +72,10 @@ export function ForgotPasswordPage() {
             to="/"
             className="inline-flex items-center gap-2 group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
               <Sparkles className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               SkillSync AI
             </span>
           </Link>
@@ -102,7 +102,7 @@ export function ForgotPasswordPage() {
 
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-200"
+              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-200"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -119,7 +119,7 @@ export function ForgotPasswordPage() {
           <div className="mt-6 text-center">
             <Link
               to="/auth"
-              className="inline-flex items-center text-sm font-medium text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors"
+              className="inline-flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to login

@@ -32,14 +32,14 @@ export function AiLoadingState({ type = "analysis" }) {
   return (
     <div className="flex flex-col items-center justify-center py-20 px-4 min-h-[400px]">
       <div className="relative mb-8">
-        <div className="absolute inset-0 bg-purple-500 blur-xl opacity-20 dark:opacity-40 rounded-full animate-pulse"></div>
-        <div className="w-20 h-20 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl relative z-10 animate-bounce">
+        <div className="absolute inset-0 bg-indigo-500 blur-xl opacity-20 dark:opacity-40 rounded-full animate-pulse"></div>
+        <div className="w-20 h-20 bg-gradient-to-tr from-indigo-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl relative z-10 animate-bounce">
           <Brain className="w-10 h-10 text-white" />
         </div>
         
         {/* Animated Orbits */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-purple-200 dark:border-purple-800 rounded-full animate-spin-slow" style={{ animationDuration: '4s' }}>
-          <div className="absolute -top-1.5 left-1/2 w-3 h-3 bg-purple-400 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-indigo-200 dark:border-indigo-800 rounded-full animate-spin-slow" style={{ animationDuration: '4s' }}>
+          <div className="absolute -top-1.5 left-1/2 w-3 h-3 bg-indigo-400 rounded-full"></div>
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-indigo-200 dark:border-indigo-800/50 rounded-full animate-spin-reverse-slow" style={{ animationDuration: '6s' }}>
           <div className="absolute -bottom-1.5 left-1/2 w-3 h-3 bg-indigo-400 rounded-full"></div>
@@ -67,7 +67,7 @@ export function AiLoadingState({ type = "analysis" }) {
                 key={idx}
                 className={`flex items-center gap-4 p-3 rounded-xl transition-all duration-500 ${
                   isActive
-                    ? "bg-purple-50 dark:bg-purple-900/30 border border-purple-100 dark:border-purple-800 shadow-sm transform scale-105"
+                    ? "bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800 shadow-sm transform scale-105"
                     : isCompleted
                     ? "opacity-50"
                     : "opacity-30"
@@ -76,7 +76,7 @@ export function AiLoadingState({ type = "analysis" }) {
                 <div
                   className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
                     isActive
-                      ? "bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 shadow-sm"
+                      ? "bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 shadow-sm"
                       : isCompleted
                       ? "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500"
@@ -94,7 +94,7 @@ export function AiLoadingState({ type = "analysis" }) {
                   <p
                     className={`text-sm font-medium transition-colors ${
                       isActive
-                        ? "text-purple-900 dark:text-purple-300"
+                        ? "text-indigo-900 dark:text-indigo-300"
                         : isCompleted
                         ? "text-gray-700 dark:text-gray-400"
                         : "text-gray-400 dark:text-gray-600"
@@ -103,8 +103,8 @@ export function AiLoadingState({ type = "analysis" }) {
                     {msg.text}
                   </p>
                   {isActive && (
-                    <div className="w-full bg-purple-100 dark:bg-purple-900/50 h-1 mt-2 rounded-full overflow-hidden">
-                      <div className="h-full bg-purple-500 w-full animate-[progress_5s_ease-in-out_infinite]" style={{ transformOrigin: 'left' }}></div>
+                    <div className="w-full bg-indigo-100 dark:bg-indigo-900/50 h-1 mt-2 rounded-full overflow-hidden">
+                      <div className="h-full bg-indigo-500 w-full animate-[progress_5s_ease-in-out_infinite]" style={{ transformOrigin: 'left' }}></div>
                     </div>
                   )}
                 </div>

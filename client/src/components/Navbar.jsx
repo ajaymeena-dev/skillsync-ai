@@ -25,9 +25,9 @@ export function Navbar({
 
   // Premium gradient matching sidebar
   const lightGradient =
-    "bg-gradient-to-r from-[#5B2C8F] via-[#7C3AED] to-[#A855F7]";
+    "bg-gradient-to-r from-[#1e1b4b] via-[#312e81] to-[#4338ca]";
   const lightGradientScrolled =
-    "bg-gradient-to-r from-[#5B2C8F]/95 via-[#7C3AED]/95 to-[#A855F7]/95";
+    "bg-gradient-to-r from-[#1e1b4b]/95 via-[#312e81]/95 to-[#4338ca]/95";
   const darkGradient =
     "dark:bg-gradient-to-r dark:from-[#0F0F1A] dark:via-[#1A1A2E] dark:to-[#16213E]";
   const darkGradientScrolled =

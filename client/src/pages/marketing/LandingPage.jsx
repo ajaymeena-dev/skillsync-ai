@@ -70,7 +70,7 @@ export function LandingPage() {
       value: publicStats ? publicStats.jobs : "...",
       label: "Active Jobs",
       icon: Briefcase,
-      color: "from-purple-500 to-indigo-500",
+      color: "from-indigo-500 to-indigo-500",
     },
     {
       value: publicStats ? publicStats.candidates : "...",
@@ -98,7 +98,7 @@ export function LandingPage() {
       title: "AI Resume Parsing",
       description:
         "Upload your resume and our AI extracts skills, experience, and qualifications instantly.",
-      color: "from-purple-500 to-indigo-500",
+      color: "from-indigo-500 to-indigo-500",
     },
     {
       icon: Target,
@@ -195,9 +195,9 @@ export function LandingPage() {
     dynamicTestimonials.length > 0 ? dynamicTestimonials : testimonials;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50/40 via-white to-indigo-50/40 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50/40 via-white to-indigo-50/40 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative">
       {/* Global subtle tint to match sections */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-500/5 via-transparent to-indigo-500/5 dark:from-purple-900/20 dark:to-indigo-900/20" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-500/5 via-transparent to-indigo-500/5 dark:from-indigo-900/20 dark:to-indigo-900/20" />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-32">
         {/* Three.js ring shader (Visible in both modes, faint in Light Mode) */}
@@ -219,7 +219,7 @@ export function LandingPage() {
         />
 
         {/* Floating glowing orbs (only in hero) */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-20 left-10 w-72 h-72 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,7 +231,7 @@ export function LandingPage() {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               AI-Powered
               <br />
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 Career Growth Platform
               </span>
             </h1>
@@ -282,13 +282,13 @@ export function LandingPage() {
                 </div>
               )}
 
-              <div className="inline-flex items-center gap-2.5 sm:gap-4 px-3 sm:px-6 py-2 sm:py-3 rounded-full bg-white/70 dark:bg-white/10 backdrop-blur-lg border border-gray-200/50 dark:border-white/10 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="flex -space-x-2 sm:-space-x-3">
+              <div className="inline-flex items-center gap-2.5 sm:gap-3 px-4 py-2 rounded-full bg-white/70 dark:bg-white/10 backdrop-blur-lg border border-gray-200/50 dark:border-white/10 shadow-sm transition-all duration-300">
+                <div className="flex -space-x-2">
                   {showSkeleton
                     ? [...Array(5)].map((_, i) => (
                         <div
                           key={i}
-                          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full ring-2 ring-white dark:ring-gray-900 bg-gray-200 dark:bg-gray-800 animate-pulse relative flex-shrink-0 shadow-sm"
+                          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full ring-2 ring-white dark:ring-gray-900 bg-gray-200 dark:bg-gray-800 animate-pulse relative flex-shrink-0 shadow-sm"
                           style={{ zIndex: 10 - i }}
                         />
                       ))
@@ -296,7 +296,7 @@ export function LandingPage() {
                         publicStats.recentUsers.length > 0
                       ? publicStats.recentUsers.map((u, i) => {
                           const colors = [
-                            "from-purple-500 to-indigo-500",
+                            "from-indigo-500 to-indigo-500",
                             "from-blue-500 to-cyan-500",
                             "from-emerald-500 to-teal-500",
                             "from-amber-500 to-orange-500",
@@ -305,7 +305,7 @@ export function LandingPage() {
                           return (
                             <div
                               key={u._id || i}
-                              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full ring-2 ring-white dark:ring-gray-900 overflow-hidden shadow-md relative flex-shrink-0 transition-transform hover:scale-110 hover:z-20 cursor-pointer"
+                              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full ring-2 ring-white dark:ring-gray-900 overflow-hidden shadow-sm relative flex-shrink-0 transition-transform hover:scale-110 hover:z-20 cursor-pointer"
                               style={{ zIndex: 10 - i }}
                               title={u.name}
                             >
@@ -330,14 +330,14 @@ export function LandingPage() {
                       : null}
                 </div>
 
-                <div className="w-px h-6 sm:h-8 bg-gray-300 dark:bg-gray-700/80" />
+                <div className="w-px h-5 sm:h-6 bg-gray-300 dark:bg-gray-700/80" />
 
-                <div className="text-gray-600 dark:text-gray-300 font-medium text-xs sm:text-sm text-left">
+                <div className="text-gray-600 dark:text-gray-300 font-medium text-[11px] sm:text-xs text-left">
                   {showSkeleton ? (
-                    <div className="h-4 w-24 sm:w-40 bg-gray-200 dark:bg-gray-800 rounded animate-pulse" />
+                    <div className="h-4 w-24 sm:w-32 bg-gray-200 dark:bg-gray-800 rounded animate-pulse" />
                   ) : (
                     <p className="flex items-center gap-1">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 font-bold text-sm sm:text-base">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-600 dark:from-indigo-400 dark:to-indigo-400 font-bold text-xs sm:text-sm">
                         {publicStats?.candidates || "800"}+
                       </span>{" "}
                       <span className="hidden sm:inline">
@@ -356,65 +356,50 @@ export function LandingPage() {
           </div>
 
           <div className="relative max-w-5xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 blur-3xl" />
-            <Card className="relative overflow-hidden py-6 px-4 text-center border border-purple-100 dark:border-purple-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -z-10" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
-              {isAuthenticated ? (
-                <div className="relative z-10 flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center mx-auto mb-3 shadow-lg">
-                    {isRecruiter ? (
-                      <BarChart3 className="w-8 h-8 text-white" />
-                    ) : (
-                      <Briefcase className="w-8 h-8 text-white" />
-                    )}
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-indigo-500/20 blur-3xl" />
+            <Card className="relative overflow-hidden py-6 px-4 text-center border border-indigo-100 dark:border-indigo-900/50 shadow-xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl -z-10" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl -z-10" />
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-300 dark:divide-gray-700 w-full py-2">
+                <div className="flex flex-col items-center justify-center text-center p-3 sm:px-4">
+                  {isStatsLoading ? (
+                    <div className="h-10 w-20 bg-gray-200 dark:bg-gray-800 rounded animate-pulse mb-1.5" />
+                  ) : (
+                    <div className="text-3xl font-extrabold text-gray-900 dark:text-white mb-1.5 tracking-tight">
+                      {stats[0].value}+
+                    </div>
+                  )}
+                  <div className="text-[10px] text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-widest max-w-[180px] leading-relaxed">
+                    Active job listings on the platform
                   </div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
-                    {isRecruiter ? "Recruiter Dashboard Preview" : "Candidate Dashboard Preview"}
-                  </p>
                 </div>
-              ) : (
-                <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 dark:divide-gray-800/50 w-full py-2">
-                  <div className="flex flex-col items-center justify-center text-center p-3 sm:px-4">
-                    {isStatsLoading ? (
-                      <div className="h-10 w-20 bg-gray-200 dark:bg-gray-800 rounded animate-pulse mb-1.5" />
-                    ) : (
-                      <div className="text-3xl font-extrabold text-gray-900 dark:text-white mb-1.5 tracking-tight">
-                        {stats[0].value}+
-                      </div>
-                    )}
-                    <div className="text-[10px] text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-widest max-w-[180px] leading-relaxed">
-                      Active job listings on the platform
+                
+                <div className="flex flex-col items-center justify-center text-center p-3 sm:px-4">
+                  {isStatsLoading ? (
+                    <div className="h-10 w-20 bg-gray-200 dark:bg-gray-800 rounded animate-pulse mb-1.5" />
+                  ) : (
+                    <div className="text-3xl font-extrabold text-gray-900 dark:text-white mb-1.5 tracking-tight">
+                      {stats[1].value}+
                     </div>
+                  )}
+                  <div className="text-[10px] text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-widest max-w-[180px] leading-relaxed">
+                    Career builders in our network
                   </div>
-                  
-                  <div className="flex flex-col items-center justify-center text-center p-3 sm:px-4">
-                    {isStatsLoading ? (
-                      <div className="h-10 w-20 bg-gray-200 dark:bg-gray-800 rounded animate-pulse mb-1.5" />
-                    ) : (
-                      <div className="text-3xl font-extrabold text-gray-900 dark:text-white mb-1.5 tracking-tight">
-                        {stats[1].value}+
-                      </div>
-                    )}
-                    <div className="text-[10px] text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-widest max-w-[180px] leading-relaxed">
-                      Career builders in our network
-                    </div>
-                  </div>
+                </div>
 
-                  <div className="flex flex-col items-center justify-center text-center p-3 sm:px-4">
-                    {isStatsLoading ? (
-                      <div className="h-10 w-20 bg-gray-200 dark:bg-gray-800 rounded animate-pulse mb-1.5" />
-                    ) : (
-                      <div className="text-3xl font-extrabold text-gray-900 dark:text-white mb-1.5 tracking-tight">
-                        {stats[2].value}
-                      </div>
-                    )}
-                    <div className="text-[10px] text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-widest max-w-[180px] leading-relaxed">
-                      Applications processed seamlessly
+                <div className="flex flex-col items-center justify-center text-center p-3 sm:px-4">
+                  {isStatsLoading ? (
+                    <div className="h-10 w-20 bg-gray-200 dark:bg-gray-800 rounded animate-pulse mb-1.5" />
+                  ) : (
+                    <div className="text-3xl font-extrabold text-gray-900 dark:text-white mb-1.5 tracking-tight">
+                      {stats[2].value}
                     </div>
+                  )}
+                  <div className="text-[10px] text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-widest max-w-[180px] leading-relaxed">
+                    Applications processed seamlessly
                   </div>
                 </div>
-              )}
+              </div>
             </Card>
           </div>
         </div>
@@ -425,7 +410,7 @@ export function LandingPage() {
       {/* Features Section */}
       <section className="relative py-16 sm:py-24 overflow-hidden">
         {/* Ambient background for light mode glass effect */}
-        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-purple-200/40 dark:bg-purple-900/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -435,7 +420,7 @@ export function LandingPage() {
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Everything You Need to
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 {" "}
                 Advance Your Career
               </span>
@@ -451,7 +436,7 @@ export function LandingPage() {
               return (
                 <Card
                   key={i}
-                  className="p-6 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none group"
+                  className="p-6 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-indigo-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none group"
                 >
                   <div
                     className={`w-12 h-12 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-4 shadow-md`}
@@ -480,7 +465,7 @@ export function LandingPage() {
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Simple Steps to
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 {" "}
                 Career Success
               </span>
@@ -495,8 +480,8 @@ export function LandingPage() {
               const Icon = step.icon;
               return (
                 <div key={i} className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mx-auto mb-3">
-                    <Icon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                  <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mx-auto mb-3">
+                    <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
                     {step.title}
@@ -514,7 +499,7 @@ export function LandingPage() {
       {/* Testimonials */}
       <section className="relative py-16 sm:py-24 overflow-hidden">
         {/* Ambient background for light mode glass effect */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-purple-200/30 dark:bg-purple-900/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-indigo-200/30 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -523,7 +508,7 @@ export function LandingPage() {
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Trusted by Job Seekers
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 {" "}
                 & Recruiters
               </span>
@@ -537,7 +522,7 @@ export function LandingPage() {
             {displayTestimonials.map((testimonial, i) => (
               <Card
                 key={i}
-                className="p-6 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none"
+                className="p-6 hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-indigo-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating || 5)].map((_, i) => (
@@ -587,7 +572,7 @@ export function LandingPage() {
             <Button
               variant="outline"
               onClick={() => navigate("/testimonials")}
-              className="border-purple-200 hover:border-purple-300 dark:border-purple-800 dark:hover:border-purple-700 bg-white/50 hover:bg-purple-50 dark:bg-gray-900/50 dark:hover:bg-purple-900/30 text-purple-700 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 group rounded-xl px-8 py-2.5 shadow-sm"
+              className="border-indigo-200 hover:border-indigo-300 dark:border-indigo-800 dark:hover:border-indigo-700 bg-white/50 hover:bg-indigo-50 dark:bg-gray-900/50 dark:hover:bg-indigo-900/30 text-indigo-700 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 group rounded-xl px-8 py-2.5 shadow-sm"
             >
               View All Feedback
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -599,9 +584,9 @@ export function LandingPage() {
       {/* CTA */}
       <section className="py-16 sm:py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="relative overflow-hidden p-12 text-center border border-purple-100 dark:border-purple-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
+          <Card className="relative overflow-hidden p-12 text-center border border-indigo-100 dark:border-indigo-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
             {/* Background glowing orbs */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -z-10" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
 
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
@@ -623,7 +608,7 @@ export function LandingPage() {
                   )
                 }
                 size="lg"
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 border-transparent gap-2"
+                className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 border-transparent gap-2"
               >
                 {isAuthenticated ? "Go to Dashboard" : "Get Started Free"}{" "}
                 <ArrowRight className="w-5 h-5" />
@@ -631,7 +616,7 @@ export function LandingPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800/50 dark:text-purple-300 dark:hover:bg-purple-900/20 hover:scale-105 transition-all duration-300 gap-2"
+                className="border-indigo-200 text-indigo-700 hover:bg-indigo-50 dark:border-indigo-800/50 dark:text-indigo-300 dark:hover:bg-indigo-900/20 hover:scale-105 transition-all duration-300 gap-2"
                 onClick={() => navigate("/features")}
               >
                 See Features <ArrowRight className="w-5 h-5" />
@@ -639,14 +624,14 @@ export function LandingPage() {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-6 mt-8 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-purple-500" /> Free to use
+                <CheckCircle2 className="w-4 h-4 text-indigo-500" /> Free to use
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-purple-500" /> AI-powered
+                <CheckCircle2 className="w-4 h-4 text-indigo-500" /> AI-powered
                 matching
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-purple-500" /> Instant
+                <CheckCircle2 className="w-4 h-4 text-indigo-500" /> Instant
                 results
               </div>
             </div>

@@ -22,7 +22,7 @@ export function Ripple({
         return (
           <div
             key={i}
-            className="absolute animate-ripple rounded-full bg-purple-500/10 dark:bg-purple-500/5 shadow-xl border border-purple-500/20 dark:border-purple-500/10 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
+            className="absolute animate-ripple rounded-full bg-indigo-500/10 dark:bg-indigo-500/5 shadow-xl border border-indigo-500/20 dark:border-indigo-500/10 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
             style={{
               width: `${size}px`,
               height: `${size}px`,

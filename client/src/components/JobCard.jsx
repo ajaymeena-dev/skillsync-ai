@@ -117,12 +117,12 @@ export function JobCard({
     return (
       <Card className="p-3 hover:shadow-md transition-all duration-200 rounded-xl">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 flex items-center justify-center shrink-0">
-            <Briefcase className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-900/30 flex items-center justify-center shrink-0">
+            <Briefcase className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
           </div>
           <div className="flex-1 min-w-0">
             <h4 className="font-medium text-gray-900 dark:text-white text-sm truncate">{job.title}</h4>
-            <button onClick={handleViewJob} className="text-xs text-gray-500 dark:text-gray-400 truncate hover:text-purple-600 transition-colors">
+            <button onClick={handleViewJob} className="text-xs text-gray-500 dark:text-gray-400 truncate hover:text-indigo-600 transition-colors">
               {job.company}
             </button>
             <div className="flex items-center gap-2 mt-1 text-xs text-gray-400">
@@ -147,12 +147,12 @@ export function JobCard({
       <Card className="p-4 hover:shadow-md transition-all rounded-xl">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-              <Briefcase className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+            <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+              <Briefcase className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
             </div>
             <div>
               <h3 className="font-medium text-gray-900 dark:text-white">{job.title}</h3>
-              <button onClick={handleViewJob} className="text-sm text-gray-500 hover:text-purple-600 transition-colors">
+              <button onClick={handleViewJob} className="text-sm text-gray-500 hover:text-indigo-600 transition-colors">
                 {job.company}
               </button>
             </div>
@@ -163,7 +163,7 @@ export function JobCard({
                 {match.score}% Match
               </Badge>
             )}
-            <Button size="sm" onClick={handleApplyClick} className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
+            <Button size="sm" onClick={handleApplyClick} className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700">
               Apply
             </Button>
           </div>
@@ -182,7 +182,7 @@ export function JobCard({
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-start gap-4">
                 {/* Circular Avatar (restored) */}
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 flex items-center justify-center shrink-0 shadow-sm overflow-hidden ring-2 ring-white dark:ring-gray-800">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-900/30 flex items-center justify-center shrink-0 shadow-sm overflow-hidden ring-2 ring-white dark:ring-gray-800">
                   <OptimizedAvatar
                     src={job.recruiterId?.company?.logo}
                     alt={job.company}
@@ -195,7 +195,7 @@ export function JobCard({
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <button
                       onClick={handleViewJob}
-                      className="font-bold text-gray-900 dark:text-white text-xl hover:text-purple-600 transition-colors text-left line-clamp-1"
+                      className="font-bold text-gray-900 dark:text-white text-xl hover:text-indigo-600 transition-colors text-left line-clamp-1"
                     >
                       {job.title}
                     </button>
@@ -213,7 +213,7 @@ export function JobCard({
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
                     <button
                       onClick={handleViewCompany}
-                      className="font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 transition-colors"
+                      className="font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 transition-colors"
                     >
                       {job.company}
                     </button>
@@ -276,12 +276,12 @@ export function JobCard({
                     <span
                       key={skill}
                       className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${isMatched
-                          ? "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 ring-1 ring-purple-300 dark:ring-purple-700"
+                          ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300 ring-1 ring-indigo-300 dark:ring-indigo-700"
                           : "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
                         }`}
                     >
                       {skill}
-                      {isMatched && <CheckCircle2 className="inline w-3 h-3 ml-1 text-purple-600" />}
+                      {isMatched && <CheckCircle2 className="inline w-3 h-3 ml-1 text-indigo-600" />}
                     </span>
                   );
                 })}
@@ -326,7 +326,7 @@ export function JobCard({
               </Button>
               <Button
                 onClick={handleApplyClick}
-                className="flex-1 sm:flex-none bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white shadow-sm transition-all"
+                className="flex-1 sm:flex-none bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white shadow-sm transition-all"
               >
                 Apply Now
               </Button>

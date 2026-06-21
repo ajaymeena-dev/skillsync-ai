@@ -290,7 +290,7 @@ export function CompanyPage() {
       value: statsData?.data?.stats?.activeJobs || 0,
       icon: Briefcase,
       change: "",
-      color: "from-purple-500 to-indigo-600",
+      color: "from-indigo-500 to-indigo-600",
     },
     {
       label: "Total Applicants",
@@ -341,7 +341,7 @@ export function CompanyPage() {
         {/* Header Actions */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-1 h-6 rounded-full bg-purple-600 dark:bg-purple-500" />
+            <div className="w-1 h-6 rounded-full bg-indigo-600 dark:bg-indigo-500" />
             <p className="text-sm text-gray-500 dark:text-gray-400">
               {profileData?.isComplete
                 ? "Your company profile is complete ✓"
@@ -370,7 +370,7 @@ export function CompanyPage() {
               <Button
                 onClick={handleSave}
                 disabled={isUpdating || isUploading}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white gap-2 shadow-md hover:shadow-lg transition-all"
+                className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white gap-2 shadow-md hover:shadow-lg transition-all"
               >
                 {isUpdating || isUploading ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -423,7 +423,7 @@ export function CompanyPage() {
 
                     {isEditing && (
                       <div className="mt-2 flex flex-col gap-1">
-                        <label className="cursor-pointer text-xs text-purple-600 dark:text-purple-400 hover:text-purple-700 flex items-center justify-center gap-1">
+                        <label className="cursor-pointer text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 flex items-center justify-center gap-1">
                           <Upload className="w-3 h-3" />
                           <span>Update Logo</span>
                           <input
@@ -455,7 +455,7 @@ export function CompanyPage() {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Company Name"
-                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
                       />
                     ) : (
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -499,7 +499,7 @@ export function CompanyPage() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       />
                     </div>
                     <div>
@@ -511,7 +511,7 @@ export function CompanyPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       />
                     </div>
                     <div>
@@ -523,7 +523,7 @@ export function CompanyPage() {
                         name="website"
                         value={formData.website}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       />
                     </div>
                     <div>
@@ -535,7 +535,7 @@ export function CompanyPage() {
                         name="industry"
                         value={formData.industry}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       />
                     </div>
                     <div>
@@ -548,7 +548,7 @@ export function CompanyPage() {
                         value={formData.location}
                         onChange={handleInputChange}
                         placeholder="e.g., San Francisco, CA"
-                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       />
                     </div>
                     <div>
@@ -561,7 +561,7 @@ export function CompanyPage() {
                         value={formData.founded}
                         onChange={handleInputChange}
                         placeholder="e.g., 2015"
-                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       />
                     </div>
                     <div>
@@ -572,7 +572,7 @@ export function CompanyPage() {
                         name="size"
                         value={formData.size}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       >
                         <option value="">Select Size</option>
                         <option value="1-10 employees">1-10 employees</option>
@@ -640,7 +640,7 @@ export function CompanyPage() {
                       value={formData.description}
                       onChange={handleInputChange}
                       rows={3}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       placeholder="Company description..."
                     />
                     <textarea
@@ -648,7 +648,7 @@ export function CompanyPage() {
                       value={formData.mission}
                       onChange={handleInputChange}
                       rows={2}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       placeholder="Mission statement..."
                     />
                     <textarea
@@ -656,7 +656,7 @@ export function CompanyPage() {
                       value={formData.vision}
                       onChange={handleInputChange}
                       rows={2}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white"
                       placeholder="Vision statement..."
                     />
                   </>
@@ -666,14 +666,14 @@ export function CompanyPage() {
                       {formData.description || "No description provided"}
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4">
+                      <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <Heart className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                          <p className="font-medium text-purple-900 dark:text-purple-300">
+                          <Heart className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                          <p className="font-medium text-indigo-900 dark:text-indigo-300">
                             Our Mission
                           </p>
                         </div>
-                        <p className="text-sm text-purple-700 dark:text-purple-300">
+                        <p className="text-sm text-indigo-700 dark:text-indigo-300">
                           {formData.mission || "Not specified"}
                         </p>
                       </div>
@@ -742,14 +742,14 @@ export function CompanyPage() {
                           handleSocialChange(platform, e.target.value)
                         }
                         placeholder={placeholder}
-                        className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:text-white"
+                        className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:text-white"
                       />
                     ) : (
                       <a
                         href={formData.socialLinks[platform]}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors truncate"
+                        className="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors truncate"
                       >
                         {formData.socialLinks[platform] || "Not set"}
                       </a>
@@ -769,7 +769,7 @@ export function CompanyPage() {
                   {isEditing && !showBenefitInput && (
                     <button
                       onClick={() => setShowBenefitInput(true)}
-                      className="text-sm text-purple-600 dark:text-purple-400"
+                      className="text-sm text-indigo-600 dark:text-indigo-400"
                     >
                       + Add Benefit
                     </button>
@@ -808,7 +808,7 @@ export function CompanyPage() {
                       value={newBenefit}
                       onChange={(e) => setNewBenefit(e.target.value)}
                       placeholder="Enter benefit..."
-                      className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+                      className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                     />
                     <div className="flex gap-2">
                       <Button
@@ -849,13 +849,13 @@ export function CompanyPage() {
                     value={formData.culture}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:text-white"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:text-white"
                     placeholder="Describe your company culture..."
                   />
                 ) : (
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center flex-shrink-0">
-                      <Heart className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                    <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0">
+                      <Heart className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                       {formData.culture || "No culture description provided"}

@@ -156,13 +156,13 @@ export function PostedJobsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Hero Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm mb-4">
             <Sparkles className="w-4 h-4" />
             <span>Job Management</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
             Your{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               Job Postings
             </span>
           </h1>
@@ -178,7 +178,7 @@ export function PostedJobsPage() {
             value={totalJobs}
             icon={Briefcase}
             change=""
-            color="from-purple-500 to-indigo-600"
+            color="from-indigo-500 to-indigo-600"
           />
           <StatsCard
             label="Total Applicants"
@@ -206,7 +206,7 @@ export function PostedJobsPage() {
         {/* Header Actions */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-1 h-6 rounded-full bg-gradient-to-b from-purple-600 to-indigo-600" />
+            <div className="w-1 h-6 rounded-full bg-gradient-to-b from-indigo-600 to-indigo-600" />
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Showing{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
@@ -217,7 +217,7 @@ export function PostedJobsPage() {
           </div>
           <Button
             onClick={() => setIsModalOpen(true)}
-            className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all"
+            className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all"
           >
             <Plus className="w-4 h-4 mr-2" />
             Post New Job
@@ -234,19 +234,19 @@ export function PostedJobsPage() {
                 placeholder="Search by job title or company..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 bg-gray-50/80 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 rounded-xl focus:border-purple-500 focus:ring-purple-500/20"
+                className="w-full pl-12 bg-gray-50/80 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 rounded-xl focus:border-indigo-500 focus:ring-indigo-500/20"
               />
             </div>
             <div className="flex gap-3">
               <Button
                 variant="outline"
                 onClick={() => setShowFilters(!showFilters)}
-                className="gap-2 relative border-gray-200 dark:border-gray-700 hover:border-purple-200 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/30"
+                className="gap-2 relative border-gray-200 dark:border-gray-700 hover:border-indigo-200 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
               >
                 <Filter className="w-4 h-4" />
                 Filters
                 {activeFilterCount > 0 && (
-                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-purple-600 text-white text-xs rounded-full flex items-center justify-center shadow-md">
+                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-indigo-600 text-white text-xs rounded-full flex items-center justify-center shadow-md">
                     {activeFilterCount}
                   </span>
                 )}
@@ -270,11 +270,11 @@ export function PostedJobsPage() {
               {searchTerm && (
                 <Badge
                   variant="secondary"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
                 >
                   <Search className="w-3 h-3" />
                   <span>{searchTerm}</span>
-                  <button onClick={() => setSearchTerm("")} className="hover:text-purple-900">
+                  <button onClick={() => setSearchTerm("")} className="hover:text-indigo-900">
                     <X className="w-3 h-3" />
                   </button>
                 </Badge>
@@ -282,7 +282,7 @@ export function PostedJobsPage() {
               {statusFilter !== "all" && (
                 <Badge
                   variant="secondary"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
                 >
                   <Filter className="w-3 h-3" />
                   <span className="capitalize">{statusFilter}</span>
@@ -293,7 +293,7 @@ export function PostedJobsPage() {
               )}
               <button
                 onClick={clearFilters}
-                className="text-sm text-gray-500 hover:text-purple-600 transition-colors ml-auto"
+                className="text-sm text-gray-500 hover:text-indigo-600 transition-colors ml-auto"
               >
                 Clear all
               </button>
@@ -307,7 +307,7 @@ export function PostedJobsPage() {
             <CardContent className="p-6 space-y-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <Filter className="w-5 h-5 text-purple-500" />
+                  <Filter className="w-5 h-5 text-indigo-500" />
                   Refine Your Search
                 </h3>
                 <button
@@ -328,7 +328,7 @@ export function PostedJobsPage() {
                       key={status}
                       onClick={() => setStatusFilter(status)}
                       className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${statusFilter === status
-                        ? "bg-purple-600 text-white shadow-sm"
+                        ? "bg-indigo-600 text-white shadow-sm"
                         : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
                         }`}
                     >
@@ -352,7 +352,7 @@ export function PostedJobsPage() {
               <p className="text-gray-500 dark:text-gray-400 mb-6">Get started by posting your first job</p>
               <Button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600"
+                className="bg-gradient-to-r from-indigo-600 to-indigo-600"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Post a Job
@@ -371,11 +371,11 @@ export function PostedJobsPage() {
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 flex items-center justify-center shadow-inner">
-                        <Briefcase className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-900/30 flex items-center justify-center shadow-inner">
+                        <Briefcase className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white text-lg group-hover:text-purple-600 transition-colors">
+                        <h3 className="font-semibold text-gray-900 dark:text-white text-lg group-hover:text-indigo-600 transition-colors">
                           {job.title}
                         </h3>
                         <p className="text-sm text-gray-500 dark:text-gray-400">{job.company}</p>

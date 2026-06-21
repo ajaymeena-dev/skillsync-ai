@@ -33,8 +33,8 @@ export function ProgressBar({
   const variants = {
     primary: {
       bg: "bg-gray-200 dark:bg-gray-700",
-      fill: "bg-gradient-to-r from-purple-500 to-indigo-600",
-      text: "text-purple-600 dark:text-purple-400",
+      fill: "bg-gradient-to-r from-indigo-500 to-indigo-600",
+      text: "text-indigo-600 dark:text-indigo-400",
       glow: "shadow-[0_0_10px_rgba(139,92,246,0.5)]",
     },
     success: {

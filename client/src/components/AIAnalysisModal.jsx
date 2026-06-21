@@ -80,13 +80,13 @@ export function AIAnalysisModal({
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="relative w-[calc(100%-2rem)] sm:w-full max-w-2xl max-h-[85vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col z-10"
+                            className="relative w-full max-w-2xl max-h-[85vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col z-10"
                         >
                         {/* Header */}
                         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm">
                             <div className="flex items-center gap-3">
-                                <div className="p-2 rounded-xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/40 dark:to-indigo-900/40">
-                                    <Brain className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                                <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/40 dark:to-indigo-900/40">
+                                    <Brain className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                 </div>
                                 <div>
                                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">AI Deep Analysis</h2>
@@ -131,10 +131,10 @@ export function AIAnalysisModal({
                         {/* Scrollable Content */}
                         <div className="flex-1 overflow-y-auto theme-scroll px-6 py-6 space-y-6">
                             {/* Candidate & Job Info */}
-                            <div className="bg-gradient-to-r from-purple-50/60 to-indigo-50/60 dark:from-purple-900/15 dark:to-indigo-900/15 rounded-xl p-4 border border-purple-100 dark:border-purple-800/30 text-center">
+                            <div className="bg-gradient-to-r from-indigo-50/60 to-indigo-50/60 dark:from-indigo-900/15 dark:to-indigo-900/15 rounded-xl p-4 border border-indigo-100 dark:border-indigo-800/30 text-center">
                                 <p className="text-sm text-gray-700 dark:text-gray-300">
-                                    Analyzing <span className="font-semibold text-purple-700 dark:text-purple-300">{candidateName}</span> for{" "}
-                                    <span className="font-semibold text-purple-700 dark:text-purple-300">{jobTitle}</span>
+                                    Analyzing <span className="font-semibold text-indigo-700 dark:text-indigo-300">{candidateName}</span> for{" "}
+                                    <span className="font-semibold text-indigo-700 dark:text-indigo-300">{jobTitle}</span>
                                 </p>
                             </div>
 
@@ -143,12 +143,12 @@ export function AIAnalysisModal({
                             ) : analysis ? (
                                 <div className="space-y-6">
                                     {/* Score Card – Modern, elegant */}
-                                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-indigo-500/10 to-transparent dark:from-purple-500/5 dark:via-indigo-500/5 border border-purple-200/50 dark:border-purple-800/30 p-5">
-                                        <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -mr-16 -mt-16" />
+                                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500/10 via-indigo-500/10 to-transparent dark:from-indigo-500/5 dark:via-indigo-500/5 border border-indigo-200/50 dark:border-indigo-800/30 p-5">
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl -mr-16 -mt-16" />
                                         <div className="flex items-center justify-between flex-wrap gap-4">
                                             <div>
                                                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Match Score</p>
-                                                <p className="text-5xl font-bold bg-gradient-to-r from-purple-700 to-indigo-700 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                                                <p className="text-5xl font-bold bg-gradient-to-r from-indigo-700 to-indigo-700 dark:from-indigo-400 dark:to-indigo-400 bg-clip-text text-transparent">
                                                     {analysis.matchScore}%
                                                 </p>
                                             </div>
@@ -157,7 +157,7 @@ export function AIAnalysisModal({
                                                     <svg className="w-full h-full transform -rotate-90">
                                                         <defs>
                                                             <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                <stop offset="0%" stopColor="#8B5CF6" />
+                                                                <stop offset="0%" stopColor="#6366F1" />
                                                                 <stop offset="100%" stopColor="#6366F1" />
                                                             </linearGradient>
                                                         </defs>
@@ -168,7 +168,7 @@ export function AIAnalysisModal({
                                                             stroke="currentColor"
                                                             strokeWidth="5"
                                                             fill="none"
-                                                            className="text-purple-100 dark:text-gray-700/50"
+                                                            className="text-indigo-100 dark:text-gray-700/50"
                                                         />
                                                         <motion.circle
                                                             cx="32"
@@ -250,7 +250,7 @@ export function AIAnalysisModal({
                                     {/* Fit Analysis */}
                                     <div className="bg-white dark:bg-gray-800/40 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                                         <div className="flex items-center gap-2 mb-3">
-                                            <TrendingUp className="w-5 h-5 text-purple-500" />
+                                            <TrendingUp className="w-5 h-5 text-indigo-500" />
                                             <h3 className="font-semibold text-gray-900 dark:text-white">Fit Analysis</h3>
                                         </div>
                                         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{analysis.fitAnalysis}</p>
@@ -265,7 +265,7 @@ export function AIAnalysisModal({
                                         <ul className="space-y-2">
                                             {analysis.recommendations?.map((rec, i) => (
                                                 <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
-                                                    <Zap className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                                                    <Zap className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
                                                     <span>{rec}</span>
                                                 </li>
                                             ))}
@@ -318,7 +318,7 @@ export function AIAnalysisModal({
                                             if (!shouldFetch) setShouldFetch(true);
                                             else refetch();
                                         }}
-                                        className="mt-4 bg-gradient-to-r from-purple-600 to-indigo-600"
+                                        className="mt-4 bg-gradient-to-r from-indigo-600 to-indigo-600"
                                     >
                                         <Sparkles className="w-4 h-4 mr-2" /> Retry
                                     </Button>
@@ -334,7 +334,7 @@ export function AIAnalysisModal({
                                                 refetch();
                                             }}
                                             disabled={isRateLimited || isLoading}
-                                            className="gap-2 bg-purple-50 text-purple-700 hover:bg-purple-100 dark:bg-purple-900/30 dark:text-purple-400 dark:hover:bg-purple-900/50 w-full sm:w-auto disabled:opacity-50"
+                                            className="gap-2 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-400 dark:hover:bg-indigo-900/50 w-full sm:w-auto disabled:opacity-50"
                                         >
                                             <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
                                             {isRateLimited ? "Available in 24h" : "Regenerate Analysis"}

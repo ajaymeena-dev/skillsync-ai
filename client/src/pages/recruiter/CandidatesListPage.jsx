@@ -46,7 +46,7 @@ import {
 
 const statusMap = {
   pending: { label: "New", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" },
-  reviewed: { label: "Reviewed", color: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400" },
+  reviewed: { label: "Reviewed", color: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400" },
   shortlisted: { label: "Shortlisted", color: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400" },
   rejected: { label: "Rejected", color: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400" },
   hired: { label: "Hired", color: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400" },
@@ -132,7 +132,7 @@ export function CandidatesListPage() {
   };
 
   const stats = [
-    { label: "Total", value: candidatesData.length, icon: Users, color: "from-purple-500 to-indigo-500", change: "" },
+    { label: "Total", value: candidatesData.length, icon: Users, color: "from-indigo-500 to-indigo-500", change: "" },
     { label: "New", value: candidatesData.filter((c) => c.status === "New").length, icon: Sparkles, color: "from-blue-500 to-cyan-500", change: "" },
     { label: "Shortlisted", value: candidatesData.filter((c) => c.status === "Shortlisted").length, icon: Award, color: "from-amber-500 to-orange-500", change: "" },
     { label: "Hired", value: candidatesData.filter((c) => c.status === "Hired").length, icon: CheckCircle, color: "from-emerald-500 to-teal-500", change: "" },
@@ -174,7 +174,7 @@ export function CandidatesListPage() {
             title="No Jobs Posted Yet"
             message="Post a job to start receiving applications"
             action={
-              <Button onClick={() => navigate("/app/jobs-posted")} className="bg-gradient-to-r from-purple-600 to-indigo-600">
+              <Button onClick={() => navigate("/app/jobs-posted")} className="bg-gradient-to-r from-indigo-600 to-indigo-600">
                 Post a Job
               </Button>
             }
@@ -193,7 +193,7 @@ export function CandidatesListPage() {
                       <SelectValue placeholder="Select a job...">
                         {selectedJobId ? (
                           <span className="flex items-center gap-2">
-                            <Building2 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                            <Building2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                             <span className="truncate">
                               {selectedJob?.title} ({selectedJob?.applicationsCount || 0} applicants)
                             </span>
@@ -221,13 +221,13 @@ export function CandidatesListPage() {
 
                 {/* Search Input */}
                 <div className="flex-1 relative group">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-purple-500 transition-colors" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                   <Input
                     type="text"
                     placeholder="Search by name or email..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-10 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-purple-500/20"
+                    className="w-full pl-10 pr-10 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-indigo-500/20"
                   />
                   {searchTerm && (
                     <button
@@ -244,7 +244,7 @@ export function CandidatesListPage() {
                   <Select value={statusFilter} onValueChange={setStatusFilter}>
                     <SelectTrigger
                       className={`w-full rounded-xl shadow-sm ${activeFilterCount > 0
-                        ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-transparent"
+                        ? "bg-gradient-to-r from-indigo-600 to-indigo-600 text-white border-transparent"
                         : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
                         }`}
                     >
@@ -273,11 +273,11 @@ export function CandidatesListPage() {
                   {searchTerm && (
                     <Badge
                       variant="secondary"
-                      className="flex items-center gap-1.5 px-2.5 py-1 text-xs bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full"
+                      className="flex items-center gap-1.5 px-2.5 py-1 text-xs bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full"
                     >
                       <Search className="w-3 h-3" />
                       Search: "{searchTerm.slice(0, 20)}"
-                      <button onClick={() => setSearchTerm("")} className="hover:text-purple-900">
+                      <button onClick={() => setSearchTerm("")} className="hover:text-indigo-900">
                         <X className="w-3 h-3" />
                       </button>
                     </Badge>
@@ -285,11 +285,11 @@ export function CandidatesListPage() {
                   {statusFilter !== "All" && (
                     <Badge
                       variant="secondary"
-                      className="flex items-center gap-1.5 px-2.5 py-1 text-xs bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full"
+                      className="flex items-center gap-1.5 px-2.5 py-1 text-xs bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full"
                     >
                       <SlidersHorizontal className="w-3 h-3" />
                       Status: {selectedStatusLabel}
-                      <button onClick={() => setStatusFilter("All")} className="hover:text-purple-900">
+                      <button onClick={() => setStatusFilter("All")} className="hover:text-indigo-900">
                         <X className="w-3 h-3" />
                       </button>
                     </Badge>
@@ -311,7 +311,7 @@ export function CandidatesListPage() {
           <>
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div className="flex items-center gap-2">
-                <div className="w-1 h-6 rounded-full bg-gradient-to-b from-purple-600 to-indigo-600" />
+                <div className="w-1 h-6 rounded-full bg-gradient-to-b from-indigo-600 to-indigo-600" />
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Showing <span className="font-semibold text-gray-900 dark:text-white">{filteredCandidates.length}</span> candidates
                   {selectedJob && (

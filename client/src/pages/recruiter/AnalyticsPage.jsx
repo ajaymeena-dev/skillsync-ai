@@ -88,7 +88,7 @@ export function AnalyticsPage() {
       value: totalJobs,
       icon: Briefcase,
       change: "+12",
-      color: "from-purple-500 to-indigo-600",
+      color: "from-indigo-500 to-indigo-600",
     },
     {
       label: "Total Applicants",
@@ -118,13 +118,13 @@ export function AnalyticsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Hero Header */}
         <div className="text-center mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm mb-4">
             <Sparkles className="w-4 h-4" />
             <span>Recruitment Insights</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
             Recruitment{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               Analytics
             </span>
           </h1>
@@ -136,7 +136,7 @@ export function AnalyticsPage() {
         {/* Period Selector & Export */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-1 h-6 rounded-full bg-gradient-to-b from-purple-600 to-indigo-600" />
+            <div className="w-1 h-6 rounded-full bg-gradient-to-b from-indigo-600 to-indigo-600" />
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Last updated: {new Date().toLocaleDateString()}
             </p>
@@ -149,7 +149,7 @@ export function AnalyticsPage() {
                   onClick={() => setSelectedPeriod(period)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     selectedPeriod === period
-                      ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-sm"
+                      ? "bg-gradient-to-r from-indigo-600 to-indigo-600 text-white shadow-sm"
                       : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                   }`}
                 >
@@ -181,14 +181,14 @@ export function AnalyticsPage() {
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-5 shadow-sm">
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2">
-                <LineChart className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                <LineChart className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 <h3 className="font-semibold text-gray-900 dark:text-white">
                   Trends ({selectedPeriod.charAt(0).toUpperCase() + selectedPeriod.slice(1)})
                 </h3>
               </div>
               <Badge
                 variant="primary"
-                className="text-xs bg-white/80 dark:bg-purple-900/50"
+                className="text-xs bg-white/80 dark:bg-indigo-900/50"
               >
                 Applications & Views
               </Badge>
@@ -205,8 +205,8 @@ export function AnalyticsPage() {
                     x2="0"
                     y2="1"
                   >
-                    <stop offset="5%" stopColor="#8B5CF6" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#8B5CF6" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#6366F1" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#6366F1" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient
                     id="viewsGradient"
@@ -240,7 +240,7 @@ export function AnalyticsPage() {
                   type="monotone"
                   dataKey="applications"
                   name="Applications"
-                  stroke="#8B5CF6"
+                  stroke="#6366F1"
                   strokeWidth={2}
                   fill="url(#applicantsGradient)"
                 />
@@ -262,14 +262,14 @@ export function AnalyticsPage() {
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-5 shadow-sm">
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2">
-                <PieChart className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                <PieChart className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 <h3 className="font-semibold text-gray-900 dark:text-white">
                   Job Status Distribution
                 </h3>
               </div>
               <Badge
                 variant="primary"
-                className="text-xs bg-white/80 dark:bg-purple-900/50"
+                className="text-xs bg-white/80 dark:bg-indigo-900/50"
               >
                 Total: {totalJobs}
               </Badge>
@@ -332,13 +332,13 @@ export function AnalyticsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
-              <BarChart3 className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <BarChart3 className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <h3 className="font-semibold text-gray-900 dark:text-white">
                 Avg. Applicants per Job
               </h3>
             </div>
             <div className="text-center mb-3">
-              <p className="text-4xl font-bold text-purple-600 dark:text-purple-400">
+              <p className="text-4xl font-bold text-indigo-600 dark:text-indigo-400">
                 {avgApplicantsPerJob}
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -347,7 +347,7 @@ export function AnalyticsPage() {
             </div>
             <div className="w-full h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-600"
+                className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600"
                 style={{ width: `${Math.min(100, avgApplicantsPerJob * 5)}%` }}
               />
             </div>
@@ -355,7 +355,7 @@ export function AnalyticsPage() {
 
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
-              <Eye className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <Eye className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <h3 className="font-semibold text-gray-900 dark:text-white">
                 Avg. Views per Job
               </h3>
@@ -378,7 +378,7 @@ export function AnalyticsPage() {
 
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
-              <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <TrendingUp className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <h3 className="font-semibold text-gray-900 dark:text-white">
                 Conversion Rate
               </h3>
@@ -405,7 +405,7 @@ export function AnalyticsPage() {
           <div className="p-5 border-b border-gray-200 dark:border-gray-800 bg-gradient-to-r from-gray-50/30 to-white/30 dark:from-gray-800/30 dark:to-gray-900/30">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                <TrendingUp className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 <h3 className="font-semibold text-gray-900 dark:text-white">
                   Top Performing Jobs
                 </h3>
@@ -413,7 +413,7 @@ export function AnalyticsPage() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-purple-600 dark:text-purple-400 gap-1"
+                className="text-indigo-600 dark:text-indigo-400 gap-1"
               >
                 View All <ChevronRight className="w-4 h-4" />
               </Button>
@@ -454,7 +454,7 @@ export function AnalyticsPage() {
                   <Bar
                     dataKey="applicants"
                     name="Applicants"
-                    fill="#8B5CF6"
+                    fill="#6366F1"
                     radius={[0, 8, 8, 0]}
                   />
                   <Bar
@@ -478,7 +478,7 @@ export function AnalyticsPage() {
         {/* Recent Activity */}
         <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/50 p-5 shadow-sm">
           <div className="flex items-center gap-2 mb-4">
-            <Clock className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+            <Clock className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
             <h3 className="font-semibold text-gray-900 dark:text-white">
               Recent Activity
             </h3>

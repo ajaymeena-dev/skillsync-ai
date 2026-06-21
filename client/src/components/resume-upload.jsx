@@ -196,7 +196,7 @@ export function ResumeUpload({ onUploadComplete }) {
   return (
     <Card className="p-6 dark:bg-gray-800/80 dark:border-gray-700">
       <div className="flex items-center gap-2 mb-2">
-        <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+        <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
           Resume Analysis
         </h2>
@@ -214,7 +214,7 @@ export function ResumeUpload({ onUploadComplete }) {
           onClick={() => fileInputRef.current?.click()}
           className={`border-2 border-dashed rounded-xl py-12 px-6 text-center cursor-pointer transition-all ${
             isDragging
-              ? "border-purple-500 dark:border-purple-400 bg-purple-50/50 dark:bg-purple-950/30"
+              ? "border-indigo-500 dark:border-indigo-400 bg-indigo-50/50 dark:bg-indigo-950/30"
               : "border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800/50"
           }`}
         >
@@ -256,10 +256,10 @@ export function ResumeUpload({ onUploadComplete }) {
 
       {/* Selected File Preview */}
       {file && uploadStatus !== "uploading" && uploadStatus !== "success" && (
-        <div className="border-2 border-purple-500/30 dark:border-purple-400/30 bg-purple-50/50 dark:bg-purple-950/30 rounded-xl p-4 mb-4">
+        <div className="border-2 border-indigo-500/30 dark:border-indigo-400/30 bg-indigo-50/50 dark:bg-indigo-950/30 rounded-xl p-4 mb-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <FileText className="w-10 h-10 text-purple-600 dark:text-purple-400" />
+              <FileText className="w-10 h-10 text-indigo-600 dark:text-indigo-400" />
               <div>
                 <p className="font-medium text-gray-900 dark:text-white">
                   {file.name}
@@ -285,7 +285,7 @@ export function ResumeUpload({ onUploadComplete }) {
       {/* Uploading State */}
       {uploadStatus === "uploading" && (
         <div className="flex flex-col items-center justify-center gap-3 py-8">
-          <Loader2 className="w-8 h-8 text-purple-600 dark:text-purple-400 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 dark:text-indigo-400 animate-spin" />
           <span className="text-gray-600 dark:text-gray-400 font-medium">
             Parsing Resume...
           </span>

@@ -189,10 +189,10 @@ export function AuthPage() {
   return (
     <div className="min-h-screen flex bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
       {/* LEFT SIDE – MODERN HERO SECTION */}
-      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-purple-700 via-purple-600 to-indigo-700 text-white p-12 flex-col justify-between">
+      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-600 to-indigo-700 text-white p-12 flex-col justify-between">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
-        <div className="absolute top-20 -right-20 w-80 h-80 bg-purple-400/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 -right-20 w-80 h-80 bg-indigo-400/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 -left-20 w-80 h-80 bg-indigo-400/30 rounded-full blur-3xl animate-pulse delay-1000" />
 
         {/* Logo */}
@@ -279,10 +279,10 @@ export function AuthPage() {
           {/* Mobile logo (only visible on small screens) */}
           <div className="lg:hidden flex justify-center mb-8">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                 <Briefcase className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 SkillSync AI
               </span>
             </div>
@@ -291,11 +291,11 @@ export function AuthPage() {
           {/* Form Card */}
           <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg rounded-2xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl p-6 sm:p-8 transition-all duration-300">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/40 dark:to-indigo-900/40 flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/40 dark:to-indigo-900/40 flex items-center justify-center">
                 {isLogin ? (
-                  <Lock className="w-7 h-7 text-purple-600 dark:text-purple-400" />
+                  <Lock className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
                 ) : (
-                  <User className="w-7 h-7 text-purple-600 dark:text-purple-400" />
+                  <User className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
                 )}
               </div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -315,7 +315,7 @@ export function AuthPage() {
                   type="button"
                   onClick={() => setUserType(USER_ROLES.JOBSEEKER)}
                   className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 flex items-center justify-center ${userType === USER_ROLES.JOBSEEKER
-                      ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md shadow-purple-500/25"
+                      ? "bg-gradient-to-r from-indigo-600 to-indigo-600 text-white shadow-md shadow-indigo-500/25"
                       : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-gray-700/50"
                     }`}
                 >
@@ -326,7 +326,7 @@ export function AuthPage() {
                   type="button"
                   onClick={() => setUserType(USER_ROLES.RECRUITER)}
                   className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 flex items-center justify-center ${userType === USER_ROLES.RECRUITER
-                      ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md shadow-purple-500/25"
+                      ? "bg-gradient-to-r from-indigo-600 to-indigo-600 text-white shadow-md shadow-indigo-500/25"
                       : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-gray-700/50"
                     }`}
                 >
@@ -374,7 +374,7 @@ export function AuthPage() {
                   <label className="flex items-center gap-2 cursor-pointer text-sm font-medium text-gray-700 dark:text-gray-300">
                     <input 
                       type="checkbox" 
-                      className="rounded border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500" 
+                      className="rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500" 
                       checked={isDeveloperAccount}
                       onChange={(e) => setIsDeveloperAccount(e.target.checked)}
                     />
@@ -416,7 +416,7 @@ export function AuthPage() {
                   <button
                     type="button"
                     onClick={() => navigate("/forgot-password")}
-                    className="text-purple-600 dark:text-purple-400 hover:underline font-medium"
+                    className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
                   >
                     Forgot password?
                   </button>
@@ -425,7 +425,7 @@ export function AuthPage() {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-200"
+                className="w-full bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-200"
                 size="lg"
                 disabled={isSubmitting}
               >
@@ -473,7 +473,7 @@ export function AuthPage() {
                   setError("");
                   setFormData({ name: "", email: "", password: "" });
                 }}
-                className="text-sm text-purple-600 dark:text-purple-400 hover:underline font-medium"
+                className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
               >
                 {isLogin
                   ? "Don't have an account? Sign up"

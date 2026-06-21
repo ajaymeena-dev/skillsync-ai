@@ -28,7 +28,7 @@ export function WelcomeCard({ user }) {
 
   return (
     <div className="relative overflow-hidden bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 shadow-sm">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-indigo-600" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 to-indigo-600" />
 
       <div className="p-4 sm:p-6">
         {/* Main row: text + avatar */}
@@ -36,14 +36,14 @@ export function WelcomeCard({ user }) {
           {/* Text section */}
           <div className="flex-1 text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
-              <Sparkles className="w-4 h-4 text-purple-500" />
-              <span className="text-sm font-medium text-purple-600 dark:text-purple-400">
+              <Sparkles className="w-4 h-4 text-indigo-500" />
+              <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                 {greeting}
               </span>
             </div>
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
               Welcome back,{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 {firstName}
               </span>
             </h2>
@@ -82,7 +82,7 @@ export function WelcomeCard({ user }) {
           <Button
             variant="outline"
             size="sm"
-            className="gap-2 border-purple-200 hover:bg-purple-50 text-purple-600 hover:text-purple-700 dark:border-purple-900/50 dark:hover:bg-purple-900/20 dark:text-purple-400 w-full sm:w-auto"
+            className="gap-2 border-indigo-200 hover:bg-indigo-50 text-indigo-600 hover:text-indigo-700 dark:border-indigo-900/50 dark:hover:bg-indigo-900/20 dark:text-indigo-400 w-full sm:w-auto"
             onClick={() => setIsFeedbackOpen(true)}
           >
             <MessageSquarePlus className="w-4 h-4" />

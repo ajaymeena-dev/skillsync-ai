@@ -213,7 +213,7 @@ export default function JobDetailsPage() {
 
             {application.matchScore && (
               <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/80 dark:bg-gray-800/80 mt-2">
-                <Sparkles className="w-3 h-3 text-purple-500" />
+                <Sparkles className="w-3 h-3 text-indigo-500" />
                 <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
                   Match Score: {application.matchScore}%
                 </span>
@@ -329,7 +329,7 @@ export default function JobDetailsPage() {
                         className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                       >
                         {isSaved ? (
-                          <BookmarkCheck className="w-5 h-5 text-purple-600" />
+                          <BookmarkCheck className="w-5 h-5 text-indigo-600" />
                         ) : (
                           <BookmarkPlus className="w-5 h-5 text-gray-400" />
                         )}
@@ -356,7 +356,7 @@ export default function JobDetailsPage() {
             <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 shadow-sm overflow-hidden">
               <div className="p-6 border-b border-gray-200 dark:border-gray-700/50">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <Briefcase className="w-5 h-5 text-purple-600" />
+                  <Briefcase className="w-5 h-5 text-indigo-600" />
                   Job Description
                 </h2>
               </div>
@@ -372,7 +372,7 @@ export default function JobDetailsPage() {
               <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 shadow-sm overflow-hidden">
                 <div className="p-6 border-b border-gray-200 dark:border-gray-700/50">
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-purple-600" />
+                    <Zap className="w-5 h-5 text-indigo-600" />
                     Required Skills
                   </h2>
                 </div>
@@ -386,13 +386,13 @@ export default function JobDetailsPage() {
                         <span
                           key={idx}
                           className={`px-3 py-1.5 rounded-full text-sm font-medium ${isMatched
-                            ? "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300"
+                            ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300"
                             : "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
                             }`}
                         >
                           {skill}
                           {isMatched && (
-                            <span className="ml-1 text-purple-500">✓</span>
+                            <span className="ml-1 text-indigo-500">✓</span>
                           )}
                         </span>
                       );
@@ -417,7 +417,7 @@ export default function JobDetailsPage() {
               <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 shadow-sm overflow-hidden">
                 <div className="p-6 border-b border-gray-200 dark:border-gray-700/50">
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                    <Award className="w-5 h-5 text-purple-600" />
+                    <Award className="w-5 h-5 text-indigo-600" />
                     Benefits & Perks
                   </h2>
                 </div>
@@ -454,7 +454,7 @@ export default function JobDetailsPage() {
                     </div>
                     <Button
                       onClick={handleApplyClick}
-                      className="w-full py-3 text-base bg-white text-purple-600 hover:bg-gray-100"
+                      className="w-full py-3 text-base bg-white text-indigo-600 hover:bg-gray-100"
                     >
                       Apply Now
                     </Button>
@@ -467,7 +467,7 @@ export default function JobDetailsPage() {
                   </p>
                   <Button
                     onClick={() => navigate("/auth")}
-                    className="w-full bg-white text-purple-600 hover:bg-gray-100"
+                    className="w-full bg-white text-indigo-600 hover:bg-gray-100"
                   >
                     Login to Apply
                   </Button>
@@ -479,7 +479,7 @@ export default function JobDetailsPage() {
             <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 shadow-sm overflow-hidden">
               <div className="p-5 border-b border-gray-200 dark:border-gray-700/50">
                 <h3 className="font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-purple-600" />
+                  <TrendingUp className="w-4 h-4 text-indigo-600" />
                   Job Overview
                 </h3>
               </div>
@@ -584,7 +584,7 @@ export default function JobDetailsPage() {
                   <div className="space-y-2 pt-2 border-t border-gray-200 dark:border-gray-700">
                     {company?.mission && (
                       <div>
-                        <p className="text-xs font-medium text-purple-600 dark:text-purple-400">
+                        <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">
                           Mission
                         </p>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -594,7 +594,7 @@ export default function JobDetailsPage() {
                     )}
                     {company?.vision && (
                       <div>
-                        <p className="text-xs font-medium text-purple-600 dark:text-purple-400">
+                        <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">
                           Vision
                         </p>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -627,7 +627,7 @@ export default function JobDetailsPage() {
                       href={company.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-purple-600 hover:text-purple-700 dark:text-purple-400"
+                      className="flex items-center gap-2 text-sm text-indigo-600 hover:text-indigo-700 dark:text-indigo-400"
                     >
                       <Globe className="w-4 h-4" />
                       <span>Visit Website</span>
@@ -645,7 +645,7 @@ export default function JobDetailsPage() {
                           href={company.socialLinks.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-purple-600 transition-colors"
+                          className="text-gray-500 hover:text-indigo-600 transition-colors"
                         >
                           <span className="text-sm">🔗 LinkedIn</span>
                         </a>
@@ -655,7 +655,7 @@ export default function JobDetailsPage() {
                           href={company.socialLinks.twitter}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-purple-600 transition-colors"
+                          className="text-gray-500 hover:text-indigo-600 transition-colors"
                         >
                           <span className="text-sm">🐦 Twitter</span>
                         </a>
@@ -665,7 +665,7 @@ export default function JobDetailsPage() {
                           href={company.socialLinks.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-purple-600 transition-colors"
+                          className="text-gray-500 hover:text-indigo-600 transition-colors"
                         >
                           <span className="text-sm">💻 GitHub</span>
                         </a>
@@ -680,7 +680,7 @@ export default function JobDetailsPage() {
               <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 shadow-sm overflow-hidden">
                 <div className="p-5 border-b border-gray-200 dark:border-gray-700/50">
                   <h3 className="font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                    <Heart className="w-4 h-4 text-purple-600" />
+                    <Heart className="w-4 h-4 text-indigo-600" />
                     Company Culture
                   </h3>
                 </div>

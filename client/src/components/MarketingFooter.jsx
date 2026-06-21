@@ -25,12 +25,12 @@ export function MarketingFooter() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4 cursor-pointer group" onClick={() => handleNavigate("/")}>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl blur-md opacity-40 group-hover:opacity-60 transition-opacity" />
-                <div className="relative w-9 h-9 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-600 rounded-xl blur-md opacity-40 group-hover:opacity-60 transition-opacity" />
+                <div className="relative w-9 h-9 bg-gradient-to-br from-indigo-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
                   <Sparkles className="w-5 h-5 text-white" strokeWidth={1.5} />
                 </div>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-700 to-indigo-700 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-indigo-700 to-indigo-700 dark:from-indigo-400 dark:to-indigo-400 bg-clip-text text-transparent">
                 SkillSync AI
               </span>
             </div>
@@ -43,7 +43,7 @@ export function MarketingFooter() {
                 href={contactInfo.socialLinks.portfolio.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-purple-100 hover:text-purple-600 dark:hover:bg-purple-900/40 dark:hover:text-purple-400 transition-colors"
+                className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-indigo-900/40 dark:hover:text-indigo-400 transition-colors"
                 title="Portfolio"
               >
                 <Globe className="w-5 h-5" />
@@ -52,7 +52,7 @@ export function MarketingFooter() {
                 href={contactInfo.socialLinks.linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-purple-100 hover:text-purple-600 dark:hover:bg-purple-900/40 dark:hover:text-purple-400 transition-colors"
+                className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-indigo-900/40 dark:hover:text-indigo-400 transition-colors"
               >
                 <Link className="w-5 h-5" />
               </a>
@@ -60,7 +60,7 @@ export function MarketingFooter() {
                 href={contactInfo.socialLinks.github.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-purple-100 hover:text-purple-600 dark:hover:bg-purple-900/40 dark:hover:text-purple-400 transition-colors"
+                className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-indigo-900/40 dark:hover:text-indigo-400 transition-colors"
               >
                 <GitBranch className="w-5 h-5" />
               </a>
@@ -73,7 +73,7 @@ export function MarketingFooter() {
               <li>
                 <button
                   onClick={() => handleNavigate("/features")}
-                  className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors text-sm"
+                  className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm"
                 >
                   Features
                 </button>
@@ -81,7 +81,7 @@ export function MarketingFooter() {
               <li>
                 <button
                   onClick={() => handleNavigate("/auth")}
-                  className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors text-sm"
+                  className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm"
                 >
                   Get Started
                 </button>
@@ -89,7 +89,7 @@ export function MarketingFooter() {
               <li>
                 <button
                   onClick={() => handleNavigate("/jobs")}
-                  className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors text-sm"
+                  className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm"
                 >
                   Browse Jobs
                 </button>
@@ -103,7 +103,7 @@ export function MarketingFooter() {
               <li>
                 <button
                   onClick={() => handleNavigate("/about")}
-                  className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors text-sm"
+                  className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm"
                 >
                   About Us
                 </button>
@@ -111,7 +111,7 @@ export function MarketingFooter() {
               <li>
                 <button
                   onClick={() => handleNavigate("/contact")}
-                  className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors text-sm"
+                  className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm"
                 >
                   Contact
                 </button>
@@ -119,7 +119,7 @@ export function MarketingFooter() {
               <li>
                 <a
                   href="#"
-                  className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors text-sm"
+                  className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm"
                 >
                   Privacy Policy
                 </a>
@@ -127,7 +127,7 @@ export function MarketingFooter() {
               <li>
                 <a
                   href="#"
-                  className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors text-sm"
+                  className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm"
                 >
                   Terms of Service
                 </a>

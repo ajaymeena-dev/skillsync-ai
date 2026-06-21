@@ -52,7 +52,7 @@ const getStatusConfig = (status) => {
     shortlisted: {
       label: "Shortlisted",
       icon: UserCheck,
-      color: "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-400",
+      color: "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-400",
     },
     rejected: {
       label: "Rejected",
@@ -270,7 +270,7 @@ export function CandidateProfile() {
               {application.coverLetter && (
                 <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 p-5 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
-                    <MessageSquare className="w-5 h-5 text-purple-500" />
+                    <MessageSquare className="w-5 h-5 text-indigo-500" />
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Cover Letter</h2>
                   </div>
                   <p className={`text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap ${!showFullCoverLetter ? 'line-clamp-4' : ''}`}>
@@ -279,7 +279,7 @@ export function CandidateProfile() {
                   {application.coverLetter.length > 200 && (
                     <button
                       onClick={() => setShowFullCoverLetter(!showFullCoverLetter)}
-                      className="mt-3 px-4 py-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 dark:bg-purple-900/50 dark:hover:bg-purple-900/70 dark:text-purple-300 text-sm font-semibold rounded-full transition-all duration-200 focus:outline-none shadow-sm inline-block"
+                      className="mt-3 px-4 py-1.5 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 dark:bg-indigo-900/50 dark:hover:bg-indigo-900/70 dark:text-indigo-300 text-sm font-semibold rounded-full transition-all duration-200 focus:outline-none shadow-sm inline-block"
                     >
                       {showFullCoverLetter ? "View Less" : "View More"}
                     </button>
@@ -294,7 +294,7 @@ export function CandidateProfile() {
               {candidate.bio && (
                 <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 p-5 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
-                    <User className="w-5 h-5 text-purple-500" />
+                    <User className="w-5 h-5 text-indigo-500" />
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">About</h2>
                   </div>
                   <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{candidate.bio}</p>
@@ -304,7 +304,7 @@ export function CandidateProfile() {
               {/* Skills */}
               <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 p-5 shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
-                  <Sparkles className="w-5 h-5 text-purple-500" />
+                  <Sparkles className="w-5 h-5 text-indigo-500" />
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Skills</h2>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -312,7 +312,7 @@ export function CandidateProfile() {
                     candidate.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 text-sm dark:bg-purple-900/30 dark:text-purple-400"
+                        className="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm dark:bg-indigo-900/30 dark:text-indigo-400"
                       >
                         {skill}
                       </span>
@@ -327,7 +327,7 @@ export function CandidateProfile() {
               {(candidate.socialLinks?.github || candidate.socialLinks?.linkedin || candidate.socialLinks?.portfolio) && (
                 <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 p-5 shadow-sm">
                   <div className="flex items-center gap-2 mb-4">
-                    <Globe className="w-5 h-5 text-purple-500" />
+                    <Globe className="w-5 h-5 text-indigo-500" />
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Social Profiles</h2>
                   </div>
                   <div className="space-y-3">
@@ -336,7 +336,7 @@ export function CandidateProfile() {
                         href={candidate.socialLinks.linkedin.startsWith("http") ? candidate.socialLinks.linkedin : `https://${candidate.socialLinks.linkedin}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 transition-colors"
+                        className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 transition-colors"
                       >
                         <Globe className="w-5 h-5 text-blue-600" />
                         <span className="truncate">{candidate.socialLinks.linkedin}</span>
@@ -347,7 +347,7 @@ export function CandidateProfile() {
                         href={candidate.socialLinks.github.startsWith("http") ? candidate.socialLinks.github : `https://${candidate.socialLinks.github}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 transition-colors"
+                        className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 transition-colors"
                       >
                         <Code className="w-5 h-5 text-gray-800 dark:text-gray-200" />
                         <span className="truncate">{candidate.socialLinks.github}</span>
@@ -358,9 +358,9 @@ export function CandidateProfile() {
                         href={candidate.socialLinks.portfolio.startsWith("http") ? candidate.socialLinks.portfolio : `https://${candidate.socialLinks.portfolio}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 transition-colors"
+                        className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 transition-colors"
                       >
-                        <ExternalLink className="w-5 h-5 text-purple-500" />
+                        <ExternalLink className="w-5 h-5 text-indigo-500" />
                         <span className="truncate">{candidate.socialLinks.portfolio}</span>
                       </a>
                     )}
@@ -403,8 +403,8 @@ export function CandidateProfile() {
                           onClick={() => handleStatusClick(status)}
                           disabled={isUpdating || isActive}
                           className={`px-3 py-2.5 rounded-xl text-sm font-semibold transition-all capitalize flex items-center justify-center gap-2 border ${isActive
-                            ? "bg-purple-600 border-purple-600 text-white shadow-md transform scale-[1.02]"
-                            : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-purple-300 dark:hover:border-purple-600 hover:text-purple-600 dark:hover:text-purple-400"
+                            ? "bg-indigo-600 border-indigo-600 text-white shadow-md transform scale-[1.02]"
+                            : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-indigo-300 dark:hover:border-indigo-600 hover:text-indigo-600 dark:hover:text-indigo-400"
                             }`}
                         >
                           {isUpdating && isPendingThis ? <Loader2 className="w-4 h-4 animate-spin" /> : status}
@@ -424,12 +424,12 @@ export function CandidateProfile() {
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder="Add notes about this candidate..."
-                    className="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:text-white resize-none"
+                    className="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:text-white resize-none"
                   />
                   <Button
                     onClick={handleSaveNotes}
                     disabled={!notes || isSavingNotes}
-                    className="bg-purple-600 hover:bg-purple-700 px-6 whitespace-nowrap"
+                    className="bg-indigo-600 hover:bg-indigo-700 px-6 whitespace-nowrap"
                   >
                     {isSavingNotes ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save"}
                   </Button>
@@ -443,12 +443,12 @@ export function CandidateProfile() {
               </div>
 
               {/* AI Analysis Card (Call to Action) */}
-              <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-5 text-white shadow-lg">
+              <div className="bg-gradient-to-r from-indigo-600 to-indigo-600 rounded-2xl p-5 text-white shadow-lg">
                 <div className="flex items-center gap-2 mb-3">
                   <Brain className="w-6 h-6" />
                   <h3 className="text-lg font-semibold">AI Deep Analysis</h3>
                 </div>
-                <p className="text-purple-100 text-sm mb-4">
+                <p className="text-indigo-100 text-sm mb-4">
                   Get AI-powered analysis of this candidate's fit for the role, including skill matching and recommendations.
                 </p>
                 <Button

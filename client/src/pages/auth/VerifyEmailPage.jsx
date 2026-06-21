@@ -133,40 +133,40 @@ const VerifyEmailPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900 p-6 relative overflow-hidden">
       {/* Animated background blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -mr-48 -mt-48 animate-pulse" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl -mr-48 -mt-48 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl -ml-48 -mb-48 animate-pulse delay-1000" />
 
       <div className="w-full max-w-md relative z-10">
         {/* Back button */}
         <button
           onClick={() => navigate("/auth")}
-          className="group mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:border-purple-300 dark:hover:border-purple-700 transition-all duration-200"
+          className="group mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:border-indigo-300 dark:hover:border-indigo-700 transition-all duration-200"
         >
-          <ArrowLeft className="w-4 h-4 text-gray-500 group-hover:text-purple-500 group-hover:-translate-x-0.5 transition-all" />
-          <span className="text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-purple-600">Back to sign in</span>
+          <ArrowLeft className="w-4 h-4 text-gray-500 group-hover:text-indigo-500 group-hover:-translate-x-0.5 transition-all" />
+          <span className="text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-indigo-600">Back to sign in</span>
         </button>
 
         {/* Glass card */}
         <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg rounded-2xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl overflow-hidden">
           {/* Header */}
           <div className="relative px-6 pt-8 pb-6 text-center border-b border-gray-200/50 dark:border-gray-800/50">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-indigo-600" />
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/50 dark:to-indigo-900/50 mb-4 shadow-md">
-              <Shield className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 to-indigo-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/50 dark:to-indigo-900/50 mb-4 shadow-md">
+              <Shield className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Verify Your Email</h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">We've sent a verification code to</p>
-            <p className="text-sm font-medium text-purple-600 dark:text-purple-400 mt-1">{email}</p>
+            <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mt-1">{email}</p>
           </div>
 
           {/* Content */}
           <div className="p-6">
             {/* Info box */}
-            <div className="bg-purple-50/50 dark:bg-purple-900/20 rounded-xl p-4 mb-6 flex items-start gap-3 border border-purple-100 dark:border-purple-800/30">
-              <Mail className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+            <div className="bg-indigo-50/50 dark:bg-indigo-900/20 rounded-xl p-4 mb-6 flex items-start gap-3 border border-indigo-100 dark:border-indigo-800/30">
+              <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
               <div className="text-sm">
-                <p className="font-medium text-purple-700 dark:text-purple-300 mb-1">Can't find the email?</p>
-                <p className="text-purple-600 dark:text-purple-400">Check your spam folder or click "Resend Code" below.</p>
+                <p className="font-medium text-indigo-700 dark:text-indigo-300 mb-1">Can't find the email?</p>
+                <p className="text-indigo-600 dark:text-indigo-400">Check your spam folder or click "Resend Code" below.</p>
               </div>
             </div>
 
@@ -188,7 +188,7 @@ const VerifyEmailPage = () => {
                       value={digit}
                       onChange={(e) => handleOtpChange(index, e.target.value)}
                       onKeyDown={(e) => handleKeyDown(index, e)}
-                      className="w-12 h-14 sm:w-14 sm:h-16 text-center text-2xl font-bold bg-white dark:bg-gray-800/50 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-xl focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition-all"
+                      className="w-12 h-14 sm:w-14 sm:h-16 text-center text-2xl font-bold bg-white dark:bg-gray-800/50 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
                       autoComplete="off"
                     />
                   ))}
@@ -229,7 +229,7 @@ const VerifyEmailPage = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting || otp.some((d) => !d)}
-                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all"
+                className="w-full bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center gap-2">
@@ -248,7 +248,7 @@ const VerifyEmailPage = () => {
                 <button
                   onClick={handleResendCode}
                   disabled={isResending || resendCountdown > 0}
-                  className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 disabled:text-gray-400 dark:disabled:text-gray-500 disabled:cursor-not-allowed inline-flex items-center gap-2 text-sm font-medium transition-colors"
+                  className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 disabled:text-gray-400 dark:disabled:text-gray-500 disabled:cursor-not-allowed inline-flex items-center gap-2 text-sm font-medium transition-colors"
                 >
                   <RefreshCw className={`w-4 h-4 ${isResending ? "animate-spin" : ""}`} />
                   {resendCountdown > 0 ? `Resend code in ${resendCountdown}s` : "Resend verification code"}

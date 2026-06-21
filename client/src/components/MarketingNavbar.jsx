@@ -93,12 +93,12 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
             onClick={() => onNavigate("home")}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl blur-md opacity-40 group-hover:opacity-60 transition-opacity" />
-              <div className="relative w-9 h-9 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-600 rounded-xl blur-md opacity-40 group-hover:opacity-60 transition-opacity" />
+              <div className="relative w-9 h-9 bg-gradient-to-br from-indigo-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
                 <Sparkles className="w-5 h-5 text-white" strokeWidth={1.5} />
               </div>
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-700 to-indigo-700 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-indigo-700 to-indigo-700 dark:from-indigo-400 dark:to-indigo-400 bg-clip-text text-transparent">
               SkillSync AI
             </span>
           </div>
@@ -110,7 +110,7 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
                 key={link.id}
                 onClick={() => onNavigate(link.id)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${currentPage === link.id
-                    ? "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300"
+                    ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300"
                     : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
               >
@@ -160,9 +160,9 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
                 {dropdownOpen && (
                   <div className="absolute right-0 mt-3 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                     {/* User Info Section */}
-                    <div className="px-4 py-3 bg-gradient-to-r from-purple-50/50 to-indigo-50/50 dark:from-purple-900/20 dark:to-indigo-900/20 border-b border-gray-200 dark:border-gray-700">
+                    <div className="px-4 py-3 bg-gradient-to-r from-indigo-50/50 to-indigo-50/50 dark:from-indigo-900/20 dark:to-indigo-900/20 border-b border-gray-200 dark:border-gray-700">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full ring-2 ring-purple-400/40 overflow-hidden bg-gradient-to-br from-purple-100 to-indigo-100">
+                        <div className="w-10 h-10 rounded-full ring-2 ring-indigo-400/40 overflow-hidden bg-gradient-to-br from-indigo-100 to-indigo-100">
                           <OptimizedAvatar
                             src={avatarUrl}
                             alt={user.name}
@@ -184,9 +184,9 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
                           handleDashboard();
                           setDropdownOpen(false);
                         }}
-                        className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors group"
+                        className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-colors group"
                       >
-                        <LayoutDashboard className="w-4 h-4 text-purple-500 group-hover:scale-110 transition-transform" />
+                        <LayoutDashboard className="w-4 h-4 text-indigo-500 group-hover:scale-110 transition-transform" />
                         Dashboard
                       </button>
                       <button
@@ -212,7 +212,7 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
                 >
                   Log In
                 </Button>
-                <Button onClick={onGetStarted} className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all">
+                <Button onClick={onGetStarted} className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all">
                   Get Started
                 </Button>
               </>
@@ -239,7 +239,7 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
                   setMenuOpen(false);
                 }}
                 className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${currentPage === link.id
-                    ? "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300"
+                    ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300"
                     : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
               >
@@ -267,7 +267,7 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
               {isAuthenticated && user ? (
                 <>
                   <div className="flex items-center gap-3 px-4 py-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
-                    <div className="w-8 h-8 rounded-full ring-2 ring-purple-500/30 overflow-hidden bg-gradient-to-br from-purple-100 to-indigo-100">
+                    <div className="w-8 h-8 rounded-full ring-2 ring-indigo-500/30 overflow-hidden bg-gradient-to-br from-indigo-100 to-indigo-100">
                       <OptimizedAvatar
                         src={avatarUrl}
                         alt={user.name}
@@ -286,7 +286,7 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
                       handleDashboard();
                       setMenuOpen(false);
                     }}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-gradient-to-r from-indigo-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300"
                   >
                     <LayoutDashboard className="w-4 h-4" />
                     Go to Dashboard
@@ -311,7 +311,7 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
                   >
                     Log In
                   </Button>
-                  <Button onClick={onGetStarted} className="w-full justify-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+                  <Button onClick={onGetStarted} className="w-full justify-center bg-gradient-to-r from-indigo-600 to-indigo-600 text-white">
                     Get Started
                   </Button>
                 </>

@@ -27,6 +27,7 @@ import { Button } from "./Button";
 import { Badge } from "./Badge";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/auth/authSlice";
+import { createPortal } from "react-dom";
 
 export function JobFormModal({
   isOpen,
@@ -216,7 +217,9 @@ export function JobFormModal({
     <Briefcase className="w-4 h-4 mr-2" />
   );
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <>
       {/* Backdrop */}
       <div
@@ -234,7 +237,7 @@ export function JobFormModal({
                 className={`w-11 h-11 rounded-xl bg-gradient-to-br flex items-center justify-center shadow-lg ${
                   isEditMode
                     ? "from-amber-500 to-orange-600 shadow-amber-500/20"
-                    : "from-purple-600 to-indigo-600 shadow-purple-500/20"
+                    : "from-indigo-600 to-indigo-600 shadow-indigo-500/20"
                 }`}
               >
                 {isEditMode ? (
@@ -268,8 +271,8 @@ export function JobFormModal({
             {/* Section 1: Basic Information */}
             <div className="space-y-5">
               <div className="flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-800">
-                <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                  <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <div className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+                  <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">
                   Basic Information
@@ -296,8 +299,8 @@ export function JobFormModal({
                     className={`w-full px-4 py-2.5 rounded-xl border ${
                       errors.title
                         ? "border-red-500 focus:ring-red-500/20"
-                        : "border-gray-200 dark:border-gray-700 focus:border-purple-500"
-                    } bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-200`}
+                        : "border-gray-200 dark:border-gray-700 focus:border-indigo-500"
+                    } bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200`}
                   />
                   {errors.title && (
                     <p className="text-xs text-red-500 flex items-center gap-1">
@@ -322,7 +325,7 @@ export function JobFormModal({
                       },
                     })}
                     placeholder="TechCorp Inc."
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200"
                   />
                   {errors.company && (
                     <p className="text-xs text-red-500 flex items-center gap-1">
@@ -344,7 +347,7 @@ export function JobFormModal({
                       required: "Location is required",
                     })}
                     placeholder="San Francisco, CA"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200"
                   />
                   {errors.location && (
                     <p className="text-xs text-red-500 flex items-center gap-1">
@@ -436,13 +439,13 @@ export function JobFormModal({
                       {...register("salaryMin")}
                       type="number"
                       placeholder="Min"
-                      className="w-full px-3 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 text-center"
+                      className="w-full px-3 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-center"
                     />
                     <input
                       {...register("salaryMax")}
                       type="number"
                       placeholder="Max"
-                      className="w-full px-3 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 text-center"
+                      className="w-full px-3 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-center"
                     />
                   </div>
                 </div>
@@ -471,8 +474,8 @@ export function JobFormModal({
             {/* Section 2: Job Description */}
             <div className="space-y-4">
               <div className="flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-800">
-                <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                  <FileText className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <div className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+                  <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">
                   Job Description
@@ -493,8 +496,8 @@ export function JobFormModal({
                 className={`w-full px-4 py-3 rounded-xl border ${
                   errors.description
                     ? "border-red-500 focus:ring-red-500/20"
-                    : "border-gray-200 dark:border-gray-700 focus:border-purple-500"
-                } bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white resize-none focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-200`}
+                    : "border-gray-200 dark:border-gray-700 focus:border-indigo-500"
+                } bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200`}
               />
               {errors.description && (
                 <p className="text-xs text-red-500 flex items-center gap-1">
@@ -507,8 +510,8 @@ export function JobFormModal({
             {/* Section 3: Required Skills */}
             <div className="space-y-4">
               <div className="flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-800">
-                <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                  <Award className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <div className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+                  <Award className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">
                   Required Skills
@@ -530,7 +533,7 @@ export function JobFormModal({
                   <Badge
                     key={field.id}
                     variant="primary"
-                    className="gap-1.5 px-3 py-1.5 text-sm bg-purple-100 text-purple-700 border-purple-200"
+                    className="gap-1.5 px-3 py-1.5 text-sm bg-indigo-100 text-indigo-700 border-indigo-200"
                   >
                     {field.value}
                     <button
@@ -653,7 +656,7 @@ export function JobFormModal({
                   className={`flex-1 order-1 sm:order-2 h-11 ${
                     isEditMode
                       ? "bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 shadow-amber-500/25"
-                      : "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-purple-500/25"
+                      : "bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 shadow-indigo-500/25"
                   }`}
                 >
                   {submitIcon}
@@ -708,7 +711,8 @@ export function JobFormModal({
           animation-name: zoom-in;
         }
       `}</style>
-    </>
+    </>,
+    document.body
   );
 }
 
@@ -746,7 +750,7 @@ function SkillInput({ onAdd, placeholder }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder={placeholder}
-          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200"
+          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200"
         />
       </div>
       <Button
@@ -785,7 +789,7 @@ function CustomDropdown({ value, options, onChange, placeholder, className = "" 
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200 flex items-center justify-between text-left ${className}`}
+        className={`w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200 flex items-center justify-between text-left ${className}`}
       >
         <span className={selectedOption ? "" : "text-gray-500"}>
           {selectedOption ? selectedOption.label : placeholder}
@@ -816,13 +820,13 @@ function CustomDropdown({ value, options, onChange, placeholder, className = "" 
                 }}
                 className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-left transition-all ${
                   value === opt.value
-                    ? "text-purple-600 dark:text-purple-400 font-semibold bg-purple-50 dark:bg-purple-900/20"
+                    ? "text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-900/20"
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50"
                 }`}
               >
                 <span>{opt.label}</span>
                 {value === opt.value && (
-                  <div className="ml-auto w-1.5 h-1.5 rounded-full bg-purple-500" />
+                  <div className="ml-auto w-1.5 h-1.5 rounded-full bg-indigo-500" />
                 )}
               </button>
             ))}

@@ -92,7 +92,7 @@ export function NotificationsPanel({ isOpen, onClose }) {
           >
             <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-2">
-            <Bell className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+            <Bell className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
             <h2 className="text-lg font-semibold">Notifications</h2>
           </div>
           <button
@@ -121,7 +121,7 @@ export function NotificationsPanel({ isOpen, onClose }) {
                 <Card
                   key={notification._id}
                   className={`p-4 cursor-pointer transition-colors dark:bg-gray-800 dark:border-gray-700 ${
-                    !notification.isRead ? "border-purple-200 bg-purple-50/50 dark:border-purple-900/50 dark:bg-purple-900/20" : ""
+                    !notification.isRead ? "border-indigo-200 bg-indigo-50/50 dark:border-indigo-900/50 dark:bg-indigo-900/20" : ""
                   }`}
                   hover
                   onClick={() => handleNotificationClick(notification)}
@@ -130,7 +130,7 @@ export function NotificationsPanel({ isOpen, onClose }) {
                     <div
                       className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
                         !notification.isRead
-                          ? "bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400"
+                          ? "bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400"
                           : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
                       }`}
                     >
@@ -142,7 +142,7 @@ export function NotificationsPanel({ isOpen, onClose }) {
                           {notification.title}
                         </h3>
                         {!notification.isRead && (
-                          <div className="w-2 h-2 bg-purple-600 dark:bg-purple-500 rounded-full flex-shrink-0 mt-1.5" />
+                          <div className="w-2 h-2 bg-indigo-600 dark:bg-indigo-500 rounded-full flex-shrink-0 mt-1.5" />
                         )}
                       </div>
                       <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
@@ -157,7 +157,7 @@ export function NotificationsPanel({ isOpen, onClose }) {
                         <button
                           onClick={(e) => handleMarkRead(e, notification._id)}
                           disabled={markingId === notification._id}
-                          className="p-1.5 text-gray-400 hover:text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-md transition-colors disabled:opacity-50"
+                          className="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-md transition-colors disabled:opacity-50"
                           title="Mark as read"
                         >
                           {markingId === notification._id ? (

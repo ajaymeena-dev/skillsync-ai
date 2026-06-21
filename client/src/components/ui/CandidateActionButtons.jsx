@@ -30,7 +30,7 @@ export function CandidateActionButtons({ candidate, onViewProfile }) {
           size="sm"
           variant="outline"
           onClick={handleEmail}
-          className="gap-2 text-sm flex-1 sm:flex-none border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 hover:bg-purple-50 hover:text-purple-800 dark:hover:bg-purple-900/30 dark:hover:text-purple-200"
+          className="gap-2 text-sm flex-1 sm:flex-none border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 hover:text-indigo-800 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-200"
         >
           <Mail className="w-4 h-4" />
           Email
@@ -52,7 +52,7 @@ export function CandidateActionButtons({ candidate, onViewProfile }) {
       <Button
         size="sm"
         onClick={handleProfile}
-        className="gap-1.5 text-sm flex-1 sm:flex-none bg-purple-600 hover:bg-purple-700 text-white shadow-sm"
+        className="gap-1.5 text-sm flex-1 sm:flex-none bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm"
       >
         <Eye className="w-4 h-4" />
         View Profile

@@ -97,10 +97,10 @@ export function AboutPage() {
     { name: "Express.js", icon: "🚂", color: "from-gray-500 to-gray-700" },
     { name: "MongoDB", icon: "🍃", color: "from-green-600 to-emerald-600" },
     { name: "Tailwind CSS", icon: "🎨", color: "from-sky-500 to-blue-500" },
-    { name: "Redux Toolkit", icon: "🔄", color: "from-purple-500 to-pink-500" },
-    { name: "RTK Query", icon: "⚡", color: "from-indigo-500 to-purple-500" },
+    { name: "Redux Toolkit", icon: "🔄", color: "from-indigo-500 to-pink-500" },
+    { name: "RTK Query", icon: "⚡", color: "from-indigo-500 to-indigo-500" },
     { name: "JWT Auth", icon: "🔐", color: "from-amber-500 to-orange-500" },
-    { name: "Gemini AI", icon: "🧠", color: "from-purple-600 to-indigo-600" },
+    { name: "Gemini AI", icon: "🧠", color: "from-indigo-600 to-indigo-600" },
   ];
 
   const features = [
@@ -139,13 +139,13 @@ export function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
       {/* Ambient background for light mode glass effect */}
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-purple-200/40 dark:bg-purple-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden pt-16 pb-12 sm:pt-24 sm:pb-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-indigo-500/10" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -156,7 +156,7 @@ export function AboutPage() {
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
             Built to Solve
             <br />
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               Real Career Challenges
             </span>
           </h1>
@@ -194,7 +194,7 @@ export function AboutPage() {
               return (
                 <Card
                   key={i}
-                  className="p-6 text-center group hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none"
+                  className="p-6 text-center group hover:shadow-2xl transition-all duration-300 border border-white/60 dark:border-indigo-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none"
                 >
                   <div
                     className={`w-14 h-14 rounded-xl bg-gradient-to-r ${problem.color} flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-110 transition-transform`}
@@ -231,11 +231,11 @@ export function AboutPage() {
               return (
                 <div
                   key={i}
-                  className="flex gap-3 p-4 rounded-xl border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                  className="flex gap-3 p-4 rounded-xl border border-white/60 dark:border-indigo-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                    <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                     </div>
                   </div>
                   <div>
@@ -268,7 +268,7 @@ export function AboutPage() {
             {techStack.map((tech, i) => (
               <div
                 key={i}
-                className="bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl rounded-xl p-4 text-center border border-white/60 dark:border-purple-900/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                className="bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl rounded-xl p-4 text-center border border-white/60 dark:border-indigo-900/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
                 <div
                   className={`text-3xl mb-2 bg-gradient-to-r ${tech.color} bg-clip-text text-transparent`}
@@ -301,7 +301,7 @@ export function AboutPage() {
               return (
                 <div
                   key={i}
-                  className="flex gap-3 p-4 rounded-xl border border-white/60 dark:border-purple-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                  className="flex gap-3 p-4 rounded-xl border border-white/60 dark:border-indigo-900/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex-shrink-0">
                     <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
@@ -326,12 +326,12 @@ export function AboutPage() {
       {/* Project Vision Card */}
       <div className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="p-8 md:p-12 relative overflow-hidden border border-purple-100 dark:border-purple-900/50 bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl shadow-xl">
+          <Card className="p-8 md:p-12 relative overflow-hidden border border-indigo-100 dark:border-indigo-900/50 bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl shadow-xl">
             {/* Background glowing orbs */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -z-10" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
             <div className="max-w-3xl mx-auto text-center">
-              <Brain className="w-16 h-16 text-purple-600 dark:text-purple-400 mx-auto mb-6" />
+              <Brain className="w-16 h-16 text-indigo-600 dark:text-indigo-400 mx-auto mb-6" />
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Project Vision
               </h2>
@@ -365,7 +365,7 @@ export function AboutPage() {
       {/* CTA Section */}
       <div className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="relative overflow-hidden p-12 text-center border border-purple-100 dark:border-purple-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
+          <Card className="relative overflow-hidden p-12 text-center border border-indigo-100 dark:border-indigo-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
             {/* Background glowing orbs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -z-10" />
@@ -381,14 +381,14 @@ export function AboutPage() {
                 <Button
                   onClick={() => navigate(isAuthenticated ? "/app/dashboard" : "/auth")}
                   size="lg"
-                  className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 border-transparent gap-2"
+                  className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 border-transparent gap-2"
                 >
                   {isAuthenticated ? "Enter Workspace" : "Join SkillSync AI"} <ArrowRight className="w-5 h-5 ml-1" />
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800/50 dark:text-purple-300 dark:hover:bg-purple-900/20 hover:scale-105 transition-all duration-300 gap-2"
+                  className="border-indigo-200 text-indigo-700 hover:bg-indigo-50 dark:border-indigo-800/50 dark:text-indigo-300 dark:hover:bg-indigo-900/20 hover:scale-105 transition-all duration-300 gap-2"
                   onClick={() => window.open(contactInfo.socialLinks.github.url, "_blank")}
                 >
                   <GitBranch className="w-5 h-5 mr-1" />

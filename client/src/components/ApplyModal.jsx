@@ -5,6 +5,7 @@ import { Button } from "./Button";
 import { useApplyForJobMutation } from "../services/applicationApi";
 import { toast } from "sonner";
 import { AnimatePresence, motion } from "framer-motion";
+import { createPortal } from "react-dom";
 
 export function ApplyModal({ isOpen, onClose, job }) {
   const [applyForJob, { isLoading }] = useApplyForJobMutation();
@@ -35,7 +36,9 @@ export function ApplyModal({ isOpen, onClose, job }) {
     }
   };
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <>
@@ -43,17 +46,19 @@ export function ApplyModal({ isOpen, onClose, job }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
-            onClick={onClose}
-          />
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: "-50%", y: "-50%" }}
-            animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }}
-            exit={{ opacity: 0, scale: 0.95, x: "-50%", y: "-50%" }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-1/2 left-1/2 w-[calc(100%-2rem)] sm:w-full max-w-lg bg-white dark:bg-gray-800 rounded-2xl shadow-2xl z-50 overflow-hidden"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
+            <div 
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm" 
+              onClick={onClose} 
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-lg bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
+            >
             {/* Header */}
         <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
           <div>
@@ -74,14 +79,14 @@ export function ApplyModal({ isOpen, onClose, job }) {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="p-6 space-y-4">
             {/* Resume Info */}
-            <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4">
+            <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-4">
               <div className="flex items-start gap-3">
-                <FileText className="w-5 h-5 text-purple-600 mt-0.5" />
+                <FileText className="w-5 h-5 text-indigo-600 mt-0.5" />
                 <div>
-                  <p className="text-sm text-purple-700 dark:text-purple-300 font-medium">
+                  <p className="text-sm text-indigo-700 dark:text-indigo-300 font-medium">
                     Your resume will be submitted automatically
                   </p>
-                  <p className="text-xs text-purple-600 dark:text-purple-400 mt-0.5">
+                  <p className="text-xs text-indigo-600 dark:text-indigo-400 mt-0.5">
                     Make sure your resume is up to date
                   </p>
                 </div>
@@ -110,8 +115,8 @@ export function ApplyModal({ isOpen, onClose, job }) {
                 className={`w-full px-4 py-3 rounded-xl border ${
                   errors.coverLetter
                     ? "border-red-500 focus:ring-red-500/20"
-                    : "border-gray-200 dark:border-gray-700 focus:border-purple-500"
-                } bg-gray-50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 resize-none`}
+                    : "border-gray-200 dark:border-gray-700 focus:border-indigo-500"
+                } bg-gray-50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 resize-none`}
               />
               {errors.coverLetter && (
                 <p className="text-xs text-red-500 mt-1">
@@ -137,7 +142,7 @@ export function ApplyModal({ isOpen, onClose, job }) {
             <Button
               type="submit"
               isLoading={isLoading}
-              className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600"
+              className="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-600"
             >
               <Send className="w-4 h-4 mr-2" />
               Submit Application
@@ -145,8 +150,10 @@ export function ApplyModal({ isOpen, onClose, job }) {
           </div>
         </form>
           </motion.div>
+        </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

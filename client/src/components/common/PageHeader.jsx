@@ -11,14 +11,14 @@ export function PageHeader({
 }) {
   return (
     <div className={`text-center mb-4 ${className}`}>
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm mb-4">
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm mb-4">
         <Sparkles className="w-4 h-4" />
         <span>{badge}</span>
       </div>
       <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
         {title}{" "}
         {gradientText && (
-          <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
             {gradientText}
           </span>
         )}

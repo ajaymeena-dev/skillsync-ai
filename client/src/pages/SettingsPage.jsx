@@ -43,11 +43,11 @@ export function SettingsPage() {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Developer Access</h3>
             
             {user?.isDeveloper ? (
-              <div className="flex items-center gap-3 p-4 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-xl">
-                <CheckCircle2 className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <div className="flex items-center gap-3 p-4 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl">
+                <CheckCircle2 className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 <div>
-                  <p className="font-medium text-purple-900 dark:text-purple-300">Developer Account Active</p>
-                  <p className="text-sm text-purple-700/80 dark:text-purple-400/80">You have unlimited access to all AI features.</p>
+                  <p className="font-medium text-indigo-900 dark:text-indigo-300">Developer Account Active</p>
+                  <p className="text-sm text-indigo-700/80 dark:text-indigo-400/80">You have unlimited access to all AI features.</p>
                 </div>
               </div>
             ) : (
@@ -69,7 +69,7 @@ export function SettingsPage() {
                   <Button 
                     type="submit" 
                     disabled={isLoading || !adminKey.trim()}
-                    className="bg-purple-600 hover:bg-purple-700"
+                    className="bg-indigo-600 hover:bg-indigo-700"
                   >
                     {isLoading ? "Verifying..." : "Upgrade"}
                     {!isLoading && <ArrowRight className="w-4 h-4 ml-2" />}

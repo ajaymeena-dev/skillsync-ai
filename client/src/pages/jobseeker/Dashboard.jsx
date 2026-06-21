@@ -101,7 +101,7 @@ export function Dashboard() {
       value: goodMatches.toString(),
       icon: Briefcase,
       change: highMatches > 0 ? `+${highMatches}` : "",
-      color: "from-purple-500 to-indigo-600",
+      color: "from-indigo-500 to-indigo-600",
     },
     {
       label: "Skills Detected",
@@ -136,7 +136,7 @@ export function Dashboard() {
         time: getTimeAgo(app.createdAt),
         icon: Briefcase,
         color:
-          "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400",
+          "bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400",
       });
     });
 
@@ -192,7 +192,7 @@ export function Dashboard() {
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                <Briefcase className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Recommended for You
                 </h2>
@@ -202,7 +202,7 @@ export function Dashboard() {
                   variant="ghost"
                   size="sm"
                   onClick={() => navigate("/app/jobs")}
-                  className="text-purple-600 gap-1"
+                  className="text-indigo-600 gap-1"
                 >
                   View all <ChevronRight className="w-4 h-4" />
                 </Button>
@@ -225,7 +225,7 @@ export function Dashboard() {
                 action={
                   <Button
                     onClick={() => navigate("/app/jobs")}
-                    className="bg-gradient-to-r from-purple-600 to-indigo-600"
+                    className="bg-gradient-to-r from-indigo-600 to-indigo-600"
                   >
                     Browse Jobs
                   </Button>
@@ -252,7 +252,7 @@ export function Dashboard() {
             <ResumeUpload />
 
             {/* Pro Tips Card */}
-            <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white relative overflow-hidden shadow-lg">
+            <div className="bg-gradient-to-r from-indigo-600 to-indigo-600 rounded-2xl p-6 text-white relative overflow-hidden shadow-lg">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full -ml-12 -mb-12" />
               <div className="relative z-10">
@@ -281,7 +281,7 @@ export function Dashboard() {
             {hasResume && extractedSkills.length > 0 && (
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700/50 p-5 shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
-                  <Code className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <Code className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                   <h3 className="font-semibold text-gray-900 dark:text-white">
                     Your Top Skills
                   </h3>
@@ -307,7 +307,7 @@ export function Dashboard() {
             {/* Recent Activity */}
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700/50 p-5 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
-                <Clock className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                <Clock className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 <h3 className="font-semibold text-gray-900 dark:text-white">
                   Recent Activity
                 </h3>

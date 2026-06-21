@@ -36,7 +36,7 @@ const statusConfig = {
   },
   Reviewed: {
     icon: Eye,
-    color: "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-400 dark:border-purple-800",
+    color: "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-400 dark:border-indigo-800",
     label: "Reviewed",
   },
   Shortlisted: {
@@ -101,7 +101,7 @@ export function CandidateCard({
 
   const getMatchScoreColor = (score) => {
     if (score >= 80) return "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border-green-200 dark:border-green-800";
-    if (score >= 60) return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 border-purple-200 dark:border-purple-800";
+    if (score >= 60) return "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800";
     if (score >= 40) return "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border-amber-200 dark:border-amber-800";
     return "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 border-gray-200 dark:border-gray-700";
   };
@@ -144,11 +144,11 @@ export function CandidateCard({
     return (
       <div
         onClick={handleViewProfile}
-        className={`group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-800/50 p-3 hover:shadow-md hover:border-purple-300 dark:hover:border-purple-700 transition-all cursor-pointer ${className}`}
+        className={`group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-800/50 p-3 hover:shadow-md hover:border-indigo-300 dark:hover:border-indigo-700 transition-all cursor-pointer ${className}`}
       >
         <div className="flex items-center gap-3">
           <div className="relative flex-shrink-0">
-            <div className="w-10 h-10 rounded-full ring-2 ring-purple-500/30 dark:ring-purple-400/30 shadow-sm overflow-hidden">
+            <div className="w-10 h-10 rounded-full ring-2 ring-indigo-500/30 dark:ring-indigo-400/30 shadow-sm overflow-hidden">
               <OptimizedAvatar
                 src={candidate.avatar}
                 alt={name}
@@ -158,7 +158,7 @@ export function CandidateCard({
               />
             </div>
             {matchScore && (
-              <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center shadow-sm">
+              <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-600 flex items-center justify-center shadow-sm">
                 <span className="text-[10px] font-bold text-white">{matchScore}</span>
               </div>
             )}
@@ -187,7 +187,7 @@ export function CandidateCard({
             {/* Header: Avatar + Title + Match Badge */}
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full ring-2 ring-purple-500/30 dark:ring-purple-400/30 shadow-sm overflow-hidden flex-shrink-0">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full ring-2 ring-indigo-500/30 dark:ring-indigo-400/30 shadow-sm overflow-hidden flex-shrink-0">
                   <OptimizedAvatar
                     src={candidate.avatar}
                     alt={name}
@@ -197,7 +197,7 @@ export function CandidateCard({
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg hover:text-purple-600 transition-colors">
+                  <h4 className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg hover:text-indigo-600 transition-colors">
                     {name}
                   </h4>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{appliedFor}</p>
@@ -282,7 +282,7 @@ export function CandidateCard({
                   size="sm"
                   variant="outline"
                   onClick={() => setShowAIModal(true)}
-                  className="gap-1.5 border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/20"
+                  className="gap-1.5 border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
                 >
                   <Brain className="w-4 h-4" />
                   AI
@@ -396,7 +396,7 @@ function StatusDropdown({ status, statusConfig, isUpdating, onStatusChange }) {
                 >
                   {OptIcon && <OptIcon className="w-4 h-4" />}
                   <span>{opt}</span>
-                  {isSelected && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-purple-500" />}
+                  {isSelected && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-indigo-500" />}
                 </button>
               );
             })}

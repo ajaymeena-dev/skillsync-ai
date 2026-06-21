@@ -7,13 +7,13 @@ export function NotFoundPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 px-4 relative overflow-hidden">
       {/* Background blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -mr-48 -mt-48" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -mr-48 -mt-48" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -ml-48 -mb-48" />
 
       <div className="relative z-10 text-center max-w-lg w-full">
         {/* 404 number */}
         <div className="mb-4">
-          <span className="text-[120px] sm:text-[160px] font-black leading-none select-none bg-gradient-to-br from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+          <span className="text-[120px] sm:text-[160px] font-black leading-none select-none bg-gradient-to-br from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
             404
           </span>
         </div>
@@ -21,10 +21,10 @@ export function NotFoundPage() {
         {/* Card */}
         <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg rounded-2xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl p-8">
           {/* Top accent bar */}
-          <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r from-purple-600 to-indigo-600" />
+          <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r from-indigo-600 to-indigo-600" />
 
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/40 dark:to-indigo-900/40 flex items-center justify-center mx-auto mb-4">
-            <Search className="w-7 h-7 text-purple-600 dark:text-purple-400" />
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-100 dark:from-indigo-900/40 dark:to-indigo-900/40 flex items-center justify-center mx-auto mb-4">
+            <Search className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
           </div>
 
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -45,7 +45,7 @@ export function NotFoundPage() {
             </button>
             <button
               onClick={() => navigate("/")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-sm font-medium shadow-md hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white text-sm font-medium shadow-md hover:shadow-lg transition-all"
             >
               <Home className="w-4 h-4" />
               Go Home

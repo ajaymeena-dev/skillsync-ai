@@ -22,16 +22,16 @@ export function Button({
 
   const variants = {
     default:
-      "bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 shadow-md hover:shadow-lg hover:shadow-purple-500/20 dark:shadow-purple-900/30 dark:hover:shadow-purple-700/40 active:scale-[0.98]",
+      "bg-gradient-to-r from-indigo-600 to-indigo-600 text-white hover:from-indigo-700 hover:to-indigo-700 shadow-md hover:shadow-lg hover:shadow-indigo-500/20 dark:shadow-indigo-900/30 dark:hover:shadow-indigo-700/40 active:scale-[0.98]",
     primary:
-      "bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 shadow-md hover:shadow-lg hover:shadow-purple-500/20 dark:shadow-purple-900/30 dark:hover:shadow-purple-700/40 active:scale-[0.98]",
+      "bg-gradient-to-r from-indigo-600 to-indigo-600 text-white hover:from-indigo-700 hover:to-indigo-700 shadow-md hover:shadow-lg hover:shadow-indigo-500/20 dark:shadow-indigo-900/30 dark:hover:shadow-indigo-700/40 active:scale-[0.98]",
     secondary:
       "bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 shadow-md hover:shadow-lg active:scale-[0.98]",
     outline:
-      "border-2 border-purple-500/60 text-purple-600 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm hover:bg-purple-600 hover:text-white hover:border-purple-600 dark:border-purple-400/50 dark:text-purple-400 dark:hover:bg-purple-600 dark:hover:text-white dark:hover:border-purple-500 transition-all active:scale-[0.98]",
+      "border-2 border-indigo-500/60 text-indigo-600 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm hover:bg-indigo-600 hover:text-white hover:border-indigo-600 dark:border-indigo-400/50 dark:text-indigo-400 dark:hover:bg-indigo-600 dark:hover:text-white dark:hover:border-indigo-500 transition-all active:scale-[0.98]",
     ghost:
       "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700/60 dark:hover:text-white transition-all active:scale-[0.98]",
-    link: "text-purple-600 underline-offset-4 hover:underline dark:text-purple-400 p-0 h-auto",
+    link: "text-indigo-600 underline-offset-4 hover:underline dark:text-indigo-400 p-0 h-auto",
     success:
       "bg-gradient-to-r from-emerald-500 to-green-600 text-white hover:from-emerald-600 hover:to-green-700 shadow-md hover:shadow-lg active:scale-[0.98]",
     danger:

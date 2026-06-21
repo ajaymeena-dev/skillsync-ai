@@ -17,6 +17,7 @@ import {
   Moon,
   Sun,
   ChevronRight,
+  X,
 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useGetNotificationsQuery } from "../services/notificationApi";
@@ -166,15 +167,15 @@ export function Sidebar({
   };
 
   const lightGradient =
-    "bg-gradient-to-br from-[#5B2C8F] via-[#7C3AED] to-[#A855F7]";
+    "bg-gradient-to-br from-[#1e1b4b] via-[#312e81] to-[#4338ca]";
   const darkGradient =
     "dark:bg-gradient-to-br dark:from-[#0F0F1A] dark:via-[#1A1A2E] dark:to-[#16213E]";
 
   const sidebarWidthClass = isDesktop
     ? isMinimized
-      ? "w-[280px] sm:w-[320px] lg:w-[80px]"
-      : "w-[280px] sm:w-[320px] lg:w-[280px]"
-    : "w-[280px] sm:w-[320px]";
+      ? "w-full lg:w-[80px]"
+      : "w-full lg:w-[280px]"
+    : "w-full";
 
   return (
     <>
@@ -199,15 +200,16 @@ export function Sidebar({
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl" />
         </div>
 
-        {/* Logo Section */}
+        {/* Header Section */}
         <div
           className={`relative px-5 py-6 border-b border-white/10 dark:border-white/5 transition-all duration-300 ${isMinimized && isDesktop ? "lg:px-4" : ""}`}
         >
-          <div className="flex items-center gap-3">
+          {/* Desktop Logo */}
+          <div className="hidden lg:flex items-center gap-3">
             <div className="relative group">
               <div className="absolute inset-0 bg-white rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
               <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm flex items-center justify-center shadow-lg">
@@ -230,6 +232,41 @@ export function Sidebar({
               </p>
             </div>
           </div>
+
+          {/* Mobile User Profile Header */}
+          <div className="lg:hidden flex items-center gap-4 w-full justify-between">
+            <div className="flex items-center gap-4 flex-1 overflow-hidden">
+              <div className="relative w-12 h-12 flex-shrink-0 rounded-full ring-2 ring-white/20 p-0.5">
+                <div className="w-full h-full rounded-full overflow-hidden shadow-lg">
+                  <OptimizedAvatar
+                    src={getAvatarUrl()}
+                    alt={user?.name}
+                    fallbackText={getInitials()}
+                    className="w-full h-full text-base font-bold"
+                    size={100}
+                  />
+                </div>
+                <div className="absolute bottom-0.5 right-0.5 w-3 h-3 bg-emerald-500 rounded-full ring-2 ring-[#1e1b4b] shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+              </div>
+              <div className="flex-1 overflow-hidden">
+                <p className="text-base font-bold text-white truncate whitespace-nowrap tracking-tight drop-shadow-md">
+                  {user?.name || "Guest User"}
+                </p>
+                <div className="text-[11px] font-medium text-indigo-200/90 uppercase tracking-wider mt-1 flex items-center gap-1.5 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                  {isRecruiter ? "Recruiter" : "Job Seeker"}
+                </div>
+              </div>
+            </div>
+            
+            {/* Close Button for Full Width Mobile Sidebar */}
+            <button
+              onClick={onClose}
+              className="p-2 -mr-2 rounded-xl text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
         {/* Modern Minimize Control */}
@@ -240,9 +277,9 @@ export function Sidebar({
               className="group relative flex items-center justify-center w-5 h-16 rounded-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-md border border-white/40 dark:border-gray-700/80 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
               <div className="flex flex-col gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400 transition-all duration-300 dot-1" />
-                <div className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400 transition-all duration-300 dot-2" />
-                <div className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400 transition-all duration-300 dot-3" />
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 transition-all duration-300 dot-1" />
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 transition-all duration-300 dot-2" />
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 transition-all duration-300 dot-3" />
               </div>
               <div className="absolute right-full mr-3 px-2.5 py-1.5 rounded-lg bg-gray-900 text-white text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none shadow-lg">
                 {isMinimized ? "Expand sidebar" : "Collapse sidebar"}
@@ -277,7 +314,7 @@ export function Sidebar({
                   className={`
                     relative flex items-center gap-3 rounded-xl transition-all duration-300 group
                     ${isActive
-                      ? "bg-gradient-to-r from-purple-500/40 to-indigo-500/40 backdrop-blur-md text-white font-medium shadow-[0_0_15px_rgba(168,85,247,0.3)] border border-white/20"
+                      ? "bg-gradient-to-r from-indigo-500/40 to-indigo-500/40 backdrop-blur-md text-white font-medium shadow-[0_0_15px_rgba(168,85,247,0.3)] border border-white/20"
                       : "text-white/60 hover:bg-white/10 hover:text-white border border-transparent"
                     }
                     ${isMinimized && isDesktop ? "lg:w-11 lg:h-11 lg:p-0 lg:justify-center mx-auto" : "w-full px-3 py-2.5"}
@@ -315,10 +352,10 @@ export function Sidebar({
         <div
           className={`relative px-3 py-5 border-t border-white/10 dark:border-white/5 mt-auto space-y-1.5 transition-all duration-300 ${isMinimized && isDesktop ? "lg:px-2" : ""}`}
         >
-          {/* User Profile Section */}
+          {/* User Profile Section (Desktop Only) */}
           <div
             className={`
-            flex items-center px-3 py-2 mb-4 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg
+            hidden lg:flex items-center px-3 py-2 mb-4 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg
             ${isMinimized && isDesktop ? "lg:justify-center lg:px-2 lg:gap-0 gap-3 rounded-full lg:w-14 lg:h-14 lg:p-0 mx-auto" : "gap-3 rounded-xl"}
           `}
           >

@@ -68,7 +68,7 @@ export function AuthenticatedLayout() {
       {/* Simple, elegant background – no ugly grid, no weird icons */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         {/* Soft blur circles – minimal and modern */}
-        <div className="absolute top-0 -left-40 w-96 h-96 bg-purple-100/40 dark:bg-purple-500/10 rounded-full blur-3xl transform-gpu will-change-transform" />
+        <div className="absolute top-0 -left-40 w-96 h-96 bg-indigo-100/40 dark:bg-indigo-500/10 rounded-full blur-3xl transform-gpu will-change-transform" />
         <div className="absolute bottom-0 -right-40 w-96 h-96 bg-indigo-100/40 dark:bg-indigo-500/10 rounded-full blur-3xl transform-gpu will-change-transform" />
       </div>
 

@@ -20,7 +20,7 @@ export function ConfirmationModal({
       case "hired":
         return "bg-emerald-600 hover:bg-emerald-700";
       case "shortlisted":
-        return "bg-purple-600 hover:bg-purple-700";
+        return "bg-indigo-600 hover:bg-indigo-700";
       default:
         return "bg-blue-600 hover:bg-blue-700";
     }
@@ -36,17 +36,19 @@ export function ConfirmationModal({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-md z-[9999]"
-            onClick={onClose}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: "-50%", y: "-50%" }}
-            animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }}
-            exit={{ opacity: 0, scale: 0.95, x: "-50%", y: "-50%" }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-1/2 left-1/2 w-full max-w-md z-[10000] px-4"
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
           >
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-white/10">
+            <div 
+              className="absolute inset-0 bg-black/60 backdrop-blur-md" 
+              onClick={onClose} 
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-white/10"
+            >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -85,7 +87,7 @@ export function ConfirmationModal({
                   </Button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </>
       )}

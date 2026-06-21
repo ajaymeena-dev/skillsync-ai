@@ -148,13 +148,13 @@ export function JobsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Hero Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm mb-4 dark:bg-purple-900/30 dark:text-purple-400">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-600 text-sm mb-4 dark:bg-indigo-900/30 dark:text-indigo-400">
             <Sparkles className="w-4 h-4" />
             <span>AI-Powered Matches</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 dark:text-white">
             Find Your{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               Dream Job
             </span>
           </h1>
@@ -174,13 +174,13 @@ export function JobsPage() {
                 placeholder="Search by job title, company, or skills..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 bg-gray-50/80 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20 rounded-xl text-gray-900 dark:text-white"
+                className="w-full pl-12 bg-gray-50/80 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500/20 rounded-xl text-gray-900 dark:text-white"
               />
             </div>
             <div className="flex gap-3">
               <Button
                 onClick={() => refetch()}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 px-8 shadow-md hover:shadow-lg transition-all"
+                className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 px-8 shadow-md hover:shadow-lg transition-all"
               >
                 <Search className="w-4 h-4 mr-2" />
                 Search
@@ -188,12 +188,12 @@ export function JobsPage() {
               <Button
                 variant="outline"
                 onClick={() => setShowFilters(!showFilters)}
-                className="gap-2 relative border-gray-200 dark:border-gray-700 hover:border-purple-200 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/30"
+                className="gap-2 relative border-gray-200 dark:border-gray-700 hover:border-indigo-200 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
               >
                 <Filter className="w-4 h-4" />
                 Filters
                 {activeFilterCount > 0 && (
-                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-purple-600 text-white text-xs rounded-full flex items-center justify-center shadow-md">
+                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-indigo-600 text-white text-xs rounded-full flex items-center justify-center shadow-md">
                     {activeFilterCount}
                   </span>
                 )}
@@ -207,11 +207,11 @@ export function JobsPage() {
               {searchTerm && (
                 <Badge
                   variant="secondary"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
                 >
                   <Search className="w-3 h-3" />
                   <span>{searchTerm}</span>
-                  <button onClick={() => setSearchTerm("")} className="hover:text-purple-900">
+                  <button onClick={() => setSearchTerm("")} className="hover:text-indigo-900">
                     <X className="w-3 h-3" />
                   </button>
                 </Badge>
@@ -219,7 +219,7 @@ export function JobsPage() {
               {filters.location && (
                 <Badge
                   variant="secondary"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
                 >
                   <MapPin className="w-3 h-3" />
                   <span>{filters.location}</span>
@@ -231,7 +231,7 @@ export function JobsPage() {
               {filters.experienceLevel && (
                 <Badge
                   variant="secondary"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
                 >
                   <Clock className="w-3 h-3" />
                   <span>{filters.experienceLevel}</span>
@@ -244,7 +244,7 @@ export function JobsPage() {
                 <Badge
                   key={type}
                   variant="secondary"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
                 >
                   <Briefcase className="w-3 h-3" />
                   <span>{type.replace("-", " ")}</span>
@@ -255,7 +255,7 @@ export function JobsPage() {
               ))}
               <button
                 onClick={resetFilters}
-                className="text-sm text-gray-500 hover:text-purple-600 transition-colors ml-auto"
+                className="text-sm text-gray-500 hover:text-indigo-600 transition-colors ml-auto"
               >
                 Clear all
               </button>
@@ -269,7 +269,7 @@ export function JobsPage() {
             <CardContent className="p-6 space-y-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <Filter className="w-5 h-5 text-purple-500" />
+                  <Filter className="w-5 h-5 text-indigo-500" />
                   Refine Your Search
                 </h3>
                 <button
@@ -386,7 +386,7 @@ export function JobsPage() {
                         onCheckedChange={(checked) =>
                           handleEmploymentTypeChange(type, checked === true)
                         }
-                        className="border-gray-300 dark:border-gray-600 data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                        className="border-gray-300 dark:border-gray-600 data-[state=checked]:bg-indigo-600 data-[state=checked]:border-indigo-600"
                       />
                       <label
                         htmlFor={`type-${type}`}
@@ -402,7 +402,7 @@ export function JobsPage() {
               <div className="flex gap-3 pt-4 border-t border-gray-200 dark:border-gray-800/60">
                 <Button
                   onClick={() => refetch()}
-                  className="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 shadow-sm hover:shadow-md"
+                  className="bg-gradient-to-r from-indigo-600 to-indigo-600 px-8 shadow-sm hover:shadow-md"
                 >
                   Apply Filters
                 </Button>
@@ -417,8 +417,8 @@ export function JobsPage() {
         {/* Results Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-              <Briefcase className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+            <div className="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+              <Briefcase className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
             </div>
             <p className="text-gray-600 dark:text-gray-300">
               <span className="font-semibold text-gray-900 dark:text-white">
@@ -443,9 +443,9 @@ export function JobsPage() {
 
         {/* Match Info Banner */}
         {hasResume && sortBy === "match" && processedJobs.length > 0 && (
-          <div className="p-3 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl flex items-center gap-2 border border-purple-100 dark:border-purple-800/50">
-            <TrendingUp className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-            <p className="text-sm text-purple-700 dark:text-purple-300">
+          <div className="p-3 bg-gradient-to-r from-indigo-50 to-indigo-50 dark:from-indigo-900/20 dark:to-indigo-900/20 rounded-xl flex items-center gap-2 border border-indigo-100 dark:border-indigo-800/50">
+            <TrendingUp className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+            <p className="text-sm text-indigo-700 dark:text-indigo-300">
               Jobs sorted by match percentage based on your resume skills.
               <span className="text-xs ml-2 opacity-75">Higher match = better fit</span>
             </p>
@@ -464,7 +464,7 @@ export function JobsPage() {
               <Button
                 variant="outline"
                 onClick={resetFilters}
-                className="border-purple-200 text-purple-600 dark:border-purple-700 dark:text-purple-300 dark:hover:bg-purple-900/30 hover:bg-purple-50"
+                className="border-indigo-200 text-indigo-600 dark:border-indigo-700 dark:text-indigo-300 dark:hover:bg-indigo-900/30 hover:bg-indigo-50"
               >
                 Clear all filters
               </Button>

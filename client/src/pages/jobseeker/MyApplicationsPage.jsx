@@ -66,8 +66,8 @@ export function MyApplicationsPage() {
       shortlisted: {
         label: "Shortlisted",
         icon: UserCheck,
-        color: "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-400",
-        gradient: "from-purple-500 to-indigo-500",
+        color: "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-400",
+        gradient: "from-indigo-500 to-indigo-500",
       },
       rejected: {
         label: "Not Selected",
@@ -130,7 +130,7 @@ export function MyApplicationsPage() {
       value: applications.length,
       icon: Briefcase,
       change: "",
-      color: "from-purple-500 to-indigo-500",
+      color: "from-indigo-500 to-indigo-500",
     },
     {
       label: "Pending Review",
@@ -164,8 +164,8 @@ export function MyApplicationsPage() {
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center py-16 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-800/50 shadow-sm">
-            <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:from-purple-900/30 dark:to-indigo-900/30">
-              <Briefcase className="w-10 h-10 text-purple-600 dark:text-purple-400" />
+            <div className="w-20 h-20 bg-gradient-to-br from-indigo-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:from-indigo-900/30 dark:to-indigo-900/30">
+              <Briefcase className="w-10 h-10 text-indigo-600 dark:text-indigo-400" />
             </div>
             <h3 className="text-xl font-medium text-gray-900 mb-2 dark:text-white">
               No applications yet
@@ -175,7 +175,7 @@ export function MyApplicationsPage() {
             </p>
             <Button
               onClick={() => navigate("/app/jobs")}
-              className="bg-gradient-to-r from-purple-600 to-indigo-600"
+              className="bg-gradient-to-r from-indigo-600 to-indigo-600"
             >
               Browse Jobs
               <ChevronRight className="w-4 h-4 ml-1" />
@@ -191,13 +191,13 @@ export function MyApplicationsPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Hero Header */}
         <div className="text-center mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm mb-4 dark:bg-purple-900/30 dark:text-purple-400">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-600 text-sm mb-4 dark:bg-indigo-900/30 dark:text-indigo-400">
             <Sparkles className="w-4 h-4" />
             <span>Application Tracker</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 dark:text-white">
             My{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               Applications
             </span>
           </h1>
@@ -233,12 +233,12 @@ export function MyApplicationsPage() {
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
                         {/* Company Avatar */}
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-all dark:from-purple-900/30 dark:to-indigo-900/30">
-                          <Building2 className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-100 to-indigo-100 flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-all dark:from-indigo-900/30 dark:to-indigo-900/30">
+                          <Building2 className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                         </div>
                         <div>
                           <div className="flex flex-wrap items-center gap-2 mb-1">
-                            <h3 className="font-semibold text-gray-900 text-lg group-hover:text-purple-600 transition-colors dark:text-white dark:group-hover:text-purple-400">
+                            <h3 className="font-semibold text-gray-900 text-lg group-hover:text-indigo-600 transition-colors dark:text-white dark:group-hover:text-indigo-400">
                               {job?.title || "Job not found"}
                             </h3>
                             <div
@@ -255,9 +255,9 @@ export function MyApplicationsPage() {
                       </div>
 
                       {/* Match Score Badge */}
-                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-full shadow-sm self-start dark:from-purple-900/20 dark:to-indigo-900/20">
-                        <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
-                        <span className="text-xs font-semibold text-purple-700 dark:text-purple-400">
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-indigo-50 to-indigo-50 rounded-full shadow-sm self-start dark:from-indigo-900/20 dark:to-indigo-900/20">
+                        <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                        <span className="text-xs font-semibold text-indigo-700 dark:text-indigo-400">
                           Match Score: {application.matchScore}%
                         </span>
                       </div>
@@ -291,7 +291,7 @@ export function MyApplicationsPage() {
                     {application.coverLetter && (
                       <div className="mt-2 p-4 rounded-xl bg-gray-50/50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700">
                         <div className="flex items-center gap-2 mb-2">
-                          <FileText className="w-4 h-4 text-purple-500" />
+                          <FileText className="w-4 h-4 text-indigo-500" />
                           <p className="text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider">
                             Cover Letter
                           </p>
@@ -302,7 +302,7 @@ export function MyApplicationsPage() {
                         {application.coverLetter.length > 150 && (
                           <button
                             onClick={() => toggleCoverLetter(application._id)}
-                            className="mt-3 px-3.5 py-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 dark:bg-purple-900/50 dark:hover:bg-purple-900/70 dark:text-purple-300 text-xs font-semibold rounded-full transition-all duration-200 focus:outline-none shadow-sm inline-block"
+                            className="mt-3 px-3.5 py-1.5 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 dark:bg-indigo-900/50 dark:hover:bg-indigo-900/70 dark:text-indigo-300 text-xs font-semibold rounded-full transition-all duration-200 focus:outline-none shadow-sm inline-block"
                           >
                             {expandedCoverLetters[application._id] ? "View Less" : "View More"}
                           </button>
@@ -321,7 +321,7 @@ export function MyApplicationsPage() {
                           size="sm"
                           variant="outline"
                           onClick={() => navigate(`/app/jobs/${job?._id}`)}
-                          className="gap-2 border-gray-300 dark:border-gray-700 hover:border-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all"
+                          className="gap-2 border-gray-300 dark:border-gray-700 hover:border-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all"
                         >
                           <Eye className="w-4 h-4" />
                           View Job

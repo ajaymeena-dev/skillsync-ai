@@ -24,7 +24,7 @@ export function CompanyProfileView({ company, recruiterName, isLoading }) {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-[60vh]">
-        <Loader2 className="w-12 h-12 text-purple-600 animate-spin" />
+        <Loader2 className="w-12 h-12 text-indigo-600 animate-spin" />
       </div>
     );
   }
@@ -34,11 +34,11 @@ export function CompanyProfileView({ company, recruiterName, isLoading }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Header */}
         <div>
-          <span className="inline-block px-3 py-1 text-xs font-semibold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/30 rounded-full mb-3">
+          <span className="inline-block px-3 py-1 text-xs font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 rounded-full mb-3">
             Company Profile
           </span>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-indigo-600">
               {companyData.name || "Company"}
             </span>
           </h1>
@@ -117,7 +117,7 @@ export function CompanyProfileView({ company, recruiterName, isLoading }) {
                         href={companyData.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-purple-600"
+                        className="hover:text-indigo-600"
                       >
                         {companyData.website}
                       </a>
@@ -145,14 +145,14 @@ export function CompanyProfileView({ company, recruiterName, isLoading }) {
                   {companyData.description || "No description provided"}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4">
+                  <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <Heart className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                      <p className="font-medium text-purple-900 dark:text-purple-300">
+                      <Heart className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                      <p className="font-medium text-indigo-900 dark:text-indigo-300">
                         Our Mission
                       </p>
                     </div>
-                    <p className="text-sm text-purple-700 dark:text-purple-300">
+                    <p className="text-sm text-indigo-700 dark:text-indigo-300">
                       {companyData.mission || "Not specified"}
                     </p>
                   </div>
@@ -216,7 +216,7 @@ export function CompanyProfileView({ company, recruiterName, isLoading }) {
                         href={companyData.socialLinks[platform]}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 transition-colors truncate"
+                        className="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 transition-colors truncate"
                       >
                         {label}
                       </a>
@@ -267,8 +267,8 @@ export function CompanyProfileView({ company, recruiterName, isLoading }) {
               </div>
               <div className="p-5">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center flex-shrink-0">
-                    <Heart className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                     {companyData.culture || "No culture description provided"}

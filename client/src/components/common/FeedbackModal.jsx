@@ -3,6 +3,7 @@ import { Star, X, MessageSquare, Loader2 } from "lucide-react";
 import { Button } from "../Button";
 import { useSubmitTestimonialMutation } from "../../services/testimonialApi";
 import { toast } from "sonner";
+import { createPortal } from "react-dom";
 
 export function FeedbackModal({ isOpen, onClose }) {
   const [rating, setRating] = useState(5);
@@ -28,14 +29,16 @@ export function FeedbackModal({ isOpen, onClose }) {
     }
   };
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
       <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl relative">
         {/* Header */}
         <div className="p-6 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-              <MessageSquare className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+            <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+              <MessageSquare className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
             </div>
             <div>
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -90,7 +93,7 @@ export function FeedbackModal({ isOpen, onClose }) {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Tell us what you love or what we can improve..."
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all resize-none"
               rows={4}
               maxLength={300}
             />
@@ -102,7 +105,7 @@ export function FeedbackModal({ isOpen, onClose }) {
           <div className="pt-2">
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white"
+              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -117,6 +120,7 @@ export function FeedbackModal({ isOpen, onClose }) {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

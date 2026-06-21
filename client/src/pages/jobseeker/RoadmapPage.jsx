@@ -133,13 +133,13 @@ export function RoadmapPage() {
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm mb-4 dark:bg-purple-900/30 dark:text-purple-400">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-600 text-sm mb-4 dark:bg-indigo-900/30 dark:text-indigo-400">
               <Sparkles className="w-4 h-4" />
               <span>AI-Powered Learning Path</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 dark:text-white">
               Your{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 Learning Roadmap
               </span>
             </h1>
@@ -147,7 +147,7 @@ export function RoadmapPage() {
 
           <div className="max-w-lg mx-auto">
             <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 shadow-xl text-center p-6 sm:p-8">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-indigo-600 to-indigo-600 flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Upload className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -158,7 +158,7 @@ export function RoadmapPage() {
               </p>
               <Button
                 onClick={() => navigate("/app/resume")}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 gap-2"
+                className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 gap-2"
               >
                 <Upload className="w-4 h-4" />
                 Go to Resume Page
@@ -181,18 +181,18 @@ export function RoadmapPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
           {/* Hero Section */}
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6 dark:bg-purple-900/40 dark:text-purple-300 ring-1 ring-purple-200 dark:ring-purple-800">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium mb-6 dark:bg-indigo-900/40 dark:text-indigo-300 ring-1 ring-indigo-200 dark:ring-indigo-800">
               <Sparkles className="w-4 h-4" />
               <span>Personalized Learning</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 dark:text-white leading-tight">
               Your AI-Powered{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 Career Roadmap
               </span>
             </h1>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
-              We found <span className="font-bold text-purple-600 dark:text-purple-400">{resumeSkills.length} skills</span> in your profile.
+              We found <span className="font-bold text-indigo-600 dark:text-indigo-400">{resumeSkills.length} skills</span> in your profile.
               Based on the <span className="font-semibold text-gray-900 dark:text-white">skills required for the jobs you've applied to</span>, our AI will generate a custom week-by-week plan to help you master what's missing.
             </p>
           </div>
@@ -203,8 +203,8 @@ export function RoadmapPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">The Process</h2>
 
               <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 p-5 sm:p-6 hover:shadow-xl transition-all duration-300 rounded-2xl group flex items-start gap-4 sm:gap-6">
-                <div className="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/30 shadow-sm flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <Target className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                <div className="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 shadow-sm flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Target className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1">1. Set Your Timeline</h3>
@@ -243,7 +243,7 @@ export function RoadmapPage() {
             {/* Generation Card */}
             <div className="lg:col-span-5">
               <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl p-6 sm:p-8 rounded-2xl sticky top-24">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center mb-6 shadow-lg">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-indigo-600 to-indigo-600 flex items-center justify-center mb-6 shadow-lg">
                   <Rocket className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -257,7 +257,7 @@ export function RoadmapPage() {
                   <div className="space-y-3">
                     <label className="flex flex-wrap items-center justify-between gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                       <span>Duration</span>
-                      <Badge variant="primary" className="bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">
+                      <Badge variant="primary" className="bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">
                         {weeks} weeks
                       </Badge>
                     </label>
@@ -308,7 +308,7 @@ export function RoadmapPage() {
                   <Button
                     onClick={handleGenerate}
                     disabled={isCachedActive || isLoading}
-                    className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white gap-2 py-5 text-base rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
+                    className="w-full bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white gap-2 py-5 text-base rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
                   >
                     <Sparkles className="w-5 h-5" />
                     {isCachedActive ? `Available in ${remainingTimeText}` : roadmap ? "Regenerate Roadmap" : "Generate AI Roadmap"}
@@ -329,13 +329,13 @@ export function RoadmapPage() {
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm mb-4 dark:bg-purple-900/30 dark:text-purple-400">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-600 text-sm mb-4 dark:bg-indigo-900/30 dark:text-indigo-400">
               <Sparkles className="w-4 h-4" />
               <span>AI-Powered Learning Path</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 dark:text-white">
               Your{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 Learning Roadmap
               </span>
             </h1>
@@ -354,7 +354,7 @@ export function RoadmapPage() {
               </p>
               <Button
                 onClick={handleGenerate}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 gap-2"
+                className="bg-gradient-to-r from-indigo-600 to-indigo-600 gap-2"
               >
                 <RefreshCw className="w-4 h-4" />
                 Try Again
@@ -371,13 +371,13 @@ export function RoadmapPage() {
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm mb-4 dark:bg-purple-900/30 dark:text-purple-400">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-600 text-sm mb-4 dark:bg-indigo-900/30 dark:text-indigo-400">
               <Sparkles className="w-4 h-4" />
               <span>AI-Powered Learning Path</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 dark:text-white">
               Your{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
                 Learning Roadmap
               </span>
             </h1>
@@ -414,13 +414,13 @@ export function RoadmapPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Hero Header */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm mb-4 dark:bg-purple-900/30 dark:text-purple-400">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-600 text-sm mb-4 dark:bg-indigo-900/30 dark:text-indigo-400">
             <Sparkles className="w-4 h-4" />
             <span>AI-Powered Learning Path</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 dark:text-white">
             Your{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               Learning Roadmap
             </span>
           </h1>
@@ -435,7 +435,7 @@ export function RoadmapPage() {
                 {roadmap.summary.length > 200 && (
                   <button
                     onClick={() => setShowFullSummary(!showFullSummary)}
-                    className="mt-4 px-5 py-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 dark:bg-purple-900/50 dark:hover:bg-purple-900/70 dark:text-purple-300 text-sm font-semibold rounded-full transition-all duration-200 focus:outline-none shadow-sm"
+                    className="mt-4 px-5 py-1.5 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 dark:bg-indigo-900/50 dark:hover:bg-indigo-900/70 dark:text-indigo-300 text-sm font-semibold rounded-full transition-all duration-200 focus:outline-none shadow-sm"
                   >
                     {showFullSummary ? "View less" : "View more"}
                   </button>
@@ -450,9 +450,9 @@ export function RoadmapPage() {
               onClick={() => setShowInfo(true)}
               variant="outline"
               size="sm"
-              className="gap-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-50 hover:text-purple-700 dark:hover:bg-purple-900/20 dark:hover:text-purple-300"
+              className="gap-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-50 hover:text-indigo-700 dark:hover:bg-indigo-900/20 dark:hover:text-indigo-300"
             >
-              <Info className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
+              <Info className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
               How it works
             </Button>
             <Button
@@ -471,7 +471,7 @@ export function RoadmapPage() {
         {/* Stats Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 p-4 sm:p-5 text-center hover:shadow-lg transition-all">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center mx-auto mb-3 shadow-md">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-600 flex items-center justify-center mx-auto mb-3 shadow-md">
               <Calendar className="w-5 h-5 text-white" />
             </div>
             <div className="text-2xl font-bold text-gray-900 dark:text-white">{totalWeeks}</div>
@@ -509,7 +509,7 @@ export function RoadmapPage() {
         {roadmap.expectedOutcome && (
           <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 p-5 sm:p-6">
             <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <TrendingUp className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <h3 className="font-semibold text-gray-900 dark:text-white">Expected Outcome</h3>
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-400">{roadmap.expectedOutcome}</p>
@@ -518,7 +518,7 @@ export function RoadmapPage() {
 
         {/* Timeline */}
         <div className="relative">
-          <div className="absolute left-5 top-8 bottom-8 w-0.5 bg-gradient-to-b from-purple-600/20 via-indigo-600/20 to-transparent rounded-full hidden md:block" />
+          <div className="absolute left-5 top-8 bottom-8 w-0.5 bg-gradient-to-b from-indigo-600/20 via-indigo-600/20 to-transparent rounded-full hidden md:block" />
           <div className="space-y-8 sm:space-y-10">
             {weeklyPlan.map((week, idx) => {
               const weekTasks = week.tasks || [];
@@ -533,7 +533,7 @@ export function RoadmapPage() {
                       <div className="flex items-center gap-4 md:flex-col md:items-start">
                         <div
                           className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105 ${isFirst
-                            ? "bg-gradient-to-r from-purple-600 to-indigo-600"
+                            ? "bg-gradient-to-r from-indigo-600 to-indigo-600"
                             : "bg-gradient-to-r from-gray-500 to-gray-600 dark:from-gray-600 dark:to-gray-700"
                             }`}
                         >
@@ -606,7 +606,7 @@ export function RoadmapPage() {
                                     href={task.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-purple-600 hover:text-purple-700 dark:text-purple-400 p-1.5 rounded-md hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors"
+                                    className="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 p-1.5 rounded-md hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors"
                                   >
                                     <ExternalLink className="w-3.5 h-3.5" />
                                   </a>
@@ -619,10 +619,10 @@ export function RoadmapPage() {
 
                       {/* Milestone */}
                       {week.milestone && (
-                        <div className="flex items-start gap-2 p-3 rounded-xl bg-purple-50/50 dark:bg-purple-950/20 border border-purple-100 dark:border-purple-900/30 mb-4">
-                          <Award className="w-4 h-4 text-purple-600 dark:text-purple-400 mt-0.5 flex-shrink-0" />
+                        <div className="flex items-start gap-2 p-3 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 mb-4">
+                          <Award className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
                           <div>
-                            <span className="text-xs font-medium text-purple-600 dark:text-purple-400">
+                            <span className="text-xs font-medium text-indigo-600 dark:text-indigo-400">
                               Milestone:
                             </span>
                             <p className="text-sm text-gray-700 dark:text-gray-300">{week.milestone}</p>
@@ -650,7 +650,7 @@ export function RoadmapPage() {
         </div>
 
         {/* CTA Banner */}
-        <div className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-lg">
+        <div className="bg-gradient-to-r from-indigo-600 via-indigo-600 to-indigo-600 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-lg">
           <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20" />
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full -ml-16 -mb-16" />
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -670,7 +670,7 @@ export function RoadmapPage() {
             </div>
             <Button
               onClick={() => navigate("/app/skill-gap")}
-              className="bg-white text-purple-600 hover:bg-gray-100 shadow-lg hover:shadow-xl gap-2 group"
+              className="bg-white text-indigo-600 hover:bg-gray-100 shadow-lg hover:shadow-xl gap-2 group"
             >
               <Target className="w-4 h-4 group-hover:scale-110 transition-transform" />
               View Skill Gap
@@ -723,13 +723,13 @@ function CustomDropdown({ value, options, onChange, placeholder, className = "" 
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:border-purple-500 transition-all flex items-center justify-between text-left shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800/80 ${className}`}
+        className={`w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-all flex items-center justify-between text-left shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800/80 ${className}`}
       >
         <span className={selectedOption ? "font-medium" : "text-gray-500"}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <ChevronDown
-          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180 text-purple-500" : ""
+          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180 text-indigo-500" : ""
             }`}
         />
       </button>
@@ -752,13 +752,13 @@ function CustomDropdown({ value, options, onChange, placeholder, className = "" 
                   setIsOpen(false);
                 }}
                 className={`w-full flex items-center gap-2.5 px-4 py-3 text-sm text-left transition-all ${value === opt.value
-                  ? "text-purple-700 dark:text-purple-400 font-semibold bg-purple-50 dark:bg-purple-900/20"
+                  ? "text-indigo-700 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-900/20"
                   : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 font-medium"
                   }`}
               >
                 <span>{opt.label}</span>
                 {value === opt.value && (
-                  <div className="ml-auto w-1.5 h-1.5 rounded-full bg-purple-500 shadow-sm" />
+                  <div className="ml-auto w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-sm" />
                 )}
               </button>
             ))}

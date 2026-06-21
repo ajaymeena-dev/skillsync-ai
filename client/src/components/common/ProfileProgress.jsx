@@ -164,7 +164,7 @@ export function ProfileProgress({ user }) {
     if (completionPercentage >= 75) return "#10b981";
     if (completionPercentage >= 50) return "#3b82f6";
     if (completionPercentage >= 25) return "#f59e0b";
-    return "#8b5cf6";
+    return "#6366f1";
   };
 
   const getTextColor = () => {
@@ -172,7 +172,7 @@ export function ProfileProgress({ user }) {
       return "text-emerald-600 dark:text-emerald-400";
     if (completionPercentage >= 50) return "text-blue-600 dark:text-blue-400";
     if (completionPercentage >= 25) return "text-amber-600 dark:text-amber-400";
-    return "text-purple-600 dark:text-purple-400";
+    return "text-indigo-600 dark:text-indigo-400";
   };
 
   const radius = 32;
@@ -234,7 +234,7 @@ export function ProfileProgress({ user }) {
             {pendingSections.length > 0 && (
               <button
                 onClick={() => navigate(pendingSections[0].path)}
-                className="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-all shadow-sm"
+                className="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-600 text-white hover:from-indigo-700 hover:to-indigo-700 transition-all shadow-sm"
               >
                 Complete Profile
               </button>
@@ -252,7 +252,7 @@ export function ProfileProgress({ user }) {
 
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="flex items-center gap-1 text-xs text-gray-400 hover:text-purple-500 transition-colors mt-3"
+            className="flex items-center gap-1 text-xs text-gray-400 hover:text-indigo-500 transition-colors mt-3"
           >
             {showDetails ? "Show less" : "Show details"}
             {showDetails ? (
@@ -279,7 +279,7 @@ export function ProfileProgress({ user }) {
                         {section.name}
                       </span>
                     </div>
-                    <span className="text-purple-600 text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-indigo-600 text-xs opacity-0 group-hover:opacity-100 transition-opacity">
                       Add
                     </span>
                   </div>
