@@ -23,7 +23,7 @@ export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode
 
     try {
       // Map frontend role names to backend enum values
-      const backendRole = role === "jobseeker" ? "user" : "recruiter";
+      const backendRole = role;
 
       const result = await googleAuth({
         credential: tempData?.credential,
@@ -62,7 +62,7 @@ export default function RoleSelectionModal({ isOpen, tempData, onClose, darkMode
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 20 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl shadow-2xl z-50 overflow-hidden border border-gray-200/50 dark:border-gray-800/50"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-full max-w-md bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl shadow-2xl z-50 overflow-hidden border border-gray-200/50 dark:border-gray-800/50"
           >
             {/* Header */}
             <div className="px-6 py-4 border-b border-gray-200/50 dark:border-gray-800/50 flex items-center justify-between">

@@ -66,10 +66,10 @@ export function AuthenticatedLayout() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100/90 via-white to-gray-100/80 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       {/* Simple, elegant background – no ugly grid, no weird icons */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         {/* Soft blur circles – minimal and modern */}
-        <div className="absolute top-0 -left-40 w-96 h-96 bg-purple-100/40 dark:bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -right-40 w-96 h-96 bg-indigo-100/40 dark:bg-indigo-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 -left-40 w-96 h-96 bg-purple-100/40 dark:bg-purple-500/10 rounded-full blur-3xl transform-gpu will-change-transform" />
+        <div className="absolute bottom-0 -right-40 w-96 h-96 bg-indigo-100/40 dark:bg-indigo-500/10 rounded-full blur-3xl transform-gpu will-change-transform" />
       </div>
 
       <Navbar

@@ -168,7 +168,7 @@ export function FeaturesPage() {
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-purple-200/40 dark:bg-purple-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 z-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 z-10">
         {/* Hero Section */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <Badge variant="primary" className="mb-6 px-4 py-2 text-sm gap-2">

@@ -143,7 +143,7 @@ export function AboutPage() {
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       {/* Hero Section */}
-      <div className="relative overflow-hidden pt-24 pb-16">
+      <div className="relative overflow-hidden pt-16 pb-12 sm:pt-24 sm:pb-16">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10" />
         <div className="absolute top-20 right-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl" />
@@ -178,7 +178,7 @@ export function AboutPage() {
       </div>
 
       {/* Problems Section */}
-      <div className="py-16">
+      <div className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -215,7 +215,7 @@ export function AboutPage() {
       </div>
 
       {/* Solutions Section */}
-      <div className="py-16 bg-white/50 dark:bg-gray-800/30">
+      <div className="py-12 sm:py-16 bg-white/50 dark:bg-gray-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -254,7 +254,7 @@ export function AboutPage() {
       </div>
 
       {/* Tech Stack Section */}
-      <div className="py-16">
+      <div className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -285,7 +285,7 @@ export function AboutPage() {
       </div>
 
       {/* Features Section */}
-      <div className="py-16 bg-white/50 dark:bg-gray-800/30">
+      <div className="py-12 sm:py-16 bg-white/50 dark:bg-gray-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -324,7 +324,7 @@ export function AboutPage() {
       </div>
 
       {/* Project Vision Card */}
-      <div className="py-16">
+      <div className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="p-8 md:p-12 relative overflow-hidden border border-purple-100 dark:border-purple-900/50 bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl shadow-xl">
             {/* Background glowing orbs */}
@@ -363,7 +363,7 @@ export function AboutPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-16">
+      <div className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="relative overflow-hidden p-12 text-center border border-purple-100 dark:border-purple-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
             {/* Background glowing orbs */}
