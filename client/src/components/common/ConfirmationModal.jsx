@@ -44,7 +44,7 @@ export function ConfirmationModal({
             animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }}
             exit={{ opacity: 0, scale: 0.95, x: "-50%", y: "-50%" }}
             transition={{ duration: 0.2 }}
-            className="fixed top-1/2 left-1/2 w-full max-w-md z-[10000]"
+            className="fixed top-1/2 left-1/2 w-full max-w-md z-[10000] px-4"
           >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-white/10">
               <div className="p-6">

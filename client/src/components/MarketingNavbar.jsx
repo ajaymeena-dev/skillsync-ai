@@ -281,28 +281,26 @@ export function MarketingNavbar({ currentPage, onNavigate, onGetStarted }) {
                       <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{user.email}</p>
                     </div>
                   </div>
-                  <Button
-                    variant="outline"
+                  <button
                     onClick={() => {
                       handleDashboard();
                       setMenuOpen(false);
                     }}
-                    className="w-full justify-center gap-2"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
                   >
                     <LayoutDashboard className="w-4 h-4" />
-                    Dashboard
-                  </Button>
-                  <Button
-                    variant="outline"
+                    Go to Dashboard
+                  </button>
+                  <button
                     onClick={() => {
                       handleLogoutClick();
                       setMenuOpen(false);
                     }}
-                    className="w-full justify-center gap-2 text-red-600 border-red-200 hover:bg-red-50 dark:border-red-800/50 dark:text-red-400 dark:hover:bg-red-900/20"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-red-50 text-red-600 hover:bg-red-100 dark:bg-red-500/10 dark:text-red-400 dark:hover:bg-red-500/20 transition-all duration-300"
                   >
                     <LogOut className="w-4 h-4" />
                     Sign Out
-                  </Button>
+                  </button>
                 </>
               ) : (
                 <>
