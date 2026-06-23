@@ -19,6 +19,7 @@ import {
   ChevronRight,
   X,
   LayoutDashboard,
+  Activity,
 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useGetNotificationsQuery } from "../services/notificationApi";
@@ -107,6 +108,7 @@ export function Sidebar({
     if (path.includes("/app/analytics")) return "analytics";
     if (path.includes("/app/company")) return "company";
     if (path.includes("/app/settings")) return "settings";
+    if (path.includes("/app/developer")) return "developer";
     return isRecruiter ? "recruiter-dashboard" : "dashboard";
   };
 
@@ -160,7 +162,16 @@ export function Sidebar({
     { id: "company", label: "Company", icon: Building2, path: "/app/company" },
   ];
 
-  const items = isRecruiter ? recruiterItems : jobseekerItems;
+  const items = isRecruiter ? [...recruiterItems] : [...jobseekerItems];
+
+  if (user?.isDeveloper) {
+    items.push({
+      id: "developer",
+      label: "Dev Stats",
+      icon: Activity,
+      path: "/app/developer",
+    });
+  }
 
   const handleNavigation = (path) => {
     navigate(path);

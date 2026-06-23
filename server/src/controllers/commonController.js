@@ -200,9 +200,82 @@ export const trackVisitor = async (req, res) => {
 // ✅ Get All Visitors (For Admin/Analytics)
 export const getVisitors = async (req, res) => {
   try {
+    if (!req.user || !req.user.isDeveloper) {
+      return res.status(403).json({ success: false, message: "Forbidden: Developer access required" });
+    }
     const visitors = await Visitor.find().sort({ lastVisit: -1 });
     res.json({ success: true, data: visitors });
   } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+// ✅ Get All Users (For Admin/Developer)
+export const getAllUsers = async (req, res) => {
+  try {
+    if (!req.user || !req.user.isDeveloper) {
+      return res.status(403).json({ success: false, message: "Forbidden: Developer access required" });
+    }
+    const users = await User.find().select("-password").sort({ createdAt: -1 });
+    res.json({ success: true, data: users });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+// ✅ Delete User and Cascade Associated Data (For Admin/Developer)
+export const deleteUser = async (req, res) => {
+  try {
+    if (!req.user || !req.user.isDeveloper) {
+      return res.status(403).json({ success: false, message: "Forbidden: Developer access required" });
+    }
+
+    const { id } = req.params;
+    const userToDelete = await User.findById(id);
+
+    if (!userToDelete) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    // Dynamic imports for related models to avoid circular dependencies
+    const { default: Job } = await import("../models/Job.js");
+    const { default: Application } = await import("../models/Application.js");
+    const { default: Resume } = await import("../models/Resume.js");
+    const { default: Notification } = await import("../models/Notification.js");
+    const { default: Testimonial } = await import("../models/Testimonial.js");
+
+    // 1. Delete all notifications sent TO or FROM this user
+    await Notification.deleteMany({ $or: [{ recipient: id }, { sender: id }] });
+    
+    // 2. Delete any testimonials written by this user
+    await Testimonial.deleteMany({ userId: id });
+
+    if (userToDelete.role === "recruiter") {
+      // Find all jobs posted by this recruiter
+      const jobs = await Job.find({ recruiter: id });
+      const jobIds = jobs.map((job) => job._id);
+
+      // Delete all applications for those jobs
+      if (jobIds.length > 0) {
+        await Application.deleteMany({ job: { $in: jobIds } });
+      }
+
+      // Delete the jobs themselves
+      await Job.deleteMany({ recruiter: id });
+    } else if (userToDelete.role === "jobseeker") {
+      // Delete their resume
+      await Resume.findOneAndDelete({ user: id });
+
+      // Delete all applications made by this jobseeker
+      await Application.deleteMany({ applicant: id });
+    }
+
+    // Finally, delete the user
+    await User.findByIdAndDelete(id);
+
+    res.json({ success: true, message: "User and associated data permanently deleted" });
+  } catch (error) {
+    console.error("Delete User Error:", error);
     res.status(500).json({ success: false, message: error.message });
   }
 };

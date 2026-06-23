@@ -6,6 +6,8 @@ import {
   getPublicStats,
   trackVisitor,
   getVisitors,
+  getAllUsers,
+  deleteUser,
 } from "../controllers/commonController.js";
 import { protect } from "../middleware/authMiddleware.js";
 import { uploadAvatar as uploadAvatarMiddleware } from "../middleware/uploadMiddleware.js";
@@ -22,6 +24,8 @@ router.use(protect);
 
 router.post("/avatar", uploadAvatarMiddleware, uploadAvatar);
 router.delete("/avatar", deleteAvatar);
-router.get("/visitors", getVisitors); // Ideally you'd want a developer/admin role check here
+router.get("/visitors", getVisitors); // Developer access required
+router.get("/users", getAllUsers); // Developer access required
+router.delete("/users/:id", deleteUser); // Developer access required
 
 export default router;

@@ -100,6 +100,13 @@ const PostedJobsPage = lazy(() =>
     default: m.PostedJobsPage,
   })),
 );
+
+// Lazy Loaded Developer Only Pages
+const DeveloperDashboard = lazy(() =>
+  import("../pages/developer/DeveloperDashboard").then((m) => ({
+    default: m.DeveloperDashboard,
+  })),
+);
 const AnalyticsPage = lazy(() =>
   import("../pages/recruiter/AnalyticsPage").then((m) => ({
     default: m.AnalyticsPage,
@@ -334,6 +341,16 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute requiredRole="recruiter">
                 {Loadable(JobApplicationsPage)()}
+              </ProtectedRoute>
+            ),
+          },
+
+          // ========== DEVELOPER ONLY ROUTES ==========
+          {
+            path: "developer",
+            element: (
+              <ProtectedRoute requireDeveloper={true}>
+                {Loadable(DeveloperDashboard)()}
               </ProtectedRoute>
             ),
           },

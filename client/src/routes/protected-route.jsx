@@ -2,13 +2,19 @@ import { Navigate } from "react-router-dom";
 import { TOKEN_KEY } from "../features/auth/authConstants";
 import { getUser } from "../features/auth/authUtils";
 
-export function ProtectedRoute({ children, requiredRole }) {
+export function ProtectedRoute({ children, requiredRole, requireDeveloper }) {
   const token = localStorage.getItem(TOKEN_KEY);
   const user = getUser();
 
   // Check if authenticated
   if (!token || !user) {
     return <Navigate to="/auth" replace />;
+  }
+
+  // Check developer access
+  if (requireDeveloper && !user.isDeveloper) {
+    const redirectPath = user.role === "recruiter" ? "/app/recruiter-dashboard" : "/app/dashboard";
+    return <Navigate to={redirectPath} replace />;
   }
 
   // Check role if required
