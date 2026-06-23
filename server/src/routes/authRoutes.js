@@ -22,12 +22,13 @@ import {
   verifyEmailSchema,
   resendVerificationSchema,
 } from "../schemas/auth.schema.js";
+import { authLimiter } from "../middleware/rateLimiter.js";
 
 const router = express.Router();
 
 // Public routes with validation
-router.post("/register", validate(registerSchema), register);
-router.post("/login", validate(loginSchema), login);
+router.post("/register", validate(registerSchema), authLimiter, register);
+router.post("/login", validate(loginSchema), authLimiter, login);
 router.post("/google", googleAuth); // Google OAuth has its own validation
 router.post("/verify-email", validate(verifyEmailSchema), verifyEmail);
 router.post(

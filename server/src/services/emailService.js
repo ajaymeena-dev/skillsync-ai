@@ -2,9 +2,9 @@
 
 const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
 
-// Generate 6-digit verification code
+// Generate 4-digit verification code
 export const generateVerificationCode = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
+  return Math.floor(1000 + Math.random() * 9000).toString();
 };
 
 // Send verification email

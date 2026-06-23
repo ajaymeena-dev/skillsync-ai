@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { toast } from "sonner";
 import { TOKEN_KEY } from "../features/auth/authConstants";
 import { logout } from "../features/auth/authSlice";
 
@@ -17,8 +18,14 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
 
-  if (result.error && result.error.status === 401) {
-    api.dispatch(logout());
+  if (result.error) {
+    if (result.error.status === 401) {
+      api.dispatch(logout());
+    } else if (result.error.status === 429) {
+      toast.error(
+        result.error.data?.message || "Too many requests. Please try again later."
+      );
+    }
   }
 
   return result;

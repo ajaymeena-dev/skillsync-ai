@@ -1,8 +1,8 @@
 // client/src/components/Navbar.jsx
-import { useState, useEffect } from "react";
-import { Bell, Menu, Sparkles, Moon, Sun, X } from "lucide-react";
+import { Bell, Menu, Sparkles, Moon, Sun } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useGetNotificationsQuery } from "../services/notificationApi";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar({
   onMenuClick,
@@ -10,105 +10,103 @@ export function Navbar({
   darkMode,
   onDarkModeToggle,
   isMenuOpen = false,
+  isNotificationsOpen = false,
 }) {
-  const [scrolled, setScrolled] = useState(false);
-  const user = useSelector((state) => state.auth.user);
-
   const { data: notificationsData } = useGetNotificationsQuery();
   const unreadCount = notificationsData?.unreadCount || 0;
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Ultra-premium VisionOS-style Glassmorphism effect
+  // Dark Theme: Deep dark frosted glass that blends with dark background
+  // Light Theme: Polished solid dark charcoal with a glossy edge (Apple style) so it doesn't look muddy over white
+  const bgStyle = darkMode
+    ? "bg-[#09090b]/75 backdrop-blur-2xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08),0_10px_40px_rgba(0,0,0,0.5),0_0_30px_rgba(99,102,241,0.15)] ring-1 ring-white/5"
+    : "bg-[#111116] border border-white/10 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] ring-1 ring-black/5";
 
-  // Premium gradient matching sidebar
-  const lightGradient =
-    "bg-gradient-to-r from-[#1e1b4b] via-[#312e81] to-[#4338ca]";
-  const lightGradientScrolled =
-    "bg-gradient-to-r from-[#1e1b4b]/95 via-[#312e81]/95 to-[#4338ca]/95";
-  const darkGradient =
-    "dark:bg-gradient-to-r dark:from-[#0F0F1A] dark:via-[#1A1A2E] dark:to-[#16213E]";
-  const darkGradientScrolled =
-    "dark:bg-gradient-to-r dark:from-[#0F0F1A]/95 dark:via-[#1A1A2E]/95 dark:to-[#16213E]/95";
+  // Since the Island is always dark, text and icons must always be light!
+  const textColor = "text-white";
+  const subTextColor = "text-gray-400";
+  const iconColor = "text-gray-200";
+  const hoverBg = "hover:bg-white/10";
 
   return (
     <>
-      <nav
-        className={`
-          lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-500
-          ${
-            scrolled
-              ? `${darkMode ? darkGradientScrolled : lightGradientScrolled} backdrop-blur-xl shadow-lg`
-              : `${darkMode ? darkGradient : lightGradient}`
-          }
-        `}
-      >
-        <div className="px-4 py-3">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                <Sparkles
-                  className="w-4.5 h-4.5 text-white"
-                  strokeWidth={1.5}
-                />
-              </div>
-              <div>
-                <span className="text-base font-bold text-white tracking-tight">
-                  SkillSync
-                </span>
-                <span className="text-base font-bold text-white/80">AI</span>
-              </div>
-            </div>
-
-            {/* Actions */}
-            <div className="flex items-center gap-1.5">
-              {/* Dark Mode Toggle */}
-              <button
-                onClick={onDarkModeToggle}
-                className="p-2 rounded-xl bg-white/15 backdrop-blur-sm hover:bg-white/25 transition-all duration-200"
-              >
-                {darkMode ? (
-                  <Sun className="w-4 h-4 text-yellow-300" />
-                ) : (
-                  <Moon className="w-4 h-4 text-white" />
-                )}
-              </button>
-
-              {/* Notifications */}
-              <button
-                onClick={onNotificationsClick}
-                className="relative p-2 rounded-xl bg-white/15 backdrop-blur-sm hover:bg-white/25 transition-all duration-200"
-              >
-                <Bell className="w-4 h-4 text-white" />
-                {unreadCount > 0 && (
-                  <>
-                    <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-lg ring-2 ring-white dark:ring-gray-800">
-                      {unreadCount > 9 ? "9+" : unreadCount}
+      <div className="lg:hidden fixed top-3 left-0 right-0 z-[100] flex justify-center pointer-events-none px-4">
+        <AnimatePresence>
+          {!isMenuOpen && !isNotificationsOpen && (
+            <motion.div
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -100, opacity: 0, scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className={`pointer-events-auto w-full max-w-[360px] md:max-w-[480px] relative overflow-hidden flex items-center h-[52px] rounded-full will-change-transform ${bgStyle}`}
+            >
+              <div className="absolute inset-0 w-full px-4 flex items-center justify-between">
+                {/* Logo Area */}
+                <div className="flex items-center gap-2 cursor-pointer">
+                  <div className="w-7 h-7 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                    <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span
+                      className={`font-semibold tracking-tight text-[13px] leading-tight ${textColor}`}
+                    >
+                      SkillSync
                     </span>
-                  </>
-                )}
-              </button>
+                    <span
+                      className={`text-[9px] uppercase tracking-wider font-bold leading-tight ${subTextColor}`}
+                    >
+                      AI Engine
+                    </span>
+                  </div>
+                </div>
 
-              {/* Menu Toggle */}
-              <button
-                onClick={onMenuClick}
-                className="p-2 rounded-xl bg-white/15 backdrop-blur-sm hover:bg-white/25 transition-all duration-200"
-              >
-                {isMenuOpen ? (
-                  <X className="w-5 h-5 text-white" />
-                ) : (
-                  <Menu className="w-5 h-5 text-white" />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-      {/* Spacer for fixed navbar */}
-      <div className="h-[60px] lg:hidden" />
+                {/* Actions Area */}
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onDarkModeToggle();
+                    }}
+                    className={`p-1.5 rounded-full transition-colors active:scale-95 ${hoverBg}`}
+                  >
+                    {darkMode ? (
+                      <Sun className="w-4 h-4 text-yellow-400" />
+                    ) : (
+                      <Moon className="w-4 h-4 text-indigo-400" />
+                    )}
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onNotificationsClick();
+                    }}
+                    className={`relative p-1.5 rounded-full transition-colors active:scale-95 ${hoverBg}`}
+                  >
+                    <Bell className={`w-4 h-4 ${iconColor}`} />
+                    {unreadCount > 0 && (
+                      <span className="absolute top-[4px] right-[4px] flex h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                    )}
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onMenuClick();
+                    }}
+                    className={`p-2 rounded-full transition-colors ml-0.5 active:scale-95 bg-white/10 hover:bg-white/20`}
+                  >
+                    <Menu className={`w-4 h-4 ${iconColor}`} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Spacer to prevent content from hiding behind the island */}
+      <div className="h-[72px] lg:hidden" />
     </>
   );
 }

@@ -78,6 +78,7 @@ export function AuthenticatedLayout() {
         darkMode={darkMode}
         onDarkModeToggle={handleDarkModeToggle}
         isMenuOpen={sidebarOpen}
+        isNotificationsOpen={notificationsOpen}
       />
 
       <Sidebar
@@ -89,7 +90,7 @@ export function AuthenticatedLayout() {
         isOpen={sidebarOpen}
       />
 
-      <main className={`transition-all duration-300 ${mainMarginLeft}`}>
+      <main className={`transition-[margin,width] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[margin] ${mainMarginLeft}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
           <AnimatePresence mode="wait">
             <PageTransition key={location.pathname}>

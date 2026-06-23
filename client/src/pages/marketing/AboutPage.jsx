@@ -153,7 +153,7 @@ export function AboutPage() {
             <Sparkles className="w-4 h-4" />
             About This Project
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Built to Solve
             <br />
             <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
@@ -188,7 +188,7 @@ export function AboutPage() {
               Addressing real challenges in career development and recruitment
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {problems.map((problem, i) => {
               const Icon = problem.icon;
               return (
@@ -225,7 +225,7 @@ export function AboutPage() {
               Smart features that power the platform
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {solutions.map((solution, i) => {
               const Icon = solution.icon;
               return (
@@ -295,7 +295,7 @@ export function AboutPage() {
               Production-ready implementation
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {features.map((feature, i) => {
               const Icon = feature.icon;
               return (

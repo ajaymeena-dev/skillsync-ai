@@ -38,9 +38,9 @@ export function ConfirmationModal({
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
           >
-            <div 
-              className="absolute inset-0 bg-black/60 backdrop-blur-md" 
-              onClick={onClose} 
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              onClick={onClose}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -61,7 +61,9 @@ export function ConfirmationModal({
                     <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
                   </button>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">{message}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  {message}
+                </p>
                 <div className="flex gap-3">
                   <Button
                     variant="outline"
@@ -92,6 +94,6 @@ export function ConfirmationModal({
         </>
       )}
     </AnimatePresence>,
-    document.body
+    document.body,
   );
 }

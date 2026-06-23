@@ -44,13 +44,13 @@ export function Button({
   };
 
   const sizes = {
-    default: "px-5 py-2.5 text-sm",
-    sm: "px-3 py-1.5 text-xs",
-    lg: "px-6 py-3 text-base",
-    xl: "px-8 py-4 text-lg",
-    icon: "p-2",
-    "icon-sm": "p-1.5",
-    "icon-lg": "p-3",
+    default: "px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm",
+    sm: "px-3 py-1.5 text-[11px] sm:text-xs",
+    lg: "px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base",
+    xl: "px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg",
+    icon: "p-1.5 sm:p-2",
+    "icon-sm": "p-1 sm:p-1.5",
+    "icon-lg": "p-2 sm:p-3",
   };
 
   const getLoaderSize = () => {

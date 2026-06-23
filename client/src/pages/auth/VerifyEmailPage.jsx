@@ -27,7 +27,7 @@ const VerifyEmailPage = () => {
   const dispatch = useDispatch();
   const email = location.state?.email || "";
 
-  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [otp, setOtp] = useState(["", "", "", ""]);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -62,7 +62,7 @@ const VerifyEmailPage = () => {
     setOtp(newOtp);
     setError("");
 
-    if (value && index < 5) {
+    if (value && index < 3) {
       inputRefs.current[index + 1].focus();
     }
   };
@@ -78,8 +78,8 @@ const VerifyEmailPage = () => {
     if (isSubmitting) return;
 
     const otpValue = otp.join("");
-    if (otpValue.length !== 6) {
-      setError("Please enter the 6-digit verification code");
+    if (otpValue.length !== 4) {
+      setError("Please enter the 4-digit verification code");
       return;
     }
 
@@ -121,12 +121,12 @@ const VerifyEmailPage = () => {
 
   const handlePaste = (e) => {
     e.preventDefault();
-    const pastedData = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
+    const pastedData = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 4);
     const pastedArray = pastedData.split("");
     const newOtp = [...otp];
-    for (let i = 0; i < 6; i++) newOtp[i] = pastedArray[i] || "";
+    for (let i = 0; i < 4; i++) newOtp[i] = pastedArray[i] || "";
     setOtp(newOtp);
-    if (pastedArray.length === 6) inputRefs.current[5].focus();
+    if (pastedArray.length === 4) inputRefs.current[3].focus();
     else inputRefs.current[pastedArray.length].focus();
   };
 
@@ -171,12 +171,12 @@ const VerifyEmailPage = () => {
             </div>
 
             <form onSubmit={handleVerify}>
-              {/* OTP Input - 6 boxes, responsive */}
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 text-center">
-                  Enter 6‑digit code
+              {/* OTP Input - Sleek Underline Design */}
+              <div className="mb-10">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-6 text-center">
+                  Enter 4‑digit code
                 </label>
-                <div className="flex justify-center gap-2 sm:gap-3" onPaste={handlePaste}>
+                <div className="flex justify-center gap-3 sm:gap-5" onPaste={handlePaste}>
                   {otp.map((digit, index) => (
                     <input
                       key={index}
@@ -188,7 +188,7 @@ const VerifyEmailPage = () => {
                       value={digit}
                       onChange={(e) => handleOtpChange(index, e.target.value)}
                       onKeyDown={(e) => handleKeyDown(index, e)}
-                      className="w-12 h-14 sm:w-14 sm:h-16 text-center text-2xl font-bold bg-white dark:bg-gray-800/50 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+                      className="w-10 h-12 sm:w-12 sm:h-16 text-center text-3xl font-bold bg-transparent text-gray-900 dark:text-white border-b-2 border-gray-300 dark:border-gray-600 focus:border-indigo-500 focus:outline-none transition-colors rounded-none shadow-none"
                       autoComplete="off"
                     />
                   ))}

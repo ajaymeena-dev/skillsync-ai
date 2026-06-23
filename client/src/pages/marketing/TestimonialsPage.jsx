@@ -57,7 +57,7 @@ export function TestimonialsPage() {
             <Sparkles className="w-4 h-4" />
             <span>Community Voices</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             What Our{" "}
             <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
               Community Says

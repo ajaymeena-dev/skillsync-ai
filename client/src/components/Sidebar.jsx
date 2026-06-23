@@ -18,17 +18,22 @@ import {
   Sun,
   ChevronRight,
   X,
+  LayoutDashboard,
 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useGetNotificationsQuery } from "../services/notificationApi";
 import { OptimizedAvatar } from "./common/OptimizedAvatar";
+import { motion, AnimatePresence } from "framer-motion";
 
 const useIsDesktop = () => {
-  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+  const [isDesktop, setIsDesktop] = useState(() => window.matchMedia("(min-width: 1024px)").matches);
   useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const onChange = (e) => setIsDesktop(e.matches);
+    
+    // Modern approach to listen for media query changes (infinitely faster than resize events)
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
   }, []);
   return isDesktop;
 };
@@ -108,7 +113,7 @@ export function Sidebar({
   const currentView = getCurrentView();
 
   const jobseekerItems = [
-    { id: "dashboard", label: "Dashboard", icon: Home, path: "/app/dashboard" },
+    { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/app/dashboard" },
     { id: "resume", label: "Resume", icon: FileText, path: "/app/resume" },
     { id: "jobs", label: "Jobs", icon: Briefcase, path: "/app/jobs" },
     {
@@ -131,7 +136,7 @@ export function Sidebar({
     {
       id: "recruiter-dashboard",
       label: "Dashboard",
-      icon: Home,
+      icon: LayoutDashboard,
       path: "/app/recruiter-dashboard",
     },
     {
@@ -171,37 +176,43 @@ export function Sidebar({
   const darkGradient =
     "dark:bg-gradient-to-br dark:from-[#0F0F1A] dark:via-[#1A1A2E] dark:to-[#16213E]";
 
-  const sidebarWidthClass = isDesktop
-    ? isMinimized
-      ? "w-full lg:w-[80px]"
-      : "w-full lg:w-[280px]"
-    : "w-full";
+  const sidebarWidthClass = isMinimized
+    ? "w-full sm:w-96 lg:w-[80px]"
+    : "w-full sm:w-96 lg:w-[280px]";
 
   return (
     <>
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-all duration-300 lg:hidden"
-          onClick={onClose}
-        />
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
+            onClick={onClose}
+          />
+        )}
+      </AnimatePresence>
 
-      <aside
-        className={`
-          fixed top-0 left-0 z-50 h-full ${sidebarWidthClass}
+      <motion.aside
+        initial={{ x: "-100%" }}
+        animate={{ x: isOpen ? 0 : "-100%" }}
+        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+        className={`desktop-transform-override
+          fixed top-0 left-0 z-50 h-[100dvh] ${sidebarWidthClass}
           ${lightGradient} ${darkGradient}
-          flex flex-col transition-all duration-300 ease-in-out
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:translate-x-0 lg:rounded-r-2xl 
+          flex flex-col will-change-transform
+          lg:rounded-r-2xl 
           lg:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.1)_inset]
           dark:lg:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)]
         `}
       >
         {/* Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none transform-gpu">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl transform-gpu will-change-transform" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl transform-gpu will-change-transform" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl transform-gpu will-change-transform" />
         </div>
 
         {/* Header Section */}
@@ -470,7 +481,7 @@ export function Sidebar({
             </button>
           </div>
         </div>
-      </aside>
+      </motion.aside>
 
       <style>{`
         .custom-scrollbar::-webkit-scrollbar { width: 5px; }
@@ -479,6 +490,13 @@ export function Sidebar({
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.6); }
         .dark .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
         .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); }
+
+        @media (min-width: 1024px) {
+          .desktop-transform-override {
+            transform: none !important;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+          }
+        }
         @media (min-width: 1024px) { aside { transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); } }
 
         /* Sequential Blinking Dots Animation */
@@ -489,7 +507,7 @@ export function Sidebar({
         .dot-1 { animation: pulse-dot 1.5s infinite ease-in-out; animation-delay: 0s; }
         .dot-2 { animation: pulse-dot 1.5s infinite ease-in-out; animation-delay: 0.2s; }
         .dot-3 { animation: pulse-dot 1.5s infinite ease-in-out; animation-delay: 0.4s; }
-        
+
         button:hover .dot-1, button:hover .dot-2, button:hover .dot-3 {
           animation: none;
           opacity: 1;

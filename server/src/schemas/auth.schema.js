@@ -49,7 +49,7 @@ export const resetPasswordSchema = z.object({
 // Email Verification Schema
 export const verifyEmailSchema = z.object({
   email: emailSchema,
-  verificationCode: z.string().length(6, "Verification code must be 6 digits"),
+  verificationCode: z.string().length(4, "Verification code must be 4 digits"),
 });
 
 // Resend Verification Schema

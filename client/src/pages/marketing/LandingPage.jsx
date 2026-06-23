@@ -201,12 +201,14 @@ export function LandingPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-32">
         {/* Three.js ring shader (Visible in both modes, faint in Light Mode) */}
+        {/* 
         <div
           className="pointer-events-none absolute inset-0 opacity-15 dark:opacity-40 dark:mix-blend-screen transition-opacity duration-700"
           aria-hidden="true"
         >
           <ShaderAnimation className="absolute inset-0 w-full h-full" />
-        </div>
+        </div> 
+        */}
         
         {/* Subtle radial vignette to keep text readable (only dark mode) */}
         <div
@@ -228,7 +230,7 @@ export function LandingPage() {
               <Sparkles className="w-4 h-4" />
               Powered by Gemini AI
             </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
               AI-Powered
               <br />
               <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
@@ -408,7 +410,7 @@ export function LandingPage() {
 
 
       {/* Features Section */}
-      <section className="relative py-16 sm:py-24 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
         {/* Ambient background for light mode glass effect */}
         <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-indigo-200/40 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10" />
@@ -430,7 +432,7 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {features.map((feature, i) => {
               const Icon = feature.icon;
               return (
@@ -457,7 +459,7 @@ export function LandingPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 sm:py-24 bg-white/50 dark:bg-gray-800/30">
+      <section className="py-12 sm:py-16 md:py-24 bg-white/50 dark:bg-gray-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="primary" className="mb-4">
@@ -475,7 +477,7 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
@@ -497,7 +499,7 @@ export function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="relative py-16 sm:py-24 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
         {/* Ambient background for light mode glass effect */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-indigo-200/30 dark:bg-indigo-900/10 rounded-full blur-3xl -z-10" />
 
@@ -518,7 +520,7 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {displayTestimonials.map((testimonial, i) => (
               <Card
                 key={i}
@@ -582,7 +584,7 @@ export function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-24">
+      <section className="py-12 sm:py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="relative overflow-hidden p-12 text-center border border-indigo-100 dark:border-indigo-900/50 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
             {/* Background glowing orbs */}
@@ -622,7 +624,7 @@ export function LandingPage() {
                 See Features <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-6 mt-8 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-indigo-500" /> Free to use
               </div>

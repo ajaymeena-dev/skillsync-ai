@@ -175,7 +175,7 @@ export function FeaturesPage() {
             <Sparkles className="w-4 h-4" />
             Platform Features
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Powerful Features for
             <br />
             <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
@@ -259,7 +259,7 @@ export function FeaturesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {additionalFeatures.map((feature, i) => {
               const Icon = feature.icon;
               return (
@@ -297,7 +297,7 @@ export function FeaturesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {techStack.map((stack, i) => {
               const Icon = stack.icon;
               return (
@@ -333,7 +333,7 @@ export function FeaturesPage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-3xl -z-10" />
 
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 relative z-10">
               <div className="text-center md:text-left max-w-2xl">
                 <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">
                   Unlock Your Career Potential

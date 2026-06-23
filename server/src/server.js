@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-
+import { globalLimiter } from "./middleware/rateLimiter.js";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
@@ -13,14 +13,14 @@ import connectDB from "./config/db.js";
 
 // Import routes
 import authRoutes from "./routes/authRoutes.js";
-import jobSeekerRoutes from "./routes/jobSeekerRoutes.js"; 
+import jobSeekerRoutes from "./routes/jobSeekerRoutes.js";
 import resumeRoutes from "./routes/resumeRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import recruiterRoutes from "./routes/recruiterRoutes.js";
 import companyRoutes from "./routes/companyRoutes.js";
 import matchRoutes from "./routes/matchRoutes.js";
-import commonRoutes from "./routes/commonRoutes.js"; 
+import commonRoutes from "./routes/commonRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
 import notificationRoutes from "./routes/notificationRoutes.js";
 import testimonialRoutes from "./routes/testimonialRoutes.js";
@@ -43,6 +43,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(globalLimiter);
 
 // Routes
 app.use("/api/auth", authRoutes);
@@ -67,8 +68,6 @@ app.get("/api/health", (req, res) => {
 app.get("/", (req, res) => {
   res.send("SkillSync AI API is running...");
 });
-
-
 
 // Database connection
 connectDB();

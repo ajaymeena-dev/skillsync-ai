@@ -116,7 +116,7 @@ export function ContactPage() {
             <MessageSquare className="w-4 h-4" />
             Contact Us
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Get in
             <br />
             <span className="bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">
@@ -130,7 +130,7 @@ export function ContactPage() {
         </div>
 
         {/* Contact Methods */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-16 sm:mb-20">
           {contactMethods.map((method, i) => {
             const Icon = method.icon;
             return (

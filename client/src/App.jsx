@@ -10,6 +10,15 @@ export default function App() {
   useEffect(() => {
     // Sync auth from localStorage when app starts
     dispatch(syncAuth());
+
+    // Track visitor silently in the background
+    try {
+      fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/common/track-visit`, {
+        method: "POST",
+      }).catch(err => console.error("Visitor tracking failed silently"));
+    } catch (error) {
+      // Ignore errors
+    }
   }, [dispatch]);
 
   return <RouterProvider router={router} />;
